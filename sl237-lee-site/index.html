@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Seungryul Lee — Personal Site</title>
+  <meta name="description" content="Innovative Data Engineer with 3+ years in R&D and Big Data, specializing in data modeling, pipeline optimization, and automation. Experienced across Databricks, Snowflake, Redshift, Azure Data Factory, SQL, Python, and modern ML tooling.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🗂️</text></svg>">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --panel: #11161d;
+      --muted: #a9b4c0;
+      --text: #eaf2fb;
+      --accent: #75c7ff;
+      --chip: #1a222c;
+      --chip-brd: #233042;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { max-width: 980px; margin: 0 auto; padding: 28px 20px 64px; }
+    header { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: center; margin-bottom: 28px; }
+    .avatar { width: 120px; height: 120px; background: linear-gradient(135deg, #1f2a37, #0ea5e9); border-radius: 20px; display:flex; align-items:center; justify-content:center; font-size: 42px; }
+    h1 { font-size: 36px; margin: 0; letter-spacing: .3px; }
+    .tagline { color: var(--muted); margin-top: 4px; }
+    .contact a { margin-right: 12px; }
+    .panel { background: var(--panel); border: 1px solid #1c2633; border-radius: 16px; padding: 20px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    section { margin-top: 22px; }
+    h2 { font-size: 20px; margin: 0 0 10px; letter-spacing: .2px; }
+    .chips { display:flex; flex-wrap: wrap; gap: 8px; }
+    .chip { border:1px solid var(--chip-brd); background: var(--chip); padding: 6px 10px; border-radius: 999px; font-size: 14px; color: var(--muted); }
+    .grid { display: grid; gap: 12px; }
+    .exp { display:grid; gap: 4px; padding: 14px; border-radius: 12px; background: #0e141b; border: 1px solid #1a2431; }
+    .exp h3 { margin:0; font-size:16px;}
+    .exp .meta { color: var(--muted); font-size: 14px; }
+    ul.clean { margin: 6px 0 0 18px; }
+    .footer { margin-top: 28px; color: var(--muted); font-size: 14px; text-align:center; }
+    .cta { display:flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .btn { display:inline-block; padding: 10px 14px; border-radius: 10px; border:1px solid #2a3a4f; background:#101824; color:var(--text); text-decoration:none; }
+    .btn:hover { background:#0f1722; }
+    @media (max-width:700px) {
+      header { grid-template-columns: 84px 1fr; }
+      .avatar { width:84px; height:84px; border-radius: 14px; font-size:28px; }
+      h1 { font-size: 28px; }
+    }
+  </style>
+
+  <!-- Schema.org for better previews -->
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Person", "name": "Seungryul Lee", "jobTitle": "Database / Data Engineer", "email": "mailto:srlee02099@gmail.com", "telephone": "862-682-1497", "address": {"@type": "PostalAddress", "addressLocality": "New York City Metropolitan Area"}, "url": "https://github.com/sl237-lee", "sameAs": ["https://github.com/sl237-lee"]}
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="avatar" aria-hidden="true">SL</div>
+      <div>
+        <h1>Seungryul Lee</h1>
+        <div class="tagline">Database & Data Engineering</div>
+        <div class="contact">
+          <a href="mailto:srlee02099@gmail.com">srlee02099@gmail.com</a>
+          <a href="tel:862-682-1497">862-682-1497</a>
+          <a href="https://github.com/sl237-lee" target="_blank" rel="noopener">GitHub</a>
+          <span>· New York City Metropolitan Area</span>
+        </div>
+        <div class="cta">
+          <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">View Resume (PDF)</a>
+          <a class="btn" href="#projects">Projects</a>
+          <a class="btn" href="#experience">Experience</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="about" class="panel">
+      <h2>About</h2>
+      <p>Innovative Data Engineer with 3+ years in R&D and Big Data, specializing in data modeling, pipeline optimization, and automation. Experienced across Databricks, Snowflake, Redshift, Azure Data Factory, SQL, Python, and modern ML tooling.</p>
+    </section>
+
+    <section id="skills" class="panel">
+      <h2>Skills</h2>
+      <div class="chips">
+        <span class="chip">Databricks</span><span class="chip">Snowflake</span><span class="chip">Amazon Redshift</span><span class="chip">Azure Data Factory (ADF)</span><span class="chip">Azure Synapse</span><span class="chip">Apache Airflow</span><span class="chip">AWS SageMaker</span><span class="chip">SQL</span><span class="chip">Python</span><span class="chip">Power BI</span><span class="chip">Shell</span><span class="chip">Ubuntu</span>
+      </div>
+      <div class="chips" style="margin-top:8px;">
+        <span class="chip">TensorFlow</span><span class="chip">PyTorch</span><span class="chip">NumPy</span><span class="chip">Pandas</span>
+      </div>
+      <div class="chips" style="margin-top:8px;">
+        <span class="chip">C++</span><span class="chip">Java</span><span class="chip">Bash/Shell</span>
+      </div>
+      <div class="chips" style="margin-top:8px;">
+        <span class="chip">Data Modeling</span><span class="chip">ETL/ELT</span><span class="chip">Regression Testing</span><span class="chip">Performance Tuning</span><span class="chip">Automation</span>
+      </div>
+    </section>
+
+    <section id="experience" class="panel">
+      <h2>Experience</h2>
+      <div class="grid">
+        <article class="exp">
+            <h3>R&D – Software Engineer — Axtria Inc.</h3>
+            <div class="meta">2024–2025</div>
+            <ul class="clean">
+              <li>Designed and maintained scalable ETL pipelines and automation to reduce latency.</li><li>Implemented schema migrations, table partitioning, and query optimization with SQL & Python.</li><li>Built validation frameworks and quality checks for reliable large-scale datasets.</li>
+            </ul>
+          </article><article class="exp">
+            <h3>R&D – Data Engineer — Axtria Inc.</h3>
+            <div class="meta">2023–2024</div>
+            <ul class="clean">
+              <li>Specialized in Databricks, Snowflake, Redshift, and ADF for orchestration and performance tuning.</li><li>Developed indexing strategies, regression tests, and ADF monitoring/troubleshooting frameworks.</li><li>Improved data modeling and ADF workflows to boost query performance and throughput.</li>
+            </ul>
+          </article><article class="exp">
+            <h3>Big Data – AI Data Analyst & Researcher — Humanf</h3>
+            <div class="meta">2022–2023</div>
+            <ul class="clean">
+              <li>Optimized AI-driven models for autonomous driving with TensorFlow and NumPy/Pandas.</li><li>Automated data workflows with Python & C++ to enhance model training efficiency.</li>
+            </ul>
+          </article><article class="exp">
+            <h3>Rehabilitation Laboratory Assistant — Seoul National University</h3>
+            <div class="meta">2019–2020</div>
+            <ul class="clean">
+              <li>Supported research operations; managed datasets and analysis for sensor-related projects.</li>
+            </ul>
+          </article>
+      </div>
+    </section>
+
+    <section id="education" class="panel">
+      <h2>Education</h2>
+      <p><strong>B.S. in Applied Mathematics</strong> — New Jersey Institute of Technology</p>
+    </section>
+
+    <section id="projects" class="panel">
+      <h2>Selected Projects</h2>
+      <p>Here are a few ideas to showcase (fill in later):</p>
+      <ul class="clean">
+        <li><strong>ADF Pipeline Reliability:</strong> ADF monitoring & alerting with validation hooks.</li>
+        <li><strong>Lakehouse Optimization:</strong> Delta/Parquet partitioning, Z-ordering, and cost controls.</li>
+        <li><strong>ML DataOps:</strong> Automated feature store ingestion with Airflow + Databricks jobs.</li>
+      </ul>
+    </section>
+
+    <div class="footer">
+      © 2025 Seungryul Lee. Built with plain HTML/CSS. Deployed on GitHub Pages.
+    </div>
+  </div>
+</body>
+</html>
