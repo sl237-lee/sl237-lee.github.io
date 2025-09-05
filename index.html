@@ -39,7 +39,18 @@
     .btn:hover{background:#0f1722}
     @media (max-width:700px){
       header{grid-template-columns:84px 1fr}
-      .avatar{width:84px;height:84px;border-radius:14px;font-size:28px}
+      .avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1f2a37, #0ea5e9);
+  color: #fff;
+  font-size: 42px;
+}
       h1{font-size:28px}
     }
   </style>
@@ -47,7 +58,8 @@
 <body>
   <div class="container">
     <header>
-      <div class="avatar" aria-hidden="true">SL</div>
+      <div class="avatar">
+  <img src="assets/avatar.jpg" alt="Seungryul Lee" style="width:100%; height:100%; border-radius:20px; object-fit:cover;" />
       <div>
         <h1>Seungryul Lee</h1>
         <div class="tagline">Database & Data Engineering</div>
