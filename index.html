@@ -1,15 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Seungryul Andrew Lee — Personal Site</title>
-  <meta name="description" content="Seungryul Andrew Lee — Database & Data Engineering" />
+  <title>Seungryul Lee — Personal Site</title>
+  <meta name="description" content="Seungryul Lee — Database & Data Engineering" />
   <style>
     :root{
       --bg:#0b0f14;--panel:#11161d;--muted:#a9b4c0;--text:#eaf2fb;--accent:#75c7ff;
-      --chip:#1a222c;--chip-brd:#233042;
+      --chip:#1a222c;--chip-brd:#233042;--btn:#101824;--brd:#1c2633;
     }
+    /* Light theme vars (activated when [data-theme="light"]) */
+    html[data-theme="light"]{
+      --bg:#f7fafc; --panel:#ffffff; --muted:#5a6776; --text:#0d1b2a; --accent:#0ea5e9;
+      --chip:#eef2f7; --chip-brd:#dae2ec; --btn:#f2f6fb; --brd:#e5edf6;
+    }
+
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
       font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
@@ -18,12 +24,13 @@
     .container{max-width:980px;margin:0 auto;padding:28px 20px 64px}
     header{display:grid;grid-template-columns:120px 1fr;gap:20px;align-items:center;margin-bottom:28px}
     .avatar{width:120px;height:120px;background:linear-gradient(135deg,#1f2a37,#0ea5e9);
-      border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:42px}
+      border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:42px;color:#fff}
+    html[data-theme="light"] .avatar{background:linear-gradient(135deg,#93c5fd,#0ea5e9); color:#082f49}
     h1{font-size:36px;margin:0;letter-spacing:.3px}
     .tagline{color:var(--muted);margin-top:4px}
     .contact a{margin-right:12px}
-    .panel{background:var(--panel);border:1px solid #1c2633;border-radius:16px;padding:20px;
-      box-shadow:0 10px 30px rgba(0,0,0,.35)}
+    .panel{background:var(--panel);border:1px solid var(--brd);border-radius:16px;padding:20px;
+      box-shadow:0 10px 30px rgba(0,0,0,.15)}
     section{margin-top:22px; opacity:0; transform:translateY(20px);
       transition:opacity 0.6s ease, transform 0.6s ease;}
     section.visible{opacity:1; transform:translateY(0);}
@@ -34,15 +41,32 @@
       transition:transform 0.2s ease, box-shadow 0.2s ease;}
     .chip:hover{transform:scale(1.05); box-shadow:0 0 10px var(--accent); color:var(--text);}
     .grid{display:grid;gap:12px}
-    .exp{display:grid;gap:4px;padding:14px;border-radius:12px;background:#0e141b;border:1px solid #1a2431}
+    .exp{display:grid;gap:4px;padding:14px;border-radius:12px;background:color-mix(in oklab, var(--panel) 92%, var(--bg) 8%);border:1px solid var(--brd)}
     .exp h3{margin:0;font-size:16px}
     .exp .meta{color:var(--muted);font-size:14px}
     ul.clean{margin:6px 0 0 18px}
     .footer{margin-top:28px;color:var(--muted);font-size:14px;text-align:center}
     .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
     .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid #2a3a4f;
-      background:#101824;color:var(--text);text-decoration:none}
-    .btn:hover{background:#0f1722}
+      background:var(--btn);color:var(--text);text-decoration:none}
+    .btn:hover{filter:brightness(0.95)}
+    .icon-btn{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;border:1px solid #2a3a4f;background:var(--btn);cursor:pointer}
+    .icon-btn:hover{filter:brightness(0.95)}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
+
+    /* Back-to-top button */
+    #toTop{position:fixed;right:18px;bottom:18px;padding:10px 12px;border-radius:999px;border:1px solid #2a3a4f;background:var(--btn);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s ease}
+    #toTop.show{opacity:1;pointer-events:auto}
+
+    /* Tiny toast */
+    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+      background:var(--panel);border:1px solid var(--brd);color:var(--text);padding:10px 14px;border-radius:10px;opacity:0;transition:opacity .2s, transform .2s}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+    details.project{border:1px solid var(--brd);border-radius:12px;padding:14px;background:var(--panel)}
+    details.project summary{cursor:pointer;list-style:none}
+    details.project summary::-webkit-details-marker{display:none}
+    details.project[open]{box-shadow:0 6px 20px rgba(0,0,0,.12)}
     @media (max-width:700px){
       header{grid-template-columns:84px 1fr}
       .avatar{width:84px;height:84px;border-radius:14px;font-size:28px}
@@ -55,10 +79,10 @@
     <header>
       <div class="avatar" aria-hidden="true">SL</div>
       <div>
-        <h1>Seungryul Lee</h1>
+        <h1>Seungryul Andrew Lee</h1>
         <div class="tagline">Database & Data Engineering</div>
         <div class="contact">
-          <a href="mailto:srlee02099@gmail.com">srlee02099@gmail.com</a>
+          <a id="emailLink" class="mono" href="mailto:srlee02099@gmail.com" title="Click to copy">srlee02099@gmail.com</a>
           <a href="tel:18626821497">862-682-1497</a>
           <a href="https://github.com/sl237-lee" target="_blank" rel="noopener">GitHub</a>
           <span>· New York City Metropolitan Area</span>
@@ -67,6 +91,9 @@
           <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">View Resume (PDF)</a>
           <a class="btn" href="#projects">Projects</a>
           <a class="btn" href="#experience">Experience</a>
+          <button id="themeToggle" class="icon-btn" type="button" title="Toggle theme">
+            <span id="themeIcon" aria-hidden="true">🌗</span><span>Theme</span>
+          </button>
         </div>
       </div>
     </header>
@@ -91,18 +118,10 @@
       </p>
 
       <div style="margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px;">
-        <div style="background:#0e141b; padding:14px; border-radius:10px; border:1px solid #1a2431;">
-          <strong>Experience</strong><br>3+ years
-        </div>
-        <div style="background:#0e141b; padding:14px; border-radius:10px; border:1px solid #1a2431;">
-          <strong>Location</strong><br>NYC Metropolitan Area
-        </div>
-        <div style="background:#0e141b; padding:14px; border-radius:10px; border:1px solid #1a2431;">
-          <strong>Core Tools</strong><br>Azure Data Factory · RDBMS · Data Pipeline Management · Python · SQL
-        </div>
-        <div style="background:#0e141b; padding:14px; border-radius:10px; border:1px solid #1a2431;">
-          <strong>Focus</strong><br>Data Engineering &amp; Automation
-        </div>
+        <div class="exp"><strong>Experience</strong><br>3+ years</div>
+        <div class="exp"><strong>Location</strong><br>NYC Metropolitan Area</div>
+        <div class="exp"><strong>Core Tools</strong><br>Azure Data Factory · RDBMS · Data Pipline · SQL · Python</div>
+        <div class="exp"><strong>Focus</strong><br>Data Engineering &amp; Automation</div>
       </div>
     </section>
 
@@ -174,28 +193,89 @@
     <section id="projects" class="panel">
       <h2>Selected Projects</h2>
       <ul class="clean">
-        <li><strong>ADF Pipeline Reliability:</strong> ADF monitoring &amp; alerting with validation hooks.</li>
-        <li><strong>Lakehouse Optimization:</strong> Delta/Parquet partitioning, Z-ordering, and cost controls.</li>
-        <li><strong>ML DataOps:</strong> Automated feature store ingestion with Airflow + Databricks jobs.</li>
+        <li>
+          <details class="project">
+            <summary><strong>ADF Pipeline Reliability</strong> — monitoring, alerting, validation hooks</summary>
+            <p>Built ADF monitors (failures, latency), integrated validation before/after activities, and added run-time metadata for faster troubleshooting.</p>
+          </details>
+        </li>
+        <li>
+          <details class="project">
+            <summary><strong>Lakehouse Optimization</strong> — Delta/Parquet partitioning &amp; Z-ordering</summary>
+            <p>Tuned partition schemes and Z-order on heavy tables; reduced query costs and improved read times on Databricks/Snowflake.</p>
+          </details>
+        </li>
+        <li>
+          <details class="project">
+            <summary><strong>ML DataOps</strong> — feature store ingestion with Airflow + Databricks</summary>
+            <p>Automated training datasets &amp; feature store updates with orchestration, schema checks, and historical backfills.</p>
+          </details>
+        </li>
       </ul>
     </section>
 
     <div class="footer">© 2025 Seungryul Lee. Built with plain HTML/CSS. Deployed on GitHub Pages.</div>
   </div>
 
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = document.querySelectorAll("section");
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.1 });
+  <!-- Back to top -->
+  <button id="toTop" aria-label="Back to top" title="Back to top">⬆</button>
+  <!-- Tiny toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite">Copied to clipboard</div>
 
-    sections.forEach(sec => observer.observe(sec));
+  <script>
+  // Fade-in observer
+  const sectionsObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, {threshold:0.1});
+  document.querySelectorAll('section').forEach(s => sectionsObserver.observe(s));
+
+  // Theme toggle with memory (localStorage)
+  (function initTheme(){
+    const root = document.documentElement;
+    const saved = localStorage.getItem('theme'); // 'light' | 'dark' | 'auto'
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let mode = saved || 'auto';
+    apply(mode);
+
+    document.getElementById('themeToggle').addEventListener('click', () => {
+      // rotate: auto -> light -> dark -> auto
+      mode = mode === 'auto' ? 'light' : mode === 'light' ? 'dark' : 'auto';
+      apply(mode);
+      localStorage.setItem('theme', mode);
+    });
+
+    function apply(mode){
+      if(mode === 'auto'){
+        root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        document.getElementById('themeIcon').textContent = prefersDark ? '🌙' : '🌞';
+      }else{
+        root.setAttribute('data-theme', mode);
+        document.getElementById('themeIcon').textContent = mode === 'dark' ? '🌙' : '🌞';
+      }
+    }
+  })();
+
+  // Back-to-top button
+  const toTop = document.getElementById('toTop');
+  window.addEventListener('scroll', () => {
+    if(window.scrollY > 280) toTop.classList.add('show'); else toTop.classList.remove('show');
   });
+  toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Click-to-copy email + toast
+  (function(){
+    const email = 'srlee02099@gmail.com';
+    const link = document.getElementById('emailLink');
+    const toast = document.getElementById('toast');
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      navigator.clipboard.writeText(email).then(()=>{
+        toast.textContent = 'Email copied: ' + email;
+        toast.classList.add('show');
+        setTimeout(()=>toast.classList.remove('show'), 1600);
+      }).catch(()=>{ window.location = 'mailto:'+email; });
+    });
+  })();
   </script>
 </body>
 </html>
