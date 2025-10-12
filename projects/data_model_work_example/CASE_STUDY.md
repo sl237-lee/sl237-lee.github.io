@@ -7,6 +7,9 @@ This project is inspired by my real experience building pharmaceutical claims ET
 It highlights practical skills in **data modeling, orchestration, data quality, and infrastructure automation**.
 
 ---
+> ### **View Full Source**
+> Explore all scripts and folders for this project on  
+> [**GitHub → sl237-lee.github.io / data_model_work_example**](https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/data_model_work_example)
 
 ## Architecture Overview
 

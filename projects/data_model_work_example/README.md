@@ -3,6 +3,12 @@
 This project showcases a production-style **data engineering and modeling workflow** that I built to demonstrate my technical approach to designing scalable, cloud-based data pipelines.  
 It is adapted from my real-world experience building **pharmaceutical claims ETL systems**, generalized and scrubbed of all client identifiers.
 
+
+> ### **View Full Source**
+> Explore all scripts and folders for this project on  
+> [**GitHub → sl237-lee.github.io / data_model_work_example**](https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/data_model_work_example)
+
+
 The goal is to highlight my skills across:
 - **Data modeling & schema design**
 - **Orchestration & automation (Prefect, Airflow, DBT)**
