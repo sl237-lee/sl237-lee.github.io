@@ -10,16 +10,51 @@ It highlights practical skills in **data modeling, orchestration, data quality, 
 
 ## Architecture Overview
 
-**Key Components**
-| Layer | Technology | Purpose |
-|:------|:------------|:--------|
-| Data Warehouse | **Snowflake / Databricks** | Central data platform for raw, staging, and marts layers. |
-| Transformation | **SQL + DBT** | Modular ELT models for normalize → enrich → aggregate. |
-| Orchestration | **Prefect v2 / Airflow** | Pipeline scheduling, monitoring, and alerting. |
-| Data Quality | **Great Expectations** | Automated validation and schema integrity checks. |
-| CI/CD | **GitHub Actions** | Linting, syntax validation, and lightweight test automation. |
-| Infrastructure | **Terraform + AWS VPC/PrivateLink** | Secure network connectivity and reproducible deployment. |
+<div align="center">
 
+<table style="width:100%; border-collapse:collapse;">
+  <thead>
+    <tr>
+      <th style="text-align:left; padding:8px; border-bottom:1px solid #ccc;">Layer</th>
+      <th style="text-align:left; padding:8px; border-bottom:1px solid #ccc;">Technology</th>
+      <th style="text-align:left; padding:8px; border-bottom:1px solid #ccc;">Purpose</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="padding:8px;">Data Warehouse</td>
+      <td style="padding:8px;"><strong>Snowflake / Databricks</strong></td>
+      <td style="padding:8px;">Central data platform for raw, staging, and marts layers.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;">Transformation</td>
+      <td style="padding:8px;"><strong>SQL + DBT</strong></td>
+      <td style="padding:8px;">Modular ELT models for normalize → enrich → aggregate.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;">Orchestration</td>
+      <td style="padding:8px;"><strong>Prefect v2 / Airflow</strong></td>
+      <td style="padding:8px;">Pipeline scheduling, monitoring, and alerting.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;">Data Quality</td>
+      <td style="padding:8px;"><strong>Great Expectations</strong></td>
+      <td style="padding:8px;">Automated validation and schema integrity checks.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;">CI/CD</td>
+      <td style="padding:8px;"><strong>GitHub Actions</strong></td>
+      <td style="padding:8px;">Linting, syntax validation, and lightweight test automation.</td>
+    </tr>
+    <tr>
+      <td style="padding:8px;">Infrastructure</td>
+      <td style="padding:8px;"><strong>Terraform + AWS VPC / PrivateLink</strong></td>
+      <td style="padding:8px;">Secure network connectivity and reproducible deployment.</td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
 ---
 
 ## Data Flow Design
