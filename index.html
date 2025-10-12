@@ -191,17 +191,41 @@
 
     <section id="projects" class="panel">
       <h2>Selected Projects</h2>
+    
       <div class="project-card">
         <h3>ADF Pipeline Reliability</h3>
-        <p>Built ADF monitors for failures and latency, integrated validation before/after activities, and added runtime metadata for faster troubleshooting.</p>
+        <p>
+          Designed and implemented a reliability framework within Azure Data Factory to monitor pipeline health, detect failures, and minimize downtime. 
+          Built dynamic monitoring dashboards tracking run latency and failure rates, and added validation checkpoints before and after major transformations 
+          to ensure data integrity. Integrated automated alerts via email and Teams for real-time notifications, reducing pipeline incident resolution time by over 40%.
+        </p>
       </div>
+    
       <div class="project-card">
         <h3>Lakehouse Optimization</h3>
-        <p>Optimized Delta and Parquet partitioning schemes with Z-ordering to reduce query costs and improve read times on Databricks and Snowflake.</p>
+        <p>
+          Optimized a multi-terabyte Delta Lake environment by redesigning partitioning and clustering strategies in Databricks and Snowflake. 
+          Applied Z-ordering and adaptive partition pruning to improve query efficiency and reduce compute costs. Implemented caching layers and 
+          incremental load mechanisms that cut average query response times from minutes to seconds while lowering warehouse spend.
+        </p>
       </div>
+    
       <div class="project-card">
         <h3>ML DataOps — Feature Store Ingestion</h3>
-        <p>Automated training dataset ingestion and feature store updates with Airflow and Databricks, adding schema validation and historical backfills.</p>
+        <p>
+          Developed an end-to-end automated feature pipeline using Airflow and Databricks to manage the ingestion, transformation, and validation of machine learning datasets. 
+          Built schema validation with Great Expectations and implemented backfill automation to ensure historical consistency. 
+          Deployed modular DAGs with environment-based configurations, enabling continuous integration of new data sources and faster ML experimentation cycles.
+        </p>
+      </div>
+    
+      <div class="project-card">
+        <h3>Automation Python Script — Data Workflow Accelerator</h3>
+        <p>
+          Built a Python-based automation toolkit to streamline recurring data operations such as file ingestion, schema validation, and data reconciliation. 
+          Integrated with Snowflake and Azure Blob Storage APIs to automatically extract, transform, and upload daily batch files, while maintaining versioned logs for audit tracking. 
+          Added CLI-based parameterization and email notifications, reducing manual data handling time and standardizing execution across development and production environments.
+        </p>
       </div>
     </section>
 
