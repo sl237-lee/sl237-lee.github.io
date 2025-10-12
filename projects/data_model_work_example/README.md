@@ -32,7 +32,7 @@ For a detailed technical summary, see the [Case Study](CASE_STUDY.md).
 
 ---
 
-## ⚙️ How to Run (Conceptual)
+## How to Run (Conceptual)
 
 1. **Set up the environment**
    ```bash

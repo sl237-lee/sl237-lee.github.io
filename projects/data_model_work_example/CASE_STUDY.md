@@ -35,7 +35,7 @@ Each stage is modular, version-controlled in Git, and orchestrated using Prefect
 
 ---
 
-## ⚙️ Technical Highlights
+## Technical Highlights
 
 - **Data Modeling:** Designed 3-layer model (staging → intermediate → marts) with surrogate keys and referential integrity.  
 - **Orchestration:** Implemented both Prefect flow and Airflow DAG for flexible scheduling and retries.  
