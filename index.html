@@ -10,7 +10,6 @@
       --bg:#0b0f14;--panel:#11161d;--muted:#a9b4c0;--text:#eaf2fb;--accent:#75c7ff;
       --chip:#1a222c;--chip-brd:#233042;--btn:#101824;--brd:#1c2633;
     }
-    /* Light theme vars (activated when [data-theme="light"]) */
     html[data-theme="light"]{
       --bg:#f7fafc; --panel:#ffffff; --muted:#5a6776; --text:#0d1b2a; --accent:#0ea5e9;
       --chip:#eef2f7; --chip-brd:#dae2ec; --btn:#f2f6fb; --brd:#e5edf6;
@@ -20,14 +19,12 @@
     html,body{
       margin:0;padding:0;color:var(--text);
       font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-      /* Full-page background image */
       background: url("assets/bg.jpg") no-repeat center center fixed, var(--bg);
       background-size: cover;
     }
     html { scroll-behavior: smooth; }
     a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 
-    /* Content container with translucent overlay for readability */
     .container{
       max-width:980px;margin:0 auto;padding:28px 20px 64px;
       background: rgba(11, 15, 20, 0.6);
@@ -70,11 +67,9 @@
     .icon-btn:hover{filter:brightness(0.95)}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace}
 
-    /* Back-to-top button */
     #toTop{position:fixed;right:18px;bottom:18px;padding:10px 12px;border-radius:999px;border:1px solid #2a3a4f;background:var(--btn);cursor:pointer;opacity:0;pointer-events:none;transition:opacity .2s ease}
     #toTop.show{opacity:1;pointer-events:auto}
 
-    /* Tiny toast */
     .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
       background:var(--panel);border:1px solid var(--brd);color:var(--text);padding:10px 14px;border-radius:10px;opacity:0;transition:opacity .2s, transform .2s}
     .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
@@ -83,6 +78,7 @@
     details.project summary{cursor:pointer;list-style:none}
     details.project summary::-webkit-details-marker{display:none}
     details.project[open]{box-shadow:0 6px 20px rgba(0,0,0,.12)}
+
     @media (max-width:700px){
       header{grid-template-columns:84px 1fr}
       .avatar{width:84px;height:84px;border-radius:14px;font-size:28px}
@@ -119,22 +115,14 @@
       <p>
         Data Engineer with over 3 years of hands-on experience designing, implementing, and optimizing data platforms in cloud environments. 
         Specializing in platform engineering, data pipeline optimization, and automation, I bring a strong background in building end-to-end solutions that enable organizations to leverage data more effectively. 
-        My expertise includes working with Azure SQL Database, Data Factory, Synapse Analytics, and Azure Analytics tools such as Fabric, Databricks, and Purview, ensuring data solutions are both secure and scalable.
       </p>
       <p>
+        My expertise includes working with Azure SQL Database, Data Factory, Synapse Analytics, and Azure Analytics tools such as Fabric, Databricks, and Purview, ensuring data solutions are both secure and scalable. 
         In addition to Azure, I have experience with multi-cloud technologies including Snowflake, Amazon Redshift, and Google BigQuery, allowing me to design flexible and interoperable architectures. 
-        I am passionate about leveraging modern cloud and analytics platforms to deliver high-performing data ecosystems that drive measurable business impact. 
       </p>
       <p>
         With a strong commitment to continuous improvement and innovation, I aim to transform complex data challenges into streamlined solutions that empower data-driven decision-making.
       </p>
-
-      <div style="margin-top:18px; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px;">
-        <div class="exp"><strong>Experience</strong><br>3+ years</div>
-        <div class="exp"><strong>Location</strong><br>NYC Metropolitan Area</div>
-        <div class="exp"><strong>Core Tools</strong><br>Azure Data Factory · Relational Database Management System(RDBMS) · SQL · Python</div>
-        <div class="exp"><strong>Focus</strong><br>Data Engineering &amp; Automation</div>
-      </div>
     </section>
 
     <section id="skills" class="panel">
@@ -226,36 +214,47 @@
       </ul>
     </section>
 
+    <!-- New Section: Data Model & Pipeline Work Example -->
+    <section id="data-model" class="panel" style="text-align:center;">
+      <h2 style="font-size:24px;color:var(--accent);margin-bottom:16px;">
+        💡 Data Model & Pipeline Work Example
+      </h2>
+      <p style="max-width:720px;margin:0 auto 20px;line-height:1.6;color:var(--text);">
+        Explore a production-style data engineering example demonstrating cloud-based data modeling,
+        ETL orchestration, and infrastructure automation. The project includes Snowflake and DBT models,
+        Prefect and Airflow orchestration, Great Expectations data quality checks, and Terraform-based
+        AWS PrivateLink infrastructure.
+      </p>
+      <a href="projects/data_model_work_example/"
+         style="display:inline-block;padding:12px 28px;background:var(--accent);color:#fff;
+         font-weight:600;border-radius:8px;text-decoration:none;transition:background 0.3s;">
+        🔗 View Project
+      </a>
+    </section>
+
     <div class="footer">© 2025 Seungryul Andrew Lee. Built with plain HTML/CSS. Deployed on GitHub Pages.</div>
   </div>
 
-  <!-- Back to top -->
   <button id="toTop" aria-label="Back to top" title="Back to top">⬆</button>
-  <!-- Tiny toast -->
   <div id="toast" class="toast" role="status" aria-live="polite">Copied to clipboard</div>
 
   <script>
-  // Fade-in observer
   const sectionsObserver = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
   }, {threshold:0.1});
   document.querySelectorAll('section').forEach(s => sectionsObserver.observe(s));
 
-  // Theme toggle with memory (localStorage)
   (function initTheme(){
     const root = document.documentElement;
-    const saved = localStorage.getItem('theme'); // 'light' | 'dark' | 'auto'
+    const saved = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     let mode = saved || 'auto';
     apply(mode);
-
     document.getElementById('themeToggle').addEventListener('click', () => {
-      // rotate: auto -> light -> dark -> auto
       mode = mode === 'auto' ? 'light' : mode === 'light' ? 'dark' : 'auto';
       apply(mode);
       localStorage.setItem('theme', mode);
     });
-
     function apply(mode){
       if(mode === 'auto'){
         root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
@@ -267,14 +266,12 @@
     }
   })();
 
-  // Back-to-top button
   const toTop = document.getElementById('toTop');
   window.addEventListener('scroll', () => {
     if(window.scrollY > 280) toTop.classList.add('show'); else toTop.classList.remove('show');
   });
   toTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
 
-  // Click-to-copy email + toast
   (function(){
     const email = 'srlee02099@gmail.com';
     const link = document.getElementById('emailLink');
