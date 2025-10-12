@@ -1,0 +1,22 @@
+
+# dq/great_expectations_claims.yml (minimal illustration)
+datasources:
+  snowflake_claims:
+    execution_engine:
+      class_name: SqlAlchemyExecutionEngine
+      connection_string: ${SNOWFLAKE_URL}
+    data_connectors:
+      default_runtime_data_connector_name:
+        class_name: RuntimeDataConnector
+        batch_identifiers: [default_identifier]
+expectations:
+  - table: {sales_schema}.claims_medical_monthly_fact
+    tests:
+      - expect_table_row_count_to_be_greater_than: 0
+      - expect_column_values_to_not_be_null:
+          columns: [member_sid, provider_sid, plan_sid, month_ending_date, claim_type]
+      - expect_column_values_to_be_between:
+          column: billed_amount
+          min_value: 0
+      - expect_compound_columns_to_be_unique:
+          columns: [member_sid, provider_sid, plan_sid, month_ending_date, claim_type]

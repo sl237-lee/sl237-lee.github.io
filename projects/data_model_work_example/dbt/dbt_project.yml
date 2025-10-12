@@ -1,0 +1,16 @@
+
+name: 'claims_dbt'
+version: '1.0.0'
+config-version: 2
+
+profile: 'claims_profile'
+
+models:
+  claims_dbt:
+    +materialized: view
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
