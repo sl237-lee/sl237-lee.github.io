@@ -12,7 +12,10 @@ The goal is to highlight my skills across:
 
 ---
 
-## 📂 Project Structure
+## Project Overview
+For a detailed technical summary, see the [Case Study](CASE_STUDY.md).
+
+## Project Structure
 
 | Folder | Description |
 |:-------|:-------------|
