@@ -1,27 +1,36 @@
+# Data Model & Pipeline Work Example
 
-# BXTI-Style Claims Pipeline (Sample Work Files)
+This project showcases a production-style **data engineering and modeling workflow** that I built to demonstrate my technical approach to designing scalable, cloud-based data pipelines.  
+It is adapted from my real-world experience building **pharmaceutical claims ETL systems**, generalized and scrubbed of all client identifiers.
 
-This package contains a realistic, production-leaning example of a healthcare claims data pipeline aligned to Blackstone BXTI's Data Engineer role. It is adapted from my real-world pharmaceutical analytics work (claims ETL), generalized and scrubbed of client identifiers.
+The goal is to highlight my skills across:
+- **Data modeling & schema design**
+- **Orchestration & automation (Prefect, Airflow, DBT)**
+- **Data quality assurance (Great Expectations)**
+- **Infrastructure-as-code (Terraform on AWS)**
+- **CI/CD integration (GitHub Actions)**
 
-## Contents
-- `models/` — Data model schemas (DDL) for Snowflake/Delta.
-- `sql/` — Modular SQL for normalize → assemble → enrich → aggregate → publish.
-- `orchestration/` — Prefect v2 flow orchestrating the pipeline and DQ checks.
-- `dq/` — Great Expectations-style data quality configurations.
-- `automation/` — GitHub Actions CI job for linting and pipeline tests.
-- `scripts/` — RBAC setup and cost monitoring queries.
-- `local.env.example` — Example environment variables.
+---
 
-## How to run (conceptual)
-1. Provision Snowflake (or Databricks/Delta) schemas noted in `models/`.
-2. Set env vars from `local.env.example` and install requirements:
+## 📂 Project Structure
+
+| Folder | Description |
+|:-------|:-------------|
+| `models/` | Data model schemas (DDL) for Snowflake/Delta. |
+| `sql/` | Modular SQL scripts for normalize → assemble → enrich → aggregate → publish. |
+| `orchestration/` | Prefect v2 pipeline orchestrator with automated DQ checks. |
+| `airflow/` | Equivalent Airflow DAG for job scheduling and monitoring. |
+| `dbt/` | DBT project for modular transformations and testing. |
+| `dq/` | Great Expectations-style data validation and monitoring config. |
+| `automation/` | GitHub Actions CI for linting and pipeline verification. |
+| `aws/` | Terraform + architecture diagram for PrivateLink and VPC setup. |
+| `scripts/` | RBAC configuration and cost monitoring SQL queries. |
+| `local.env.example` | Example environment variables for secure configuration. |
+
+---
+
+## ⚙️ How to Run (Conceptual)
+
+1. **Set up the environment**
    ```bash
    pip install -r requirements.txt
-   ```
-3. Register Prefect blocks or provide connection strings; then run:
-   ```bash
-   python orchestration/prefect_flow.py --run-all
-   ```
-4. CI will validate SQL format & run lightweight checks via GitHub Actions in `automation/`.
-
-> Note: SQL is Snowflake/Delta-friendly. Replace placeholders (SCHEMA names, roles) per environment.
