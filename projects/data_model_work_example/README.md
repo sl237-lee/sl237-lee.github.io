@@ -110,7 +110,7 @@ The main **project index and documentation hub**, providing navigation, context,
    ```bash
    pip install -r requirements.txt
 
-   # Configure dbt profile
+# Configure dbt profile
 Copy `dbt/profiles.yml.example` to `~/.dbt/profiles.yml` and update credentials or environment variables as needed.
 For demonstration purposes, this project can also be compiled without a live Snowflake connection using:
 ```bash
