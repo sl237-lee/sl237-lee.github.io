@@ -3,17 +3,17 @@ version: 2
 
 sources:
   - name: raw
-    schema: {{ env_var('SNOWFLAKE_SCHEMA_RAW', 'V2_INT_CLAIMS') }}
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA_RAW', 'V2_INT_CLAIMS') }}"
     tables:
       - name: claims_header
       - name: claims_line
   - name: dim
-    schema: {{ env_var('SNOWFLAKE_SCHEMA_DIM', 'V2_DWH_CUSTOMER') }}
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA_RAW', 'V2_INT_CLAIMS') }}"
     tables:
       - name: member
       - name: provider
   - name: finance
-    schema: {{ env_var('SNOWFLAKE_SCHEMA_FIN', 'V2_DWH_FINANCE') }}
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA_RAW', 'V2_INT_CLAIMS') }}"
     tables:
       - name: payment_adjustments
 
