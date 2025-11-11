@@ -1,0 +1,25 @@
+{
+    "vendor": "meta",
+    "timestamp": "2025-11-11T11:31:59.444271",
+    "total_rows": 10,
+    "null_counts": {
+        "campaign_id": 0,
+        "product": 0,
+        "impressions": 0,
+        "clicks": 0,
+        "spend": 0,
+        "conversions": 0
+    },
+    "duplicate_rows": 0,
+    "missing_columns": [],
+    "extra_columns": [],
+    "invalid_types": [],
+    "range_issues": {
+        "negative_spend": 0,
+        "zero_impressions": 0,
+        "clicks_gt_impressions": 0
+    },
+    "status": "PASS",
+    "issue_count": 0,
+    "issues": []
+}

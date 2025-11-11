@@ -1,0 +1,39 @@
+{
+    "vendor": "tiktok",
+    "timestamp": "2025-11-11T11:31:59.454837",
+    "total_rows": 10,
+    "null_counts": {
+        "campaign_id": 0,
+        "product": 0,
+        "impressions": 1,
+        "clicks": 0,
+        "spend": 0,
+        "conversions": 0
+    },
+    "duplicate_rows": 1,
+    "missing_columns": [],
+    "extra_columns": [],
+    "invalid_types": [
+        {
+            "impressions": {
+                "expected": "integer",
+                "found": "float64"
+            }
+        }
+    ],
+    "range_issues": {
+        "negative_spend": 1,
+        "zero_impressions": 1,
+        "clicks_gt_impressions": 2
+    },
+    "status": "FAIL",
+    "issue_count": 6,
+    "issues": [
+        "impressions has 1 nulls",
+        "1 duplicate campaign_id values",
+        "Columns with invalid types: [{'impressions': {'expected': 'integer', 'found': 'float64'}}]",
+        "1 rows with negative spend",
+        "1 rows with zero or negative impressions",
+        "2 rows where clicks > impressions"
+    ]
+}
