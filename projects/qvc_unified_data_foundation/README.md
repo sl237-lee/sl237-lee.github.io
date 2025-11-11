@@ -1,6 +1,6 @@
 # QVC Unified Vendor Data Foundation (Azure Demo)
 
-This project simulates how **QVC’s Social Commerce data engineering team** could build a unified foundation that integrates marketing and engagement data from multiple vendors — **TikTok, Meta, and YouTube** — into a single governed and analytics-ready data platform on **Azure**.
+This project simulates how **QVC’s Social Commerce data engineering team** could build a unified foundation that integrates marketing and engagement data from multiple vendors ex: **TikTok, Meta, and YouTube**  into a single governed and analytics-ready data platform on **Azure**.
 
 It demonstrates how to:
 - Ingest and normalize **multi-vendor campaign data**
@@ -27,7 +27,7 @@ ADF → ADLS → Databricks (PySpark) → Synapse → FastAPI
    `normalize_vendor_data.py` reads each file, applies vendor-specific data contracts, performs cleaning and data-quality checks, and merges the results into one curated dataset.
 
 3. **Validation (Data Quality)**  
-   `dq_runner.py` validates all vendor feeds — checking for missing fields, invalid values, or schema mismatches defined in the YAML contracts.
+   `dq_runner.py` validates all vendor feeds, checking for missing fields, invalid values, or schema mismatches defined in the YAML contracts.
 
 4. **Curation & Modeling**  
    The cleaned, unified dataset is saved in `/data/curated/unified_campaign_performance.csv`, representing the “single source of truth” for campaign analytics.
@@ -154,7 +154,7 @@ Visit:
 
 ## 5. Why This Matters (QVC Context)
 
-This demo mirrors QVC’s **United Data Foundation** initiative — integrating vendor ecosystems (TikTok, Meta, YouTube) under a single governed model.
+This demo mirrors QVC’s **United Data Foundation** initiative, integrating vendor ecosystems (TikTok, Meta, YouTube) under a single governed model.
 
 It shows how to:
 - Standardize metrics and schemas via **data contracts**
