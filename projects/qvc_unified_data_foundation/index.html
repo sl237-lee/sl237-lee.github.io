@@ -5,7 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QVC Unified Vendor Data Foundation | Seungryul (Andrew) Lee</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/framer-motion@11.0.14/dist/framer-motion.umd.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to bottom right, #f9fafb, #e8f2f7);
+      color: #1e293b;
+    }
+    .qvc-blue { color: #007fa3; }
+    .qvc-bg { background-color: #007fa3; }
+    .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    tr.bg-red-50:hover { background-color: #fecaca; }
+  </style>
   <script>
+    document.addEventListener("scroll", () => {
+      document.querySelectorAll(".fade-up").forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80) el.classList.add("visible");
+      });
+    });
+
     async function loadDemo() {
       const demoData = [
         { vendor: "Meta", campaign_id: "M001", impressions: 23000, clicks: 1000, spend: 320.5, conversions: 65 },
@@ -34,48 +53,52 @@
     }
   </script>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed" onload="loadDemo()">
-  <div class="max-w-5xl mx-auto px-6 py-10">
+<body class="font-sans leading-relaxed" onload="loadDemo()">
 
-    <header class="mb-10">
-      <h1 class="text-4xl font-bold text-blue-800 mb-2">QVC Unified Vendor Data Foundation</h1>
-      <p class="text-lg text-gray-600">Demonstrating how QVC can unify data from TikTok, Meta, and YouTube into a governed Azure data foundation with validation and APIs.</p>
-    </header>
+  <!-- Header Banner -->
+  <header class="qvc-bg text-white py-8 shadow-lg">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h1 class="text-4xl font-bold mb-2">QVC Unified Vendor Data Foundation</h1>
+      <p class="text-lg text-teal-100">Building a governed, scalable foundation for social commerce analytics</p>
+    </div>
+  </header>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Project Background</h2>
+  <main class="max-w-5xl mx-auto px-6 py-10 space-y-14">
+
+    <section class="fade-up">
+      <h2 class="text-2xl font-semibold mb-2 qvc-blue">Project Background</h2>
       <p>
         This project was inspired by my conversation with <strong>Nicholas Kalpakis</strong> during the QVC Data Engineer interview.
-        He emphasized the need to build a unified foundation for multiple vendor data sources.
-        I created this demo to illustrate how that could work—combining data contracts, automated validation, and an API layer within an Azure-style design.
+        He emphasized the need to unify multiple vendor data sources like TikTok, Meta, and YouTube.
+        I built this demo to show how I’d design that foundation — combining data contracts, automated validation, and API delivery in an Azure-style framework.
       </p>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Architecture Overview</h2>
-      <p>The design mirrors a typical Azure data pipeline:</p>
-      <div class="bg-white shadow rounded-lg p-4 mt-3">
+    <section class="fade-up">
+      <h2 class="text-2xl font-semibold mb-2 qvc-blue">Architecture Overview</h2>
+      <p class="mb-3">A modular Azure-based design ensuring quality, traceability, and scalability:</p>
+      <div class="bg-white shadow-md rounded-lg p-4 mt-3">
         <p class="text-center font-medium text-gray-700">ADF → ADLS → Databricks → Synapse → FastAPI</p>
         <img src="architecture_diagram.png" alt="Architecture Diagram" class="mt-4 rounded-lg shadow-md mx-auto">
       </div>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Key Components</h2>
+    <section class="fade-up">
+      <h2 class="text-2xl font-semibold mb-2 qvc-blue">Key Components</h2>
       <ul class="list-disc pl-6 space-y-2">
-        <li><strong>Data Contracts:</strong> YAML-based schemas defining required fields, data types, and rules for each vendor.</li>
-        <li><strong>Data Quality Checks:</strong> Automated Python validations for schema mismatches, nulls, negatives, and logical errors.</li>
-        <li><strong>Normalization:</strong> Cleans and merges vendor data into a single curated dataset (<code>unified_campaign_performance.csv</code>).</li>
-        <li><strong>API Layer:</strong> FastAPI endpoints exposing unified metrics and data-quality summaries.</li>
+        <li><strong>Data Contracts:</strong> YAML-based schemas define expected fields and validation logic for each vendor feed.</li>
+        <li><strong>Data Quality:</strong> Python-driven DQ runner checks schema, nulls, negatives, and logic consistency before transformation.</li>
+        <li><strong>Normalization:</strong> Standardizes vendor datasets into one curated table (<code>unified_campaign_performance.csv</code>).</li>
+        <li><strong>APIs:</strong> FastAPI endpoints expose unified campaign metrics and DQ summaries for downstream analytics.</li>
       </ul>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Live Demo: Unified Data Snapshot</h2>
-      <p class="mb-3">Below is a simplified snapshot of unified campaign data across all vendors (with data-quality highlights):</p>
+    <section class="fade-up">
+      <h2 class="text-2xl font-semibold mb-2 qvc-blue">Live Demo Snapshot</h2>
+      <p class="mb-3">A simplified unified view of campaign data with automated quality highlights:</p>
       <div class="overflow-x-auto shadow rounded-lg">
         <table class="w-full text-sm border-collapse">
-          <thead class="bg-blue-800 text-white">
+          <thead class="qvc-bg text-white">
             <tr>
               <th class="px-3 py-2 text-left">Vendor</th>
               <th class="px-3 py-2 text-left">Campaign ID</th>
@@ -88,16 +111,18 @@
           <tbody id="demo-table-body" class="bg-white"></tbody>
         </table>
       </div>
-      <p class="text-sm text-gray-600 mt-2 italic">⚠️ Rows highlighted in red indicate data-quality issues detected automatically (e.g., negative spend or zero impressions).</p>
+      <p class="text-sm text-gray-600 mt-2 italic">⚠️ Red rows highlight data issues detected automatically (e.g., negative spend or zero impressions).</p>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Mock API Examples</h2>
-      <p>Example endpoints (simulated FastAPI responses):</p>
-      <div class="bg-gray-900 text-green-200 font-mono text-sm p-4 rounded-lg mt-3">
+    <section class="fade-up">
+      <h2 class="text-2xl font-semibold mb-2 qvc-blue">Mock API Examples</h2>
+      <p class="mb-2">Simulated FastAPI responses representing unified summary and DQ status:</p>
+      <div class="bg-gray-900 text-green-200 font-mono text-sm p-4 rounded-lg">
 <pre>
 GET /api/vendor_summary
-→ {"meta": {"rows": 10, "avg_ctr": 0.045}, "tiktok": {"rows": 10, "avg_ctr": 0.031}, "youtube": {"rows": 10, "avg_ctr": 0.048}}
+→ {"meta": {"rows": 10, "avg_ctr": 0.045},
+   "tiktok": {"rows": 10, "avg_ctr": 0.031},
+   "youtube": {"rows": 10, "avg_ctr": 0.048}}
 
 GET /api/data_quality_summary
 → {"meta": "passed", "tiktok": "2 warnings", "youtube": "passed"}
@@ -105,18 +130,28 @@ GET /api/data_quality_summary
       </div>
     </section>
 
-    <section class="mb-10">
-      <h2 class="text-2xl font-semibold mb-2 text-blue-700">GitHub Repository</h2>
+    <section class="fade-up">
+      <h2 class="text-2xl font-semibold mb-2 qvc-blue">GitHub Repository</h2>
       <a href="https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/qvc_unified_data_foundation"
          target="_blank"
          class="text-blue-600 underline hover:text-blue-800">
-         View the full source on GitHub →
+         View the full source code on GitHub →
       </a>
     </section>
 
-    <footer class="border-t pt-4 text-sm text-gray-500">
-      <p>© 2025 Seungryul (Andrew) Lee | Cornell MS Data Science | Built with HTML, JavaScript & TailwindCSS</p>
-    </footer>
-  </div>
+    <section class="fade-up">
+      <h2 class="text-2xl font-semibold mb-2 qvc-blue">Reflection & Impact</h2>
+      <p>
+        This project demonstrates how a unified vendor foundation can support scalable, trustworthy personalization at QVC.
+        It combines automation, analytics, and governance—allowing every data stream to be validated, enriched, and delivered consistently.
+        The approach reduces onboarding time for new vendors and ensures that QVC’s personalization systems always operate on clean, auditable data.
+      </p>
+    </section>
+  </main>
+
+  <footer class="qvc-bg text-white py-6 text-center text-sm mt-10 shadow-inner">
+    <p>© 2025 Seungryul (Andrew) Lee · Cornell MS Data Science · Built with HTML, JavaScript & TailwindCSS</p>
+  </footer>
+
 </body>
 </html>
