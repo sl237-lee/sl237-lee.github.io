@@ -1,0 +1,4 @@
+[
+    {"campaign_id": "M001", "product": "Beauty Cream", "impressions": 23000, "clicks": 1000, "spend": 320.5, "conversions": 65},
+    {"campaign_id": "M002", "product": "Hair Serum", "impressions": 15000, "clicks": 720, "spend": 210.3, "conversions": 52}
+  ]

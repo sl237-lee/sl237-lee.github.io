@@ -1,0 +1,18 @@
+[
+    {
+      "campaign_id": "T001",
+      "product": "Beauty Cream",
+      "impressions": 10800,
+      "clicks": 780,
+      "spend": 158.2,
+      "conversions": 54
+    },
+    {
+      "campaign_id": "T002",
+      "product": "Hair Serum",
+      "impressions": 8700,
+      "clicks": 640,
+      "spend": 125.4,
+      "conversions": 41
+    }
+  ]

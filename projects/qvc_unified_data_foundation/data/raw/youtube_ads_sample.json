@@ -1,0 +1,18 @@
+[
+    {
+      "campaign_id": "Y001",
+      "product": "Beauty Cream",
+      "impressions": 15000,
+      "clicks": 640,
+      "spend": 198.5,
+      "conversions": 45
+    },
+    {
+      "campaign_id": "Y002",
+      "product": "Hair Serum",
+      "impressions": 13200,
+      "clicks": 590,
+      "spend": 175.8,
+      "conversions": 39
+    }
+  ]

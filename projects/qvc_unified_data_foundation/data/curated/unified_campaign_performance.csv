@@ -1,0 +1,7 @@
+campaign_id,product,impressions,clicks,spend,conversions,vendor
+M001,Beauty Cream,23000,1000,320.5,65,Meta
+M002,Hair Serum,15000,720,210.3,52,Meta
+Y001,Beauty Cream,15000,640,198.5,45,Youtube
+Y002,Hair Serum,13200,590,175.8,39,Youtube
+T001,Beauty Cream,10800,780,158.2,54,Tiktok
+T002,Hair Serum,8700,640,125.4,41,Tiktok
