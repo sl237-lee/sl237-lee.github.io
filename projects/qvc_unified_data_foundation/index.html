@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QVC Unified Vendor Data Foundation | Seungryul (Andrew) Lee</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans leading-relaxed">
+  <div class="max-w-5xl mx-auto px-6 py-10">
+
+    <header class="mb-10">
+      <h1 class="text-4xl font-bold text-blue-800 mb-2">QVC Unified Vendor Data Foundation</h1>
+      <p class="text-lg text-gray-600">A demo project showing how QVC can unify data from TikTok, Meta, and YouTube into a governed Azure data foundation with validation and APIs.</p>
+    </header>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Project Background</h2>
+      <p>
+        This project was inspired by my conversation with <strong>Nicholas Kalpakis</strong> during the QVC Data Engineer interview process.
+        He emphasized the goal of building a unified foundation across multiple vendor data sources.
+        I designed this demo to illustrate how I would approach that challenge—combining data contracts, data quality automation, and an API layer in an Azure-style environment.
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Architecture Overview</h2>
+      <p>The design mirrors a typical Azure data pipeline:</p>
+      <div class="bg-white shadow rounded-lg p-4 mt-3">
+        <p class="text-center font-medium text-gray-700">ADF → ADLS → Databricks → Synapse → FastAPI</p>
+        <img src="architecture_diagram.png" alt="Architecture Diagram" class="mt-4 rounded-lg shadow-md mx-auto">
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Key Components</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li><strong>Data Contracts:</strong> YAML-based schemas define expected fields, data types, and validation rules for each vendor (Meta, TikTok, YouTube).</li>
+        <li><strong>Data Quality Checks:</strong> Automated Python DQ runner flags schema mismatches, nulls, negatives, or logic errors before transformation.</li>
+        <li><strong>Normalization:</strong> Vendor datasets are cleaned and merged into a single curated dataset, <code>unified_campaign_performance.csv</code>.</li>
+        <li><strong>API Layer:</strong> FastAPI endpoints expose unified metrics and data quality summaries for analytics or personalization use cases.</li>
+      </ul>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Sample Outputs</h2>
+      <div class="bg-gray-900 text-green-200 font-mono text-sm p-4 rounded-lg">
+<pre>
+[PASS] meta: All data quality checks passed ✅
+[PASS] youtube: All data quality checks passed ✅
+[WARN] tiktok: spend has negative value ❌
+[SUCCESS] Unified dataset saved to data/curated/unified_campaign_performance.csv
+[SUMMARY] Total rows: 30 across 3 vendors
+</pre>
+      </div>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-2 text-blue-700">GitHub Repository</h2>
+      <p>
+        You can view the source code, data contracts, and scripts here:<br>
+        <a href="https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/qvc_unified_data_foundation"
+           target="_blank"
+           class="text-blue-600 underline hover:text-blue-800">
+           github.com/sl237-lee/sl237-lee.github.io/projects/qvc_unified_data_foundation
+        </a>
+      </p>
+    </section>
+
+    <section class="mb-10">
+      <h2 class="text-2xl font-semibold mb-2 text-blue-700">Reflection & Impact</h2>
+      <p>
+        This demo highlights how to standardize and operationalize social commerce data in a scalable, governed way.
+        It represents how I’d help QVC:
+      </p>
+      <ul class="list-disc pl-6 mt-2 space-y-1">
+        <li>Build a unified vendor foundation for campaign and engagement analytics.</li>
+        <li>Ensure data reliability through contract-based validation and automated quality checks.</li>
+        <li>Expose insights efficiently via APIs and dashboards for downstream teams.</li>
+      </ul>
+      <p class="mt-4">
+        My goal is to bring this same combination of engineering rigor and analytical design to QVC’s social commerce data ecosystem.
+      </p>
+    </section>
+
+    <footer class="border-t pt-4 text-sm text-gray-500">
+      <p>© 2025 Seungryul (Andrew) Lee | Cornell MS Data Science | Built with HTML & TailwindCSS</p>
+    </footer>
+  </div>
+</body>
+</html>
