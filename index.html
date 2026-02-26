@@ -3,357 +3,267 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
-  <title>Seungryul Andrew Lee — Data Infrastructure Engineer</title>
-  <meta name="description" content="Seungryul Andrew Lee — Data Infrastructure / Data Engineering Portfolio" />
+  <meta name="color-scheme" content="dark light">
+  <title>Seungryul Andrew Lee — Personal Site</title>
+  <meta name="description" content="Seungryul Andrew Lee — Data Platform / Data Engineering" />
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
+
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
+  <!-- Top Nav -->
   <header class="topbar">
-    <div class="topbar__inner">
-      <a class="brand" href="#home" aria-label="Go to top">
-        <span class="brand__mark" aria-hidden="true">SL</span>
-        <span class="brand__text">Seungryul Andrew Lee</span>
-      </a>
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">
+          <img src="assets/avatar.jpg" alt="Seungryul Andrew Lee">
+        </div>
+        <div>
+          <div class="name">Seungryul Andrew Lee</div>
+          <div class="role">Data Infrastructure / Data Engineering</div>
+        </div>
+      </div>
 
-      <nav class="nav" aria-label="Primary">
-        <a class="nav__link" href="#projects">Works</a>
-        <a class="nav__link" href="#resume">Resume</a>
-        <a class="nav__link" href="#about">About</a>
-        <a class="nav__link" href="#contact">Contact</a>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
       </nav>
 
-      <div class="topbar__actions">
-        <button id="themeToggle" class="btn btn--ghost" type="button" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">🌗</span>
-          <span class="btn__label">Theme</span>
+      <div class="nav-actions">
+        <button id="themeToggle" class="icon-btn" type="button" title="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">🌗</span><span>Theme</span>
         </button>
-        <a class="btn btn--primary" href="assets/resume.pdf" target="_blank" rel="noopener">Download PDF</a>
+        <a class="icon-btn" href="assets/resume.pdf" target="_blank" rel="noopener">
+          <span aria-hidden="true">⬇</span><span>Resume</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <main id="main" class="page">
-    <!-- HERO -->
-    <section id="home" class="hero reveal">
-      <div class="hero__grid">
-        <div class="hero__left">
-          <p class="eyebrow">Hi, I’m Andrew.</p>
-          <h1 class="hero__title">Data Infrastructure Engineer</h1>
-          <p class="hero__subtitle">
-            I design and scale distributed data platforms in high-volume e-commerce and enterprise environments,
-            with a focus on <strong>throughput</strong>, <strong>latency</strong>, <strong>cost elasticity</strong>, and <strong>reliability</strong>.
+  <div class="container">
+    <div class="shell">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-inner">
+          <div class="kicker"><span class="dot"></span><span>Building production-grade data platforms</span></div>
+          <h1>Data Platform Engineer focused on performance, reliability, and real-time systems.</h1>
+          <p class="subtitle">
+            4+ years designing and scaling distributed data platforms across high-volume e-commerce and enterprise environments,
+            with hands-on delivery across Azure and AWS.
           </p>
 
-          <div class="hero__cta">
-            <a class="btn btn--primary" href="#projects">View Work</a>
-            <a class="btn btn--ghost" href="#contact">Let’s talk</a>
-            <button id="copyEmailBtn" class="btn btn--ghost" type="button">
-              Copy email
-            </button>
+          <div class="hero-cta">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+            <button id="copyEmailBtn" class="btn ghost" type="button">Copy Email</button>
           </div>
 
-          <div class="hero__meta">
-            <div class="meta">
-              <span class="meta__label">Email</span>
-              <a id="emailLink" class="meta__value mono" href="mailto:srlee02099@gmail.com">srlee02099@gmail.com</a>
-            </div>
-            <div class="meta">
-              <span class="meta__label">Location</span>
-              <span class="meta__value">NYC Metropolitan Area</span>
-            </div>
-            <div class="meta">
-              <span class="meta__label">Links</span>
-              <span class="meta__value">
-                <a href="https://github.com/sl237-lee" target="_blank" rel="noopener">GitHub</a>
-                <span class="sep">·</span>
-                <a href="https://www.linkedin.com/in/seungryul-andrew-lee-060b41255/" target="_blank" rel="noopener">LinkedIn</a>
-              </span>
-            </div>
+          <div class="badges" aria-label="Highlights">
+            <div class="badge"><span class="dot"></span><span><strong>4+ yrs</strong> platform engineering</span></div>
+            <div class="badge"><span class="dot"></span><span><strong>Azure + AWS</strong> production systems</span></div>
+            <div class="badge"><span class="dot warn"></span><span><strong>Streaming ML</strong> fraud detection build</span></div>
           </div>
         </div>
+      </section>
 
-        <aside class="hero__right" aria-label="Profile card">
-          <div class="card card--glass">
-            <div class="profile">
-              <div class="profile__avatar">
-                <img src="assets/avatar.jpg" alt="Seungryul Andrew Lee" />
-              </div>
-              <div class="profile__body">
-                <div class="profile__name">Seungryul Andrew Lee</div>
-                <div class="profile__role">AI Data Engineer @ QVC Group</div>
-                <div class="chips">
-                  <span class="chip">Azure</span>
-                  <span class="chip">AWS</span>
-                  <span class="chip">Databricks</span>
-                  <span class="chip">Snowflake</span>
-                  <span class="chip">Airflow</span>
-                  <span class="chip">dbt</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="stats">
-              <div class="stat">
-                <div class="stat__value">4+ yrs</div>
-                <div class="stat__label">platform engineering</div>
-              </div>
-              <div class="stat">
-                <div class="stat__value">Real-time</div>
-                <div class="stat__label">streaming + ML</div>
-              </div>
-              <div class="stat">
-                <div class="stat__value">Azure + AWS</div>
-                <div class="stat__label">production systems</div>
-              </div>
-            </div>
-
-            <div class="card__footer">
-              <a class="btn btn--primary btn--block" href="assets/resume.pdf" target="_blank" rel="noopener">View Resume</a>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- WORKS -->
-    <section id="projects" class="section reveal">
-      <div class="section__head">
-        <h2 class="section__title">Works</h2>
-        <p class="section__subtitle">A few representative builds. Each one is designed like a real production system.</p>
-      </div>
-
-      <div class="cards">
-        <!-- Fraud Detection -->
-        <article class="work card reveal">
-          <div class="work__top">
-            <h3 class="work__title">Real-Time Fraud Detection System</h3>
-            <p class="work__meta">Kafka • FastAPI • Redis • XGBoost • MLflow • Docker</p>
+      <!-- About -->
+      <section id="about" class="section reveal">
+        <div class="panel about">
+          <div class="section-title">
+            <h2>About</h2>
+            <div class="hint">NYC Metro • Cloud Data Platforms</div>
           </div>
 
-          <div class="work__kpis">
-            <span class="pill">Sub-100ms inference</span>
-            <span class="pill">95%+ detection accuracy</span>
-            <span class="pill">100+ tx/sec throughput</span>
-          </div>
-
-          <p class="work__desc">
-            Production-style streaming ML system: transactions → feature caching → low-latency inference → API serving.
-            Packaged with Docker Compose and designed for monitoring and operational clarity.
+          <p>
+            Data platform engineer with 4+ years of experience designing and scaling distributed data platforms in high-volume
+            e-commerce and enterprise environments. I specialize in architecting real-time ingestion systems, optimizing large-scale
+            compute workloads, and building resilient data platforms across Azure and AWS ecosystems.
           </p>
 
-          <div class="work__actions">
-            <!-- Update these paths if your project folder name differs -->
-            <a class="btn btn--primary" href="projects/fraud_detection_system/" target="_blank" rel="noopener">View project</a>
-            <a class="btn btn--ghost" href="projects/fraud_detection_system/QUICKSTART.md" target="_blank" rel="noopener">Quickstart</a>
-            <a class="btn btn--ghost" href="projects/fraud_detection_system/COMMANDS.md" target="_blank" rel="noopener">Commands</a>
-          </div>
-        </article>
-
-        <!-- Data Model Work Example -->
-        <article class="work card reveal">
-          <div class="work__top">
-            <h3 class="work__title">Data Model & Pipeline Work Example</h3>
-            <p class="work__meta">Snowflake • dbt • Prefect/Airflow • Great Expectations • Terraform</p>
-          </div>
-
-          <p class="work__desc">
-            End-to-end example demonstrating modeling, orchestration, DQ checks, and infrastructure automation.
-            Built to reflect how production data platforms are documented and operated.
+          <p>
+            In my current role at <strong>QVC Group</strong> as an <strong>AI Data Engineer</strong>, I help deliver personalization and analytics
+            foundations by building production-grade pipelines and governed datasets that support API-driven data products and downstream modeling.
+            I work closely with engineering and analytics stakeholders with an emphasis on reliability, observability, and cost control.
           </p>
 
-          <div class="work__actions">
-            <a class="btn btn--primary" href="projects/data_model_work_example/" target="_blank" rel="noopener">View project</a>
-          </div>
-        </article>
-
-        <!-- QVC Unified Data Foundation -->
-        <article class="work card reveal">
-          <div class="work__top">
-            <h3 class="work__title">Unified Data Foundation</h3>
-            <p class="work__meta">Data contracts • Normalization • Data quality reporting</p>
-          </div>
-
-          <p class="work__desc">
-            Standardized multi-vendor advertising datasets into a consistent schema with validation + DQ summaries,
-            enabling reliable analytics and downstream modeling.
+          <p>
+            My applied mathematics background shapes how I approach infrastructure. I focus on throughput, latency, cost elasticity, and system reliability,
+            and make explicit performance tradeoffs across distributed compute, storage layouts, and orchestration patterns.
           </p>
 
-          <div class="work__actions">
-            <a class="btn btn--primary" href="projects/qvc_unified_data_foundation/" target="_blank" rel="noopener">View project</a>
-          </div>
-        </article>
-      </div>
-    </section>
+          <p class="muted">
+            Long-term focus: large-scale platform design and technical leadership in high-growth technology environments.
+          </p>
+        </div>
+      </section>
 
-    <!-- RESUME -->
-    <section id="resume" class="section reveal">
-      <div class="section__head">
-        <h2 class="section__title">Resume</h2>
-        <p class="section__subtitle">Selected experience and focus areas. Full PDF is always up to date.</p>
-      </div>
-
-      <div class="resume">
-        <div class="resume__left card">
-          <div class="resume__download">
-            <h3 class="card__title">Resume PDF</h3>
-            <p class="muted">Download the latest version.</p>
-            <a class="btn btn--primary btn--block" href="assets/resume.pdf" target="_blank" rel="noopener">Download</a>
+      <!-- Skills -->
+      <section id="skills" class="section reveal">
+        <div class="panel">
+          <div class="section-title">
+            <h2>Skills</h2>
+            <div class="hint">Core platforms + systems engineering</div>
           </div>
 
-          <div class="resume__skills">
-            <h3 class="card__title">Core skills</h3>
-            <div class="chips">
-              <span class="chip">Distributed Data Systems</span>
-              <span class="chip">Data Architecture</span>
-              <span class="chip">Database Design</span>
-              <span class="chip">Systems Optimization</span>
-              <span class="chip">API Integration</span>
-              <span class="chip">REST APIs</span>
-              <span class="chip">PySpark</span>
-              <span class="chip">Azure (ADF/Synapse/Databricks)</span>
-              <span class="chip">AWS (S3/Redshift)</span>
-              <span class="chip">Snowflake</span>
-              <span class="chip">Airflow</span>
-              <span class="chip">Prefect</span>
-              <span class="chip">dbt</span>
-              <span class="chip">Kafka</span>
-              <span class="chip">Docker</span>
-              <span class="chip">MLflow</span>
-              <span class="chip">Great Expectations</span>
-              <span class="chip">SQL</span>
-              <span class="chip">Python</span>
-              <span class="chip">Power BI</span>
-              <span class="chip">Building Automation Systems (BAS)</span>
-            </div>
+          <div class="chips">
+            <span class="chip">Distributed Data Systems</span>
+            <span class="chip">Systems Optimization &amp; Performance Engineering</span>
+            <span class="chip">Data Architecture</span>
+            <span class="chip">Database Design</span>
+            <span class="chip">API Integration</span>
+            <span class="chip">REST APIs</span>
+            <span class="chip">PySpark</span>
+
+            <span class="chip">Azure (ADF, Synapse, Databricks)</span>
+            <span class="chip">AWS (S3, Redshift, SageMaker)</span>
+            <span class="chip">Snowflake</span>
+            <span class="chip">Airflow</span>
+            <span class="chip">Prefect</span>
+            <span class="chip">dbt</span>
+            <span class="chip">Kafka</span>
+            <span class="chip">Docker</span>
+            <span class="chip">MLflow</span>
+            <span class="chip">Great Expectations</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Python</span>
+            <span class="chip">Power BI</span>
+            <span class="chip">Building Automation Systems (BAS)</span>
           </div>
         </div>
+      </section>
 
-        <div class="resume__right card">
-          <h3 class="card__title">Experience</h3>
+      <!-- Experience -->
+      <section id="experience" class="section reveal">
+        <div class="panel">
+          <div class="section-title">
+            <h2>Experience</h2>
+            <div class="hint">Recent roles</div>
+          </div>
 
-          <div class="timeline">
-            <div class="role">
-              <div class="role__top">
-                <div class="role__title">AI Data Engineer — QVC Group</div>
-                <div class="role__date">2025–Present</div>
-              </div>
-              <ul class="bullets">
+          <div class="grid">
+            <article class="exp">
+              <h3>AI Data Engineer — QVC Group</h3>
+              <div class="meta">2025–Present</div>
+              <ul class="clean">
                 <li>Built production pipelines and curated datasets supporting personalization and analytics in high-volume e-commerce.</li>
-                <li>Integrated multi-channel sources into governed models, enabling consumption via analytics and API-driven data products.</li>
+                <li>Integrated multi-channel sources into governed models enabling analytics and API-driven data products.</li>
                 <li>Focused on reliability, observability, and cost controls across orchestration and distributed compute.</li>
               </ul>
-            </div>
+            </article>
 
-            <div class="role">
-              <div class="role__top">
-                <div class="role__title">R&D – Software Engineer — Axtria Inc.</div>
-                <div class="role__date">2024–2025</div>
-              </div>
-              <ul class="bullets">
+            <article class="exp">
+              <h3>R&amp;D – Software Engineer — Axtria Inc.</h3>
+              <div class="meta">2024–2025</div>
+              <ul class="clean">
                 <li>Designed and maintained scalable ETL pipelines and automation to reduce latency.</li>
-                <li>Implemented schema migrations, partitioning, and query optimization with SQL and Python.</li>
-                <li>Built validation frameworks and quality checks for large-scale datasets.</li>
+                <li>Implemented schema migrations, table partitioning, and query optimization with SQL &amp; Python.</li>
+                <li>Built validation frameworks and quality checks for reliable large-scale datasets.</li>
               </ul>
-            </div>
+            </article>
 
-            <div class="role">
-              <div class="role__top">
-                <div class="role__title">R&D – Data Engineer — Axtria Inc.</div>
-                <div class="role__date">2023–2024</div>
-              </div>
-              <ul class="bullets">
-                <li>Worked across Databricks, Snowflake, Redshift, and ADF for orchestration and performance tuning.</li>
+            <article class="exp">
+              <h3>R&amp;D – Data Engineer — Axtria Inc.</h3>
+              <div class="meta">2023–2024</div>
+              <ul class="clean">
+                <li>Specialized in Databricks, Snowflake, Redshift, and ADF for orchestration and performance tuning.</li>
                 <li>Developed indexing strategies, regression tests, and monitoring frameworks.</li>
-                <li>Improved data modeling and workflow design to boost throughput and performance.</li>
+                <li>Improved data modeling and workflows to boost query performance and throughput.</li>
               </ul>
-            </div>
+            </article>
 
-            <div class="role">
-              <div class="role__top">
-                <div class="role__title">Big Data – AI Data Analyst & Researcher — Humanf</div>
-                <div class="role__date">2022–2023</div>
-              </div>
-              <ul class="bullets">
-                <li>Optimized AI-driven models for autonomous driving using TensorFlow and Pandas.</li>
-                <li>Automated data workflows with Python and C++ to improve training efficiency.</li>
+            <article class="exp">
+              <h3>Big Data – AI Data Analyst &amp; Researcher — Humanf</h3>
+              <div class="meta">2022–2023</div>
+              <ul class="clean">
+                <li>Optimized AI-driven models for autonomous driving with TensorFlow and Pandas.</li>
+                <li>Automated data workflows with Python &amp; C++ to improve model training efficiency.</li>
               </ul>
-            </div>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section reveal">
-      <div class="section__head">
-        <h2 class="section__title">About</h2>
-        <p class="section__subtitle">How I think about platform engineering and what I optimize for.</p>
-      </div>
-
-      <div class="card">
-        <div class="prose">
-          <p>
-            Data platform engineer with 4+ years of experience designing and scaling distributed data platforms in high-volume e-commerce and
-            enterprise environments. I specialize in architecting real-time ingestion systems, optimizing large-scale compute workloads, and building
-            resilient data platforms across Azure and AWS ecosystems.
-          </p>
-          <p>
-            In my current role at <strong>QVC Group</strong> as an <strong>AI Data Engineer</strong>, I help deliver personalization and analytics foundations by
-            building production-grade pipelines and governed datasets that support API-driven data products and downstream modeling. I work closely
-            with engineering and analytics stakeholders to translate requirements into scalable platform design, with an emphasis on reliability,
-            observability, and cost control.
-          </p>
-          <p>
-            My expertise in applied mathematics shapes how I approach infrastructure: I focus on throughput, latency, cost elasticity, and system reliability,
-            making explicit tradeoffs across distributed compute efficiency, storage layouts, and orchestration patterns.
-          </p>
-          <p>
-            I have led the development of production-grade data platforms that power personalization, analytics, and API-driven data products, collaborating
-            across engineering and analytics teams to translate complex requirements into scalable system architecture. My long-term focus is on advancing
-            large-scale data platform design and technical leadership within high-growth technology environments.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact" class="section reveal">
-      <div class="section__head">
-        <h2 class="section__title">Contact</h2>
-        <p class="section__subtitle">If you’re building data platforms or ML systems, I’m happy to connect.</p>
-      </div>
-
-      <div class="card contact-card">
-        <div class="contact-card__row">
-          <div class="contact-item">
-            <div class="muted">Email</div>
-            <a class="mono" href="mailto:srlee02099@gmail.com">srlee02099@gmail.com</a>
+      <!-- Projects -->
+      <section id="projects" class="section reveal">
+        <div class="panel">
+          <div class="section-title">
+            <h2>Projects</h2>
+            <div class="hint">Selected builds</div>
           </div>
-          <div class="contact-item">
-            <div class="muted">Phone</div>
+
+          <div class="project-card">
+            <h3>Real-Time Fraud Detection System</h3>
+            <div class="project-meta">Kafka • FastAPI • Redis • XGBoost • MLflow • Docker</div>
+            <div class="chips" style="margin-bottom:10px">
+              <span class="kpi">Sub-100ms inference</span>
+              <span class="kpi">95%+ detection accuracy</span>
+              <span class="kpi">100+ tx/sec throughput</span>
+            </div>
+            <p>
+              Built a production-style real-time fraud detection system that ingests transactions via Kafka, generates features with caching,
+              performs low-latency inference, and exposes predictions through a FastAPI service. Packaged with Docker Compose for reproducible runs.
+            </p>
+            <div class="project-actions">
+              <a class="btn primary" href="projects/fraud_detection_system/" target="_blank" rel="noopener">View Project</a>
+              <a class="btn" href="projects/fraud_detection_system/QUICKSTART.md" target="_blank" rel="noopener">Quickstart</a>
+              <a class="btn" href="projects/fraud_detection_system/COMMANDS.md" target="_blank" rel="noopener">Commands</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Data Model &amp; Pipeline Work Example</h3>
+            <div class="project-meta">Snowflake • dbt • Prefect/Airflow • Great Expectations • Terraform</div>
+            <p>
+              Production-style example demonstrating cloud data modeling, orchestration, DQ checks, and Terraform-based AWS infrastructure automation.
+            </p>
+            <div class="project-actions">
+              <a class="btn primary" href="projects/data_model_work_example/" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>QVC Unified Data Foundation</h3>
+            <div class="project-meta">Data contracts • Normalization • DQ reporting</div>
+            <p>
+              Standardized vendor advertising datasets (Meta, TikTok, YouTube) into a consistent schema with validation and DQ summaries.
+            </p>
+            <div class="project-actions">
+              <a class="btn primary" href="projects/qvc_unified_data_foundation/" target="_blank" rel="noopener">View Project</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact" class="section reveal">
+        <div class="panel">
+          <div class="section-title">
+            <h2>Contact</h2>
+            <div class="hint">Open to collaboration</div>
+          </div>
+
+          <p>
+            Email:
+            <a id="emailLink" class="mono" href="mailto:srlee02099@gmail.com">srlee02099@gmail.com</a>
+            <span class="muted">•</span>
             <a href="tel:18626821497">862-682-1497</a>
-          </div>
-          <div class="contact-item">
-            <div class="muted">Links</div>
-            <a href="https://github.com/sl237-lee" target="_blank" rel="noopener">GitHub</a>
-            <span class="sep">·</span>
-            <a href="https://www.linkedin.com/in/seungryul-andrew-lee-060b41255/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
+          </p>
 
-        <div class="contact-card__actions">
-          <a class="btn btn--primary" href="assets/resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
-          <button class="btn btn--ghost" type="button" id="toTopBtn">Back to top</button>
+          <div class="hero-cta" style="margin-top:10px">
+            <a class="btn primary" href="assets/resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+            <a class="btn" href="https://github.com/sl237-lee" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn" href="https://www.linkedin.com/in/seungryul-andrew-lee-060b41255/" target="_blank" rel="noopener">LinkedIn</a>
+            <button id="toTopBtn" class="btn ghost" type="button">Back to top</button>
+          </div>
         </div>
-      </div>
+      </section>
 
       <p class="footer">© 2025 Seungryul Andrew Lee. Built with plain HTML/CSS/JS. Deployed on GitHub Pages.</p>
-    </section>
-  </main>
+    </div>
+  </div>
 
   <button id="toast" class="toast" role="status" aria-live="polite">Copied</button>
 

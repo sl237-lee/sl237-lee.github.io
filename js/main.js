@@ -1,11 +1,10 @@
-// js/main.js
 (() => {
     const root = document.documentElement;
   
-    // Reveal on scroll
+    // Reveal
     const observer = new IntersectionObserver((entries) => {
       for (const e of entries) {
-        if (e.isIntersecting) e.target.classList.add("is-visible");
+        if (e.isIntersecting) e.target.classList.add("visible");
       }
     }, { threshold: 0.12 });
   
@@ -16,15 +15,13 @@
     const themeIcon = document.getElementById("themeIcon");
     const prefersDarkMQ = window.matchMedia("(prefers-color-scheme: dark)");
   
-    function getSystemTheme() {
-      return prefersDarkMQ.matches ? "dark" : "light";
-    }
+    function sysTheme() { return prefersDarkMQ.matches ? "dark" : "light"; }
   
     function applyTheme(mode) {
       if (mode === "auto") {
-        const sys = getSystemTheme();
-        root.setAttribute("data-theme", sys);
-        if (themeIcon) themeIcon.textContent = sys === "dark" ? "🌙" : "🌞";
+        const s = sysTheme();
+        root.setAttribute("data-theme", s);
+        if (themeIcon) themeIcon.textContent = s === "dark" ? "🌙" : "🌞";
       } else {
         root.setAttribute("data-theme", mode);
         if (themeIcon) themeIcon.textContent = mode === "dark" ? "🌙" : "🌞";
@@ -48,10 +45,9 @@
     // Toast
     const toastEl = document.getElementById("toast");
     let toastTimer;
-  
-    function toast(message) {
+    function toast(msg) {
       if (!toastEl) return;
-      toastEl.textContent = message;
+      toastEl.textContent = msg;
       toastEl.classList.add("show");
       clearTimeout(toastTimer);
       toastTimer = setTimeout(() => toastEl.classList.remove("show"), 1500);
@@ -63,12 +59,8 @@
     const emailLink = document.getElementById("emailLink");
   
     async function copyText(text) {
-      try {
-        await navigator.clipboard.writeText(text);
-        return true;
-      } catch {
-        return false;
-      }
+      try { await navigator.clipboard.writeText(text); return true; }
+      catch { return false; }
     }
   
     copyBtn?.addEventListener("click", async () => {
