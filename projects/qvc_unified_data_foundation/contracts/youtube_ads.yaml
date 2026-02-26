@@ -1,0 +1,24 @@
+contract_name: youtube_ads
+fields:
+  - name: campaign_id
+    type: string
+    required: true
+  - name: product
+    type: string
+  - name: impressions
+    type: integer
+  - name: clicks
+    type: integer
+  - name: spend
+    type: float
+  - name: conversions
+    type: integer
+validation_rules:
+  - rule: not_null
+    fields: [campaign_id, impressions, spend]
+  - rule: min_value
+    field: spend
+    value: 0
+freshness:
+  sla_hours: 24
+owner: marketing_analytics@qvc.com

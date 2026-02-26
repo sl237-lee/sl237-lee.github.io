@@ -1,0 +1,12 @@
+[
+    {"campaign_id": "T001", "product": "Running Shoes", "impressions": 19000, "clicks": 1300, "spend": 280.0, "conversions": 70},
+    {"campaign_id": "T002", "product": "Yoga Mat", "impressions": 15000, "clicks": 900, "spend": 210.5, "conversions": 55},
+    {"campaign_id": "T003", "product": "Water Bottle", "impressions": 0, "clicks": 50, "spend": 50.0, "conversions": 5},
+    {"campaign_id": "T004", "product": "Fitness Band", "impressions": 18000, "clicks": 19500, "spend": 310.2, "conversions": 88},
+    {"campaign_id": "T005", "product": "Protein Powder", "impressions": 20000, "clicks": 1000, "spend": -250.0, "conversions": 60},
+    {"campaign_id": "T006", "product": "Resistance Bands", "impressions": 21000, "clicks": 1200, "spend": 260.8, "conversions": 58},
+    {"campaign_id": "T007", "product": "Foam Roller", "impressions": null, "clicks": 1100, "spend": 220.0, "conversions": 50},
+    {"campaign_id": "T008", "product": "Gym Bag", "impressions": 17500, "clicks": 900, "spend": 230.1, "conversions": 52},
+    {"campaign_id": "T009", "product": "Jump Rope", "impressions": 19000, "clicks": 1000, "spend": 260.3, "conversions": 55},
+    {"campaign_id": "T005", "product": "Protein Powder", "impressions": 20000, "clicks": 1000, "spend": 250.0, "conversions": 60}
+  ]

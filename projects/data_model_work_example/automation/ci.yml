@@ -1,0 +1,29 @@
+
+# automation/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Lint SQL (basic)
+        run: |
+          grep -R "DROP TABLE" -n sql || true
+      - name: Dry-run Prefect flow (syntax)
+        run: python -m py_compile orchestration/prefect_flow.py
+      - name: Validate DQ config syntax
+        run: python -c "import yaml,sys;yaml.safe_load(open('dq/great_expectations_claims.yml'));print('DQ config OK')"

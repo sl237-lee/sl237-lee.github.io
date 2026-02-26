@@ -1,0 +1,43 @@
+
+version: 2
+
+sources:
+  - name: raw
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA_RAW', 'V2_INT_CLAIMS') }}"
+    tables:
+      - name: claims_header
+      - name: claims_line
+  - name: dim
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA_RAW', 'V2_INT_CLAIMS') }}"
+    tables:
+      - name: member
+      - name: provider
+  - name: finance
+    schema: "{{ env_var('SNOWFLAKE_SCHEMA_RAW', 'V2_INT_CLAIMS') }}"
+    tables:
+      - name: payment_adjustments
+
+models:
+  - name: stg_claims
+    tests:
+      - not_null:
+          column_name: claim_number
+  - name: int_claims_enriched
+    tests: []
+  - name: fct_claims_monthly
+    columns:
+      - name: member_sid
+        tests: [not_null]
+      - name: provider_sid
+        tests: [not_null]
+      - name: plan_sid
+        tests: [not_null]
+      - name: month_ending_date
+        tests: [not_null]
+      - name: claim_type
+        tests: [not_null]
+      - name: net_paid
+        tests:
+          - relationships:
+              to: ref('fct_claims_monthly')
+              field: net_paid

@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Data Quality Validator & Snowflake Performance Audit — Andrew Lee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --text:#0b1220; --muted:#5f6b85; --bg:#ffffff; --ink:#111827;
+    --accent:#0ea5e9; --border:#e5e7eb; --code-bg:#0f172a; --code-ink:#e2e8f0;
+  }
+  *{ box-sizing:border-box }
+  body{
+    margin:0; padding:32px; color:var(--text); background:var(--bg);
+    font:15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  }
+  main{ max-width:900px; margin:0 auto; }
+  h1{ font-size:28px; margin:0 0 8px; color:var(--ink) }
+  h2{ font-size:20px; margin:28px 0 10px; color:var(--ink) }
+  h3{ font-size:16px; margin:18px 0 8px; color:var(--ink) }
+  p{ margin:10px 0 }
+  .meta{ color:var(--muted); margin-bottom:18px }
+  .card{
+    border:1px solid var(--border); border-radius:12px; padding:18px; background:#ffffff;
+  }
+  .toc a{ text-decoration:none; color:var(--accent) }
+  .toc li{ margin:6px 0 }
+  pre, code{
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size: 13px;
+  }
+  pre{
+    background:var(--code-bg); color:var(--code-ink);
+    border-radius:10px; padding:14px; overflow:auto; border:1px solid var(--border)
+  }
+  code.inline{ background:#f3f5f8; padding:2px 6px; border-radius:6px }
+  hr{ border:0; border-top:1px solid var(--border); margin:24px 0 }
+  .kv { display:grid; grid-template-columns: 160px 1fr; gap:8px; margin:14px 0 }
+  .kv div:first-child{ color:var(--muted) }
+  ul.tight li{ margin:6px 0 }
+  .muted{ color:var(--muted) }
+  .ascii{ white-space:pre; }
+  @media print{
+    body{ padding:0; background:#ffffff; color:#000; }
+    a{ color:inherit; text-decoration:none }
+    .no-print{ display:none }
+    h1{ font-size:22pt } h2{ font-size:14pt } h3{ font-size:12pt }
+    pre{ font-size:10pt; page-break-inside:avoid }
+    section{ page-break-inside:avoid; }
+    .page-break{ page-break-before:always; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Data Quality Validator & Snowflake Performance Audit</h1>
+    <div class="meta">Technical Overview, Setup, and Operations</div>
+    <div class="card kv">
+      <div>Author</div><div>Seungryul Andrew Lee</div>
+      <div>Stack</div><div>Python, Snowflake, Airflow/Prefect, Slack (optional)</div>
+      <div>Date</div><div>October 2025</div>
+    </div>
+  </header>
+
+  <section class="card toc">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#exec">Executive Summary</a></li>
+      <li><a href="#arch">Architecture (at a glance)</a></li>
+      <li><a href="#dq">Data Quality Validator</a></li>
+      <li><a href="#perf">Snowflake Performance Audit</a></li>
+      <li><a href="#setup">Setup &amp; Configuration</a></li>
+      <li><a href="#orch">Orchestration Examples (Airflow &amp; Prefect)</a></li>
+      <li><a href="#ops">Operations &amp; Runbook</a></li>
+      <li><a href="#security">Security &amp; Governance</a></li>
+      <li><a href="#value">Value &amp; Impact</a></li>
+      <li><a href="#talk">Interview Talking Points (30–45s)</a></li>
+      <li><a href="#appendix">Appendix: Tables &amp; Minimal Config</a></li>
+    </ol>
+  </section>
+
+  <section id="exec">
+    <h2>1) Executive Summary</h2>
+    <p>
+      This package contains two lightweight automations that improve trust in data and cost efficiency on Snowflake:
+    </p>
+    <ul class="tight">
+      <li><strong>Data Quality Validator</strong>: YAML-driven checks (not null, unique, FK, accepted values, freshness, partition coverage) plus schema-drift detection and historical baselines. Can quarantine bad rows, fail fast, write JUnit for CI, and post a Slack summary.</li>
+      <li><strong>Snowflake Performance Audit</strong>: Scans <code class="inline">SNOWFLAKE.ACCOUNT_USAGE</code> to flag heavy scans, cluster repeat offenders via a query “signature,” and analyze warehouse load/metering for right-sizing and auto-suspend guidance. Produces a concise Markdown report (+ optional Slack summary).</li>
+    </ul>
+    <p>
+      Both are scheduler-friendly (Airflow/Prefect), env-driven, idempotent, and easy to drop into CI/CD.
+    </p>
+  </section>
+
+  <section id="arch" class="page-break">
+    <h2>2) Architecture (at a glance)</h2>
+    <pre class="ascii">
++----------------+         +------------------------------+
+|  Scheduler     |         | Snowflake                    |
+|  (Airflow or   |   SQL   |  - Raw/Stage/Marts           |
+|   Prefect)     |-------> |  - ACCOUNT_USAGE.*           |
++--------+-------+         |  - INFORMATION_SCHEMA.*      |
+         |                 +------------------------------+
+         | Python
+         v
++-------------------------+         +---------------------------+
+| Data Quality Validator  |  YAML   | Outputs                   |
+|  - Rules: DQ + Schema   | <-----  |  - Quarantine tables      |
+|  - Baseline metrics     |         |  - JUnit XML (CI)         |
+|  - Slack summary        |         |  - DQ.METRICS table       |
++-------------------------+         +---------------------------+
+
+         ^
+         | Python
+         |
++-------------------------+         +---------------------------+
+| Performance Audit       |   SQL   | Outputs                   |
+|  - Query history scan   | <-----  |  - perf_report.md         |
+|  - Signature grouping   |         |  - Slack summary          |
+|  - WH load/metering     |         |                           |
++-------------------------+         +---------------------------+
+    </pre>
+  </section>
+
+  <section id="dq" class="page-break">
+    <h2>3.1 Data Quality Validator</h2>
+    <p><strong>File</strong>: <code class="inline">dq_check_advanced.py</code></p>
+    <p><strong>Purpose</strong>: Catch bad data early and safely, prevent silent regressions, and record DQ metrics.</p>
+    <p><strong>Key features</strong>:</p>
+    <ul class="tight">
+      <li>YAML-driven rules per table</li>
+      <li>Schema drift detection (missing/extra columns, type mismatches)</li>
+      <li>Historical baselines via <code class="inline">DQ.METRICS</code> (today vs 7-day rolling median)</li>
+      <li>Partition coverage (e.g., ensure last N days present)</li>
+      <li>Quarantine failing rows to <code class="inline">&lt;table&gt;_ERRORS</code> (optional)</li>
+      <li>JUnit XML for CI pipelines and Slack summary for team visibility</li>
+    </ul>
+    <p><strong>Sample</strong> <code class="inline">checks.yml</code>:</p>
+    <pre>
+tables:
+  - database: ANALYTICS
+    schema: V2_DWH_SALES
+    name: FACT_CLAIMS
+    quarantine: true
+    expect_schema:
+      - { name: CLAIM_ID,     type: NUMBER }
+      - { name: MEMBER_ID,    type: NUMBER }
+      - { name: CLAIM_STATUS, type: TEXT }
+      - { name: LOAD_TS,      type: TIMESTAMP_NTZ }
+    checks:
+      - type: row_count_min
+        value: 1000
+        tolerance_pct: 40
+      - type: not_null
+        column: CLAIM_ID
+      - type: unique
+        column: CLAIM_ID
+      - type: accepted_values
+        column: CLAIM_STATUS
+        values: ["PAID","DENIED","PENDED"]
+      - type: foreign_key
+        column: MEMBER_ID
+        ref_table: ANALYTICS.V2_DWH_CUSTOMER.DIM_MEMBER
+        ref_column: MEMBER_ID
+      - type: freshness
+        column: LOAD_TS
+        max_age_hours: 24
+      - type: partition_coverage
+        date_column: LOAD_TS
+        days: 7
+    </pre>
+  </section>
+
+  <section id="perf" class="page-break">
+    <h2>3.2 Snowflake Performance Audit</h2>
+    <p><strong>File</strong>: <code class="inline">snowflake_perf_audit_advanced.py</code></p>
+    <p><strong>Purpose</strong>: Surface the most expensive queries and right-size warehouses.</p>
+    <p><strong>Inputs</strong>:
+      <code class="inline">SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY</code>,
+      <code class="inline">WAREHOUSE_LOAD_HISTORY</code>,
+      <code class="inline">WAREHOUSE_METERING_HISTORY</code>.
+    </p>
+    <p><strong>Key features</strong>:</p>
+    <ul class="tight">
+      <li>Find heavy scans (threshold configurable)</li>
+      <li>Normalize SQL to a query signature to find repeat offenders</li>
+      <li>Analyze load and credits to suggest right-sizing and auto-suspend tuning</li>
+      <li>Produce <code class="inline">perf_report.md</code> and optional Slack summary</li>
+    </ul>
+    <p><strong>Typical insights</strong>: Avoid <code class="inline">SELECT *</code>, push filters, consider clustering/incremental models, balance WH size vs queueing.</p>
+  </section>
+
+  <section id="setup" class="page-break">
+    <h2>4) Setup &amp; Configuration</h2>
+    <p><strong>Prerequisites</strong>:</p>
+    <ul class="tight">
+      <li>Python 3.9+; packages: <code class="inline">snowflake-connector-python</code>, <code class="inline">pyyaml</code></li>
+      <li>Snowflake role with:
+        <ul class="tight">
+          <li>USAGE on <code class="inline">SNOWFLAKE</code> and <code class="inline">ACCOUNT_USAGE</code>, MONITOR USAGE (or equivalent)</li>
+          <li>Read on data schemas being checked</li>
+          <li>Write on <code class="inline">&lt;DQ_SCHEMA&gt;</code> for metrics/quarantine</li>
+        </ul>
+      </li>
+    </ul>
+    <p><strong>Core env vars</strong>: <code class="inline">SNOWFLAKE_ACCOUNT</code>, <code class="inline">SNOWFLAKE_USER</code>, <code class="inline">SNOWFLAKE_PASSWORD</code>, <code class="inline">SNOWFLAKE_ROLE</code>, <code class="inline">SNOWFLAKE_WAREHOUSE</code>, <code class="inline">SNOWFLAKE_DATABASE</code>, <code class="inline">SNOWFLAKE_SCHEMA</code></p>
+    <p><strong>DQ (optional)</strong>: <code class="inline">DQ_DATABASE</code> (default DB), <code class="inline">DQ_SCHEMA</code> (default DQ), <code class="inline">SLACK_WEBHOOK_URL</code></p>
+    <p><strong>Perf (optional)</strong>: <code class="inline">LOOKBACK_HOURS</code> (24), <code class="inline">MIN_BYTES_SCANNED</code> (500MB in bytes), <code class="inline">TOP_N</code> (30), <code class="inline">PERF_REPORT_PATH</code></p>
+
+    <h3>Local run example</h3>
+    <pre>
+# install
+pip install snowflake-connector-python pyyaml
+
+# env
+export SNOWFLAKE_ACCOUNT=...
+export SNOWFLAKE_USER=...
+export SNOWFLAKE_PASSWORD=...
+export SNOWFLAKE_ROLE=SYSADMIN
+export SNOWFLAKE_WAREHOUSE=COMPUTE_WH
+export SNOWFLAKE_DATABASE=ANALYTICS
+export SNOWFLAKE_SCHEMA=PUBLIC
+
+# optional
+export DQ_SCHEMA=DQ
+export SLACK_WEBHOOK_URL=https://hooks.slack.com/services/...
+export LOOKBACK_HOURS=24
+export MIN_BYTES_SCANNED=524288000  # 500MB
+export TOP_N=30
+export PERF_REPORT_PATH=perf_report.md
+
+# run
+python dq_check_advanced.py checks.yml
+python snowflake_perf_audit_advanced.py
+    </pre>
+  </section>
+
+  <section id="orch" class="page-break">
+    <h2>5) Orchestration Examples</h2>
+    <h3>Airflow (concept)</h3>
+    <p>Fail-fast on DQ; always generate tuning report.</p>
+    <pre>
+from airflow import DAG
+from airflow.operators.python import PythonOperator
+from datetime import datetime, timedelta
+import subprocess
+
+default_args = {"owner":"data-eng","retries":1,"retry_delay":timedelta(minutes=5)}
+
+def run_cmd(cmd: str):
+    proc = subprocess.run(cmd, shell=True)
+    if proc.returncode != 0:
+        raise RuntimeError(f"Command failed: {cmd}")
+
+with DAG(
+    dag_id="dq_and_perf_audit",
+    start_date=datetime(2025, 1, 1),
+    schedule_interval="0 6 * * *",
+    catchup=False,
+    default_args=default_args,
+    max_active_runs=1,
+    tags=["dq","audit","snowflake"],
+) as dag:
+
+    dq = PythonOperator(
+        task_id="run_dq",
+        python_callable=run_cmd,
+        op_args=["python /opt/airflow/dags/code/dq_check_advanced.py /opt/airflow/dags/code/checks.yml"],
+    )
+
+    perf = PythonOperator(
+        task_id="run_perf_audit",
+        python_callable=run_cmd,
+        op_args=["python /opt/airflow/dags/code/snowflake_perf_audit_advanced.py"],
+        trigger_rule="all_done",
+    )
+
+    dq >> perf
+    </pre>
+
+    <h3>Prefect (concept)</h3>
+    <pre>
+from prefect import flow, task
+import subprocess
+
+@task
+def dq_task(cfg_path="checks.yml"):
+    res = subprocess.run(["python","dq_check_advanced.py", cfg_path])
+    if res.returncode != 0:
+        raise RuntimeError("DQ failed")
+
+@task
+def perf_task():
+    res = subprocess.run(["python","snowflake_perf_audit_advanced.py"])
+    if res.returncode != 0:
+        raise RuntimeError("Perf audit failed")
+
+@flow(name="DQ-and-Perf")
+def main(cfg_path="checks.yml"):
+    try:
+        dq_task(cfg_path)
+    finally:
+        perf_task()
+
+if __name__ == "__main__":
+    main()
+    </pre>
+  </section>
+
+  <section id="ops" class="page-break">
+    <h2>6) Operations &amp; Runbook</h2>
+    <p><strong>Normal Run</strong>: Scheduler triggers DQ first; on failure, job exits non-zero (alerts + quarantine optional). Perf audit always runs and writes/updates <code class="inline">perf_report.md</code> (+ Slack).</p>
+    <p><strong>Common Failure Modes</strong>:</p>
+    <ul class="tight">
+      <li>Auth/permissions: ensure role has USAGE on <code class="inline">SNOWFLAKE</code>/<code class="inline">ACCOUNT_USAGE</code> and write on DQ schema.</li>
+      <li>Schema drift: expected—update <code class="inline">expect_schema</code> in YAML or fix upstream.</li>
+      <li>Baseline sensitivity: tune <code class="inline">tolerance_pct</code> or bootstrap more days.</li>
+    </ul>
+    <p><strong>Tuning Guidance</strong>: Start broader, then tighten. Use <code class="inline">QUERY_TAG</code> in ETL/DBT. Review <code class="inline">perf_report.md</code> weekly.</p>
+  </section>
+
+  <section id="security">
+    <h2>7) Security &amp; Governance</h2>
+    <ul class="tight">
+      <li>Credentials via env vars or a secrets manager; no secrets in code or YAML.</li>
+      <li>Least-privilege role: read on sources and <code class="inline">ACCOUNT_USAGE</code>; write on <code class="inline">&lt;DQ_SCHEMA&gt;</code>.</li>
+      <li><code class="inline">QUERY_TEXT</code> may include literals; treat exported reports appropriately.</li>
+    </ul>
+  </section>
+
+  <section id="value">
+    <h2>8) Value &amp; Impact</h2>
+    <ul class="tight">
+      <li>Reliability: freshness/partition checks catch late feeds before dashboards fail; quarantine preserves trust in marts.</li>
+      <li>Cost: identified daily 1–2 TB scans returning few rows; projecting only needed columns and pushing filters cut bytes scanned &gt;90%.</li>
+      <li>Ops: baselines surfaced subtle volume drops that simple row-count checks missed.</li>
+    </ul>
+  </section>
+
+
+  <section id="appendix" class="page-break">
+    <h2>10) Appendix</h2>
+    <h3>Create DQ Metrics Table</h3>
+    <pre>
+CREATE TABLE IF NOT EXISTS DQ.METRICS (
+  METRIC_DATE DATE,
+  DB STRING, SCHEMA STRING, TABLE STRING,
+  METRIC STRING, VALUE NUMBER,
+  PRIMARY KEY (METRIC_DATE, DB, SCHEMA, TABLE, METRIC)
+);
+    </pre>
+
+    <h3>Minimal checks.yml</h3>
+    <pre>
+tables:
+  - database: ANALYTICS
+    schema: PUBLIC
+    name: FACT_ORDERS
+    checks:
+      - type: row_count_min
+        value: 10
+      - type: not_null
+        column: ORDER_ID
+      - type: unique
+        column: ORDER_ID
+      - type: freshness
+        column: LOAD_TS
+        max_age_hours: 24
+    </pre>
+    <p class="muted">End of document.</p>
+  </section>
+
+  <hr class="no-print" />
+  <p class="no-print muted">Print tip: File → Print → “More settings” → enable background graphics → Save as PDF.</p>
+</main>
+</body>
+</html>

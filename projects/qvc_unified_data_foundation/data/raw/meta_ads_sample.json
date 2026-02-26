@@ -1,0 +1,12 @@
+[
+    {"campaign_id": "M001", "product": "Beauty Cream", "impressions": 23000, "clicks": 1000, "spend": 320.5, "conversions": 65},
+    {"campaign_id": "M002", "product": "Hair Serum", "impressions": 15000, "clicks": 720, "spend": 210.3, "conversions": 52},
+    {"campaign_id": "M003", "product": "Perfume Set", "impressions": 27000, "clicks": 1340, "spend": 340.8, "conversions": 76},
+    {"campaign_id": "M004", "product": "Sunscreen", "impressions": 18000, "clicks": 890, "spend": 278.6, "conversions": 60},
+    {"campaign_id": "M005", "product": "Body Lotion", "impressions": 22000, "clicks": 1100, "spend": 305.2, "conversions": 72},
+    {"campaign_id": "M006", "product": "Lipstick", "impressions": 25000, "clicks": 1230, "spend": 415.9, "conversions": 81},
+    {"campaign_id": "M007", "product": "Eye Cream", "impressions": 19500, "clicks": 970, "spend": 260.4, "conversions": 49},
+    {"campaign_id": "M008", "product": "Foundation", "impressions": 16000, "clicks": 800, "spend": 240.1, "conversions": 55},
+    {"campaign_id": "M009", "product": "Nail Polish", "impressions": 17500, "clicks": 850, "spend": 195.7, "conversions": 40},
+    {"campaign_id": "M010", "product": "Makeup Brush", "impressions": 21000, "clicks": 1020, "spend": 310.2, "conversions": 64}
+  ]

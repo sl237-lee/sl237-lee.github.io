@@ -1,0 +1,12 @@
+[
+    {"campaign_id": "Y001", "product": "Wireless Earbuds", "impressions": 28000, "clicks": 1500, "spend": 480.5, "conversions": 85},
+    {"campaign_id": "Y002", "product": "Smartwatch", "impressions": 30000, "clicks": 1750, "spend": 525.0, "conversions": 92},
+    {"campaign_id": "Y003", "product": "Phone Case", "impressions": 25000, "clicks": 1250, "spend": 315.8, "conversions": 63},
+    {"campaign_id": "Y004", "product": "Tablet Cover", "impressions": 27000, "clicks": 1450, "spend": 410.2, "conversions": 70},
+    {"campaign_id": "Y005", "product": "Bluetooth Speaker", "impressions": 32000, "clicks": 1800, "spend": 530.1, "conversions": 97},
+    {"campaign_id": "Y006", "product": "Gaming Mouse", "impressions": 24000, "clicks": 1200, "spend": 290.3, "conversions": 60},
+    {"campaign_id": "Y007", "product": "Keyboard", "impressions": 26000, "clicks": 1350, "spend": 330.4, "conversions": 65},
+    {"campaign_id": "Y008", "product": "Monitor", "impressions": 31000, "clicks": 1600, "spend": 540.8, "conversions": 80},
+    {"campaign_id": "Y009", "product": "Microphone", "impressions": 29000, "clicks": 1500, "spend": 500.0, "conversions": 75},
+    {"campaign_id": "Y010", "product": "Webcam", "impressions": 28000, "clicks": 1400, "spend": 460.6, "conversions": 68}
+  ]
