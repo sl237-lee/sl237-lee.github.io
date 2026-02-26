@@ -1,11 +1,9 @@
-venv/
+.DS_Store
 __pycache__/
 *.pyc
-.env
-mlruns/
-.ipynb_checkpoints/
-*.egg-info/
-.DS_Store
-models/*.pkl
-.pytest_cache/
+venv/
+
+dbt/logs/
+dbt/target/
+
 *.log
