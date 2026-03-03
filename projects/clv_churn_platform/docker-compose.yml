@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: clv_postgres
+    environment:
+      POSTGRES_USER: clv_user
+      POSTGRES_PASSWORD: clv_pass
+      POSTGRES_DB: clv_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - clv_pgdata:/var/lib/postgresql/data
+
+volumes:
+  clv_pgdata:
