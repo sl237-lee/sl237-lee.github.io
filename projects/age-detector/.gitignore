@@ -1,0 +1,18 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# DeepFace models (auto-downloaded)
+.deepface/
+
+# MacOS
+.DS_Store
+
+# Gradio temp files
+flagged/
