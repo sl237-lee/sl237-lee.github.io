@@ -22,3 +22,11 @@ data/
 
 # MLflow
 mlruns/
+
+# Never commit virtualenvs anywhere
+**/.venv/
+**/venv/
+**/env/
+
+# Never commit OS junk
+**/.DS_Store
