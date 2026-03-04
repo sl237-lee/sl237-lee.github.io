@@ -2,360 +2,636 @@
 <html lang="en" data-theme="auto">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark light">
-  <title>Seungryul Andrew Lee — Personal Site</title>
-  <meta name="description" content="Seungryul Andrew Lee — Data Engineering / Data Platforms / ML Systems" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Seungryul Andrew Lee — Data Infrastructure Engineer</title>
+  <meta name="description" content="Seungryul Andrew Lee — Data Infrastructure Engineer | Azure + AWS | Databricks/Spark | Real-time & batch platforms | API-driven data products" />
   <link rel="icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <!-- Top Nav -->
-  <header class="topbar">
+  <!-- Topbar -->
+  <header class="topbar" role="banner">
     <div class="topbar-inner">
-      <div class="brand">
-        <div class="avatar" aria-hidden="true">
-          <img src="assets/avatar.jpg" alt="Seungryul Andrew Lee">
-        </div>
-        <div>
-          <div class="name">Seungryul Andrew Lee</div>
-          <div class="role">Data Engineering • Cloud Platforms • Real-Time Systems</div>
-        </div>
-      </div>
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-text">
+          <span class="brand-name">Seungryul Andrew Lee</span>
+          <span class="brand-sub">Data Infrastructure Engineer • Azure + AWS • Databricks/Spark</span>
+        </span>
+      </a>
 
-      <nav class="navlinks" aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="navlink" href="#projects">Projects</a>
+        <a class="navlink" href="#github">GitHub</a>
+        <a class="navlink" href="#experience">Experience</a>
+        <a class="navlink" href="#skills">Skills</a>
+        <a class="navlink" href="#certifications">Certifications</a>
+        <a class="navlink" href="#education">Education</a>
+        <a class="navlink" href="#contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
-        <button id="themeToggle" class="icon-btn" type="button" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">🌗</span><span>Theme</span>
+        <button id="themeToggle" class="btn icon" type="button" aria-label="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">☾</span>
         </button>
-        <a class="icon-btn" href="assets/resume.pdf" target="_blank" rel="noopener">
-          <span aria-hidden="true">⬇</span><span>Resume</span>
+        <a class="btn icon" href="assets/resume.pdf" target="_blank" rel="noopener" aria-label="Open resume PDF">
+          <span aria-hidden="true">⤓</span>
         </a>
       </div>
     </div>
+
+    <div class="scrollbar" aria-hidden="true">
+      <div id="scrollbarFill" class="scrollbar-fill"></div>
+    </div>
   </header>
 
-  <div class="container">
-    <div class="shell">
+  <!-- Background accent -->
+  <div class="bg-orb orb1" aria-hidden="true"></div>
+  <div class="bg-orb orb2" aria-hidden="true"></div>
 
-      <!-- Hero -->
-      <section class="hero">
-        <div class="hero-inner">
-          <div class="kicker"><span class="dot"></span><span>Production data platforms + ML systems</span></div>
-          <h1>Data Engineer building cloud-native databases, real-time algorithms, and reliable ML workflows.</h1>
-          <p class="subtitle">
-            Applied Mathematics–trained Data Infrastructure Engineer with 4+ years of experience designing and scaling distributed data platforms in e-commerce and enterprise environments.
-            Proficient in architecting real-time ingestion systems, optimizing cloud compute performance, and building production-grade data services across Azure and AWS ecosystems.
-            Possess strong expertise in algorithm design, systems modeling, and performance optimization.
+  <main id="top" class="page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="eyebrow">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>Distributed data platforms • real-time ingestion • performance engineering</span>
+          </div>
+
+          <h1>
+            Applied Mathematics–trained Data Infrastructure Engineer building production-grade systems
+            across Azure and AWS.
+          </h1>
+
+          <p class="sub">
+            4+ years designing and scaling distributed data platforms in e-commerce and enterprise environments.
+            I architect real-time ingestion systems, optimize cloud compute performance, and ship API-driven data products
+            with strong data quality and observability.
           </p>
 
-          <div class="hero-cta">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="assets/resume.pdf" target="_blank" rel="noopener">Download Resume</a>
-            <button id="copyEmailBtn" class="btn ghost" type="button">Copy Email</button>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View projects</a>
+            <a class="btn" href="#contact">Contact</a>
+            <button id="copyEmailBtn" class="btn ghost" type="button" data-email="srlee02099@gmail.com">Copy email</button>
           </div>
 
-          <div class="badges" aria-label="Highlights">
-            <div class="badge"><span class="dot"></span><span><strong>Azure + AWS</strong> delivery</span></div>
-            <div class="badge"><span class="dot"></span><span><strong>Databricks + Snowflake</strong> pipelines</span></div>
-            <div class="badge"><span class="dot warn"></span><span><strong>Streaming ML</strong> + low-latency APIs</span></div>
+          <div class="hero-metrics" aria-label="Key metrics">
+            <div class="metric">
+              <div class="metric-k" data-countup="4" data-suffix="+">0</div>
+              <div class="metric-v">Years in data infrastructure</div>
+            </div>
+            <div class="metric">
+              <div class="metric-k" data-countup="4" data-suffix="ms">0</div>
+              <div class="metric-v">Avg inference latency (fraud)</div>
+            </div>
+            <div class="metric">
+              <div class="metric-k" data-countup="200" data-suffix="+ TPS">0</div>
+              <div class="metric-v">Streaming throughput</div>
+            </div>
+            <div class="metric">
+              <div class="metric-k" data-countup="400" data-suffix="K+">0</div>
+              <div class="metric-v">Simulated SaaS events</div>
+            </div>
           </div>
         </div>
-      </section>
 
-      <!-- About -->
-      <section id="about" class="section reveal">
-        <div class="panel about">
-          <div class="section-title">
-            <h2>About</h2>
-            <div class="hint">NYC Metro • Data Platforms • Reliability</div>
+        <div class="hero-right" aria-label="System preview">
+          <div class="glass-card">
+            <div class="glass-title">
+              <span class="spark" aria-hidden="true"></span>
+              <span>Systems I ship</span>
+              <span class="muted">typical end-to-end flow</span>
+            </div>
+
+            <div class="flow">
+              <div class="node">APIs / Events</div>
+              <div class="arrow" aria-hidden="true"></div>
+              <div class="node">Ingestion + Contracts</div>
+              <div class="arrow" aria-hidden="true"></div>
+              <div class="node">Lakehouse/Warehouse</div>
+              <div class="arrow" aria-hidden="true"></div>
+              <div class="node">Transforms + DQ</div>
+              <div class="arrow" aria-hidden="true"></div>
+              <div class="node">Serving + Monitoring</div>
+            </div>
+
+            <div class="glass-footer">
+              <span class="pill">Azure</span>
+              <span class="pill">AWS</span>
+              <span class="pill">Databricks</span>
+              <span class="pill">Spark</span>
+              <span class="pill">Kafka</span>
+              <span class="pill">FastAPI</span>
+              <span class="pill">Observability</span>
+            </div>
           </div>
 
-          <p>
-            I build production data systems end-to-end: ingestion, transformation, orchestration, data quality, and serving layers.
-            My focus is performance, reliability, and clean interfaces so analytics and ML teams can move fast without breaking data trust.
+          <div class="mini-grid">
+            <div class="mini">
+              <div class="mini-k">Reliability</div>
+              <div class="mini-v">idempotency, retries, backfills</div>
+            </div>
+            <div class="mini">
+              <div class="mini-k">Performance</div>
+              <div class="mini-v">partitioning, tuning, cost</div>
+            </div>
+            <div class="mini">
+              <div class="mini-k">Trust</div>
+              <div class="mini-v">DQ gates, drift detection</div>
+            </div>
+            <div class="mini">
+              <div class="mini-k">Interfaces</div>
+              <div class="mini-v">clean tables + APIs</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <div class="section-head">
+        <h2>Projects</h2>
+        <p class="hint">Interactive cards, hard metrics, and architecture diagrams</p>
+      </div>
+
+      <div class="toolbar">
+        <div class="search">
+          <span class="search-ico" aria-hidden="true">⌕</span>
+          <input id="projectSearch" type="search" placeholder="Search (Kafka, Databricks, XGBoost, FastAPI…)" aria-label="Search projects" />
+        </div>
+
+        <div class="filters" role="group" aria-label="Project filters">
+          <button class="chip-btn active" data-filter="all" type="button">All</button>
+          <button class="chip-btn" data-filter="data-platform" type="button">Data Platform</button>
+          <button class="chip-btn" data-filter="real-time" type="button">Real-Time</button>
+          <button class="chip-btn" data-filter="ml" type="button">ML Systems</button>
+          <button class="chip-btn" data-filter="work" type="button">Work</button>
+        </div>
+      </div>
+
+      <div id="projectGrid" class="cards">
+        <!-- 1) Social ROI -->
+        <article class="card reveal" data-tags="data-platform work databricks delta api azure" data-title="Enterprise Social ROI & Attribution Engine">
+          <header class="card-top">
+            <div class="card-title">
+              <h3>Enterprise Social ROI &amp; Attribution Engine</h3>
+              <div class="meta">Jan 2026 – Feb 2026 • Associated with QVC</div>
+            </div>
+            <div class="stack">
+              <span class="tag">Databricks</span>
+              <span class="tag">Delta Lake</span>
+              <span class="tag">PySpark</span>
+              <span class="tag">YouTube API</span>
+              <span class="tag">Key Vault</span>
+            </div>
+          </header>
+
+          <div class="kpis">
+            <div class="kpi"><span class="kpi-k">Serverless</span><span class="kpi-v">ELT</span></div>
+            <div class="kpi"><span class="kpi-k">Idempotent</span><span class="kpi-v">merge/upsert</span></div>
+            <div class="kpi"><span class="kpi-k">DQ gates</span><span class="kpi-v">pre-commit</span></div>
+          </div>
+
+          <p class="desc">
+            Architected and deployed a serverless, end-to-end ELT framework on Databricks to quantify the financial impact of social media marketing.
+            The system integrates real-time platform metrics with enterprise-scale clickstream data to enable granular ROI analysis for Influencer and Native content.
           </p>
 
-          <p>
-            Recent work spans cloud data warehouses and lakehouses (Snowflake, Databricks/Delta), orchestration (Airflow/Prefect),
-            and real-time pipelines (Kafka, feature stores/caching, API serving).
+          <ul class="bullets">
+            <li><strong>High-volume ingestion:</strong> built automated connectors for the YouTube Reporting &amp; Analytics APIs and merged with large-scale internal clickstream logs.</li>
+            <li><strong>Delta Lake architecture:</strong> robust PySpark pipelines with ACID transactions and idempotent upsert/merge logic for schema evolution + backfills.</li>
+            <li><strong>Data quality:</strong> modular DQ layer enforcing schema checks and null constraints prior to commit.</li>
+            <li><strong>Security + optimization:</strong> OAuth 2.0 via Azure Key Vault and serverless compute clusters to optimize costs.</li>
+          </ul>
+
+          <div class="card-actions">
+            <button class="btn primary small" type="button" data-arch="social" data-modal-title="Enterprise Social ROI & Attribution Engine — Architecture">Architecture</button>
+            <a class="btn small" href="projects/social_roi_attribution/" target="_blank" rel="noopener">Project page</a>
+            <a class="btn ghost small" href="https://github.com/sl237-lee" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </article>
+
+        <!-- 2) Neural Tensiometry -->
+        <article class="card reveal" data-tags="ml simulation cv deep-learning research" data-title="Neural Tensiometry: Real-Time Surface Tension Prediction">
+          <header class="card-top">
+            <div class="card-title">
+              <h3>Neural Tensiometry: Real-Time Surface Tension Prediction</h3>
+              <div class="meta">Jan 2026 – Feb 2026 • Research replication</div>
+            </div>
+            <div class="stack">
+              <span class="tag">Python</span>
+              <span class="tag">TensorFlow</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">SciPy</span>
+              <span class="tag">Physics sim</span>
+            </div>
+          </header>
+
+          <div class="kpis">
+            <div class="kpi"><span class="kpi-k">&lt;1s</span><span class="kpi-v">per image</span></div>
+            <div class="kpi"><span class="kpi-k">MAE</span><span class="kpi-v">0.119</span></div>
+            <div class="kpi"><span class="kpi-k">R²</span><span class="kpi-v">&gt; 0.99</span></div>
+          </div>
+
+          <p class="desc">
+            Built an end-to-end machine learning system that automatically measures surface tension from droplet images in under 1 second — 1000× faster than conventional methods.
           </p>
 
-          <p class="muted">
-            I care about measurable outcomes: latency, throughput, cost, and correctness under backfills, schema drift, and operational failures.
-          </p>
-        </div>
-      </section>
+          <ul class="bullets">
+            <li>Developed physics-based synthetic data generator using Young–Laplace equations.</li>
+            <li>Trained 5-layer deep neural network (~1M parameters) on 10,000+ droplet shapes.</li>
+            <li>Implemented complete computer vision pipeline for real-time image processing.</li>
+            <li>Replicated state-of-the-art results from published research (Kratz &amp; Kierfeld, 2020).</li>
+          </ul>
 
-      <!-- Skills -->
-      <section id="skills" class="section reveal">
-        <div class="panel">
-          <div class="section-title">
-            <h2>Skills</h2>
-            <div class="hint">Platforms + tooling</div>
+          <div class="card-actions">
+            <button class="btn primary small" type="button" data-arch="tensiometry" data-modal-title="Neural Tensiometry — Architecture">Architecture</button>
+            <a class="btn small" href="projects/neural_tensiometry/" target="_blank" rel="noopener">Project page</a>
+            <a class="btn ghost small" href="projects/neural_tensiometry/results.png" target="_blank" rel="noopener">Results</a>
+          </div>
+        </article>
+
+        <!-- 3) Fraud Detection -->
+        <article class="card reveal" data-tags="real-time ml kafka redis fastapi monitoring" data-title="Real-Time Fraud Detection System">
+          <header class="card-top">
+            <div class="card-title">
+              <h3>Real-Time Fraud Detection System</h3>
+              <div class="meta">Jan 2026 – Feb 2026 • Production ML pipeline</div>
+            </div>
+            <div class="stack">
+              <span class="tag">Kafka</span>
+              <span class="tag">Redis</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Docker</span>
+            </div>
+          </header>
+
+          <div class="kpis">
+            <div class="kpi"><span class="kpi-k">4ms</span><span class="kpi-v">avg inference</span></div>
+            <div class="kpi"><span class="kpi-k">200+ TPS</span><span class="kpi-v">throughput</span></div>
+            <div class="kpi"><span class="kpi-k">AUC</span><span class="kpi-v">0.94</span></div>
           </div>
 
-          <div class="chips">
-            <span class="chip">Azure (ADF, Synapse, Databricks, Key Vault)</span>
-            <span class="chip">AWS (S3, Redshift)</span>
-            <span class="chip">Databricks • Delta Lake</span>
-            <span class="chip">Snowflake</span>
-            <span class="chip">Airflow • Prefect</span>
-            <span class="chip">dbt</span>
-            <span class="chip">Kafka</span>
-            <span class="chip">Python • SQL</span>
-            <span class="chip">PySpark</span>
-            <span class="chip">Docker</span>
-            <span class="chip">FastAPI</span>
-            <span class="chip">MLflow</span>
-            <span class="chip">Data Quality (schema + constraints)</span>
-            <span class="chip">Observability • Monitoring</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- Experience -->
-      <section id="experience" class="section reveal">
-        <div class="panel">
-          <div class="section-title">
-            <h2>Experience</h2>
-            <div class="hint">Highlights</div>
-          </div>
-
-          <div class="grid">
-            <article class="exp">
-              <h3>AI Data Engineer — QVC Group</h3>
-              <div class="meta">2025–Present</div>
-              <ul class="clean">
-                <li>Built production pipelines and governed datasets for personalization and marketing analytics.</li>
-                <li>Delivered cloud-native orchestration and scalable distributed compute workflows.</li>
-                <li>Emphasized reliability, schema discipline, and operational visibility.</li>
-              </ul>
-            </article>
-
-            <article class="exp">
-              <h3>Data Engineer — Axtria (DataMAx)</h3>
-              <div class="meta">Jul 2023–Jan 2025</div>
-              <ul class="clean">
-                <li>Designed data warehouse models and ETL/ELT pipelines across pharma domains.</li>
-                <li>Worked across Databricks, ADF, Snowflake, and Redshift for performance + cost.</li>
-                <li>Built validation and monitoring frameworks to improve reliability.</li>
-              </ul>
-            </article>
-
-            <article class="exp">
-              <h3>Data Engineer — Humanf</h3>
-              <div class="meta">May 2022–Mar 2023</div>
-              <ul class="clean">
-                <li>Built multimodal dataset pipelines for camera + LiDAR training and inference workflows.</li>
-                <li>Supported model packaging, evaluation, and reliability gates for ML iteration.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects" class="section reveal">
-        <div class="panel">
-          <div class="section-title">
-            <h2>Projects</h2>
-            <div class="hint">Selected builds across data platforms + ML systems</div>
-          </div>
-
-          <!-- Enterprise Social ROI & Attribution Engine -->
-          <div class="project-card">
-            <h3>Enterprise Social ROI &amp; Attribution Engine</h3>
-            <div class="project-meta">Databricks • Delta Lake • PySpark • YouTube APIs • Key Vault • ELT</div>
-            <div class="chips" style="margin-bottom:10px">
-              <span class="kpi">Serverless ELT</span>
-              <span class="kpi">Schema evolution + backfills</span>
-              <span class="kpi">DQ gates pre-commit</span>
-            </div>
-            <p>
-              Architected a serverless, end-to-end ELT framework on Databricks to quantify the financial impact of social media marketing.
-              The system combines platform-level metrics with enterprise clickstream signals to enable ROI attribution for influencer and native content.
-            </p>
-            <ul class="clean">
-              <li>Built automated connectors for YouTube Reporting &amp; Analytics APIs and integrated them with large-scale internal engagement logs.</li>
-              <li>Implemented Delta Lake pipelines with idempotent merge/upsert patterns to support historical backfills without downtime.</li>
-              <li>Added a modular DQ layer enforcing schema checks and null constraints before commits to protect downstream reporting.</li>
-              <li>Integrated OAuth 2.0 secrets management via Azure Key Vault and optimized compute costs using serverless clusters.</li>
-            </ul>
-            <div class="project-actions">
-              <a class="btn primary" href="projects/social_roi_attribution/" target="_blank" rel="noopener">Project Page</a>
-              <a class="btn" href="projects/social_roi_attribution/architecture.html" target="_blank" rel="noopener">Architecture</a>
-              <a class="btn" href="projects/social_roi_attribution/readme.html" target="_blank" rel="noopener">Write-up</a>
-            </div>
-          </div>
-
-          <!-- Neural Tensiometry -->
-          <div class="project-card">
-            <h3>Neural Tensiometry: Real-Time Surface Tension Prediction</h3>
-            <div class="project-meta">Python • TensorFlow/Keras • OpenCV • NumPy/SciPy • Physics simulation</div>
-            <div class="chips" style="margin-bottom:10px">
-              <span class="kpi">&lt;1s per image</span>
-              <span class="kpi">MAE 0.119</span>
-              <span class="kpi">R² &gt; 0.99</span>
-            </div>
-            <p>
-              Built an end-to-end ML system to infer surface tension directly from droplet images in near real-time, replacing
-              slow manual measurement workflows with a fully automated pipeline.
-            </p>
-            <ul class="clean">
-              <li>Generated synthetic training data using Young–Laplace physics to produce 10,000+ realistic droplet shapes.</li>
-              <li>Trained a 5-layer neural network (~1M parameters) and reproduced state-of-the-art performance reported in literature.</li>
-              <li>Implemented a complete CV pipeline (segmentation, contour extraction, normalization) for robust inference.</li>
-              <li>Packaged the workflow for high-throughput processing (1000+ images/hour) with consistent outputs and evaluation plots.</li>
-            </ul>
-            <div class="project-actions">
-              <a class="btn primary" href="projects/neural_tensiometry/" target="_blank" rel="noopener">Project Page</a>
-              <a class="btn" href="projects/neural_tensiometry/results.html" target="_blank" rel="noopener">Results</a>
-              <a class="btn" href="projects/neural_tensiometry/repro.html" target="_blank" rel="noopener">Repro Steps</a>
-            </div>
-          </div>
-
-          <!-- Real-Time Fraud Detection -->
-          <div class="project-card">
-            <h3>Real-Time Fraud Detection System</h3>
-            <div class="project-meta">Kafka • Redis • FastAPI • XGBoost • PostgreSQL • Streamlit • Docker • MLflow</div>
-            <div class="chips" style="margin-bottom:10px">
-              <span class="kpi">4ms avg inference</span>
-              <span class="kpi">200+ TPS</span>
-              <span class="kpi">AUC 0.94</span>
-            </div>
-            <p>
-              Designed and deployed a production-grade fraud detection system optimized for low latency and high throughput, with a
-              streaming feature pipeline and monitoring dashboard for operational visibility.
-            </p>
-            <ul class="clean">
-              <li>Streaming ingestion via Kafka and sub-millisecond feature caching in Redis to keep end-to-end inference consistently fast.</li>
-              <li>Real-time feature engineering for velocity, geolocation anomalies, and temporal patterns without sacrificing performance.</li>
-              <li>Handled severe class imbalance using SMOTE + cost-sensitive learning and optimized for precision-recall (not just accuracy).</li>
-              <li>Shipped monitoring via Streamlit for latency, throughput, fraud rates, and drift signals; containerized with Docker for reproducibility.</li>
-            </ul>
-            <div class="project-actions">
-              <a class="btn primary" href="projects/fraud_detection_system/" target="_blank" rel="noopener">View Project</a>
-              <a class="btn" href="projects/fraud_detection_system/QUICKSTART.md" target="_blank" rel="noopener">Quickstart</a>
-              <a class="btn" href="projects/fraud_detection_system/architecture.html" target="_blank" rel="noopener">Architecture</a>
-            </div>
-          </div>
-
-          <!-- Usage-Based SaaS CLV & Churn -->
-          <div class="project-card">
-            <h3>Usage-Based SaaS CLV &amp; Churn Prediction Platform</h3>
-            <div class="project-meta">Python • PostgreSQL • SQLAlchemy • XGBoost • Docker • Feature engineering</div>
-            <div class="chips" style="margin-bottom:10px">
-              <span class="kpi">400K+ events</span>
-              <span class="kpi">2,000 accounts</span>
-              <span class="kpi">ROC-AUC ~0.70</span>
-            </div>
-            <p>
-              Built a complete ML platform that simulates a usage-based SaaS product, from raw product events to a warehouse,
-              feature store-style aggregates, label generation, and churn + revenue modeling with leakage controls.
-            </p>
-            <ul class="clean">
-              <li>Implemented an event generator producing realistic activity (API usage, billing, tickets, cancellations) at scale.</li>
-              <li>Designed a PostgreSQL warehouse schema and ingestion pipelines in Python to mirror production ETL patterns.</li>
-              <li>Engineered behavioral features (errors, latency, payment failures, support intensity, rolling 7/30-day windows).</li>
-              <li>Trained XGBoost under heavy imbalance (~1.18% churn) and measured ROC-AUC and PR-AUC against baseline performance.</li>
-            </ul>
-            <div class="project-actions">
-              <a class="btn primary" href="projects/saas_clv_churn_platform/" target="_blank" rel="noopener">Project Page</a>
-              <a class="btn" href="projects/saas_clv_churn_platform/pipeline.html" target="_blank" rel="noopener">Pipeline</a>
-              <a class="btn" href="projects/saas_clv_churn_platform/dashboard.html" target="_blank" rel="noopener">Dashboard</a>
-            </div>
-          </div>
-
-          <!-- Axtria DataMAx -->
-          <div class="project-card">
-            <h3>Axtria DataMAx (Work Summary)</h3>
-            <div class="project-meta">Azure Data Factory • Databricks • Snowflake • Redshift • Data modeling • Data quality</div>
-            <div class="chips" style="margin-bottom:10px">
-              <span class="kpi">13+ domains</span>
-              <span class="kpi">DWBI platform</span>
-              <span class="kpi">DQ + monitoring</span>
-            </div>
-            <p>
-              Worked on DataMAx, an enterprise cloud data warehouse and integration platform supporting ingestion, profiling, cataloging,
-              data quality, provisioning, and governance for large-scale DWBI use cases in pharmaceuticals.
-            </p>
-            <ul class="clean">
-              <li>Designed warehouse models across multiple pharma domains with scalability, accuracy, and compliance constraints.</li>
-              <li>Built and optimized ETL/ELT pipelines using ADF, Databricks, and Python for ingestion and transformations.</li>
-              <li>Worked across Snowflake and Redshift for schema design, query performance tuning, and cost-efficiency decisions.</li>
-              <li>Implemented validation and monitoring frameworks to improve reliability and reduce downstream reporting issues.</li>
-            </ul>
-            <div class="project-actions">
-              <a class="btn primary" href="projects/axtria_datamax/" target="_blank" rel="noopener">Work Summary</a>
-              <a class="btn" href="projects/axtria_datamax/role_scope.html" target="_blank" rel="noopener">Scope</a>
-            </div>
-          </div>
-
-          <!-- Humanf Autonomous Perception Data Platform -->
-          <div class="project-card">
-            <h3>Autonomous Perception Data Platform &amp; Model Ops (Humanf)</h3>
-            <div class="project-meta">Python • C++ • Dataset versioning • Training orchestration • Experiment tracking • Monitoring</div>
-            <div class="chips" style="margin-bottom:10px">
-              <span class="kpi">Camera + LiDAR sync</span>
-              <span class="kpi">Reproducible datasets</span>
-              <span class="kpi">Reliability gates</span>
-            </div>
-            <p>
-              Built the end-to-end data path for a perception stack: synchronized multimodal sensor streams, generated training datasets,
-              and supported model packaging for low-latency inference with quality checks and safe fallbacks.
-            </p>
-            <ul class="clean">
-              <li>Ingested and aligned camera/LiDAR streams with timestamp synchronization for both training and real-time inference.</li>
-              <li>Created reproducible dataset pipelines including feature extraction, metadata/versioning, and train/val/test splits.</li>
-              <li>Packaged models with health checks, latency SLAs, and fallback logic to keep inference reliable under edge cases.</li>
-              <li>Added validation gates and drift monitoring so only quality-checked artifacts advanced through the pipeline.</li>
-            </ul>
-            <div class="project-actions">
-              <a class="btn primary" href="projects/autonomous_perception_platform/" target="_blank" rel="noopener">Work Summary</a>
-              <a class="btn" href="projects/autonomous_perception_platform/pipeline.html" target="_blank" rel="noopener">Pipeline</a>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact" class="section reveal">
-        <div class="panel">
-          <div class="section-title">
-            <h2>Contact</h2>
-            <div class="hint">Open to roles in data platform / data engineering</div>
-          </div>
-
-          <p>
-            Email:
-            <a id="emailLink" class="mono" href="mailto:srlee02099@gmail.com">srlee02099@gmail.com</a>
-            <span class="muted">•</span>
-            <a href="tel:18626821497">862-682-1497</a>
+          <p class="desc">
+            Designed and deployed a production-grade fraud detection system achieving ~4ms average inference latency while maintaining 95%+ detection accuracy across 200+ transactions per second.
           </p>
 
-          <div class="hero-cta" style="margin-top:10px">
-            <a class="btn primary" href="assets/resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
-            <a class="btn" href="https://github.com/sl237-lee" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn" href="https://www.linkedin.com/in/seungryul-andrew-lee-060b41255/" target="_blank" rel="noopener">LinkedIn</a>
-            <button id="toTopBtn" class="btn ghost" type="button">Back to top</button>
+          <ul class="bullets">
+            <li>Architected streaming ML pipeline using Kafka for ingestion and Redis for sub-millisecond feature caching.</li>
+            <li>Implemented real-time features capturing transaction velocity, geolocation anomalies, and temporal patterns.</li>
+            <li>Handled imbalance using SMOTE + cost-sensitive learning; optimized precision-recall over raw accuracy.</li>
+            <li>Built monitoring with Streamlit dashboard and containerized with Docker for reproducible deployment.</li>
+          </ul>
+
+          <div class="card-actions">
+            <button class="btn primary small" type="button" data-arch="fraud" data-modal-title="Fraud Detection — Architecture">Architecture</button>
+            <a class="btn small" href="projects/fraud_detection_system/" target="_blank" rel="noopener">Project page</a>
+            <a class="btn ghost small" href="projects/fraud_detection_system/architecture.png" target="_blank" rel="noopener">Diagram</a>
+          </div>
+        </article>
+
+        <!-- 4) SaaS CLV/Churn -->
+        <article class="card reveal" data-tags="data-platform ml xgboost postgres docker feature-engineering" data-title="Usage-Based SaaS CLV & Churn Prediction Platform">
+          <header class="card-top">
+            <div class="card-title">
+              <h3>Usage-Based SaaS CLV &amp; Churn Prediction Platform</h3>
+              <div class="meta">Dec 2025 – Feb 2026 • End-to-end ML platform</div>
+            </div>
+            <div class="stack">
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">SQLAlchemy</span>
+              <span class="tag">XGBoost</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Feature eng</span>
+            </div>
+          </header>
+
+          <div class="kpis">
+            <div class="kpi"><span class="kpi-k">400K+</span><span class="kpi-v">events</span></div>
+            <div class="kpi"><span class="kpi-k">300K+</span><span class="kpi-v">observations</span></div>
+            <div class="kpi"><span class="kpi-k">Leakage-safe</span><span class="kpi-v">labels</span></div>
+          </div>
+
+          <p class="desc">
+            Designed and built an end-to-end machine learning platform to predict customer churn and forecast 90-day revenue for a simulated usage-based SaaS product.
+            The system mirrors production data pipelines from raw product events through warehousing, feature engineering, label generation, and model training.
+          </p>
+
+          <ul class="bullets">
+            <li>Event generator producing 400K+ events across 2,000 accounts, ingested into a Dockerized PostgreSQL warehouse.</li>
+            <li>Behavioral features across usage intensity, errors, latency, payment failures, support activity, and rolling windows.</li>
+            <li>Forward-looking labels built to avoid leakage by using only information available prior to prediction time.</li>
+            <li>XGBoost under heavy imbalance (~1.18% churn) with ROC-AUC ~0.70 and PR-AUC lift over baseline.</li>
+          </ul>
+
+          <div class="card-actions">
+            <button class="btn primary small" type="button" data-arch="saas" data-modal-title="SaaS CLV & Churn Platform — Architecture">Architecture</button>
+            <a class="btn small" href="projects/saas_clv_churn_platform/" target="_blank" rel="noopener">Project page</a>
+            <a class="btn ghost small" href="projects/saas_clv_churn_platform/dashboard.png" target="_blank" rel="noopener">Dashboard</a>
+          </div>
+        </article>
+
+        <!-- 5) Axtria DataMAx -->
+        <article class="card reveal" data-tags="work data-platform azure snowflake redshift spark" data-title="Axtria DataMAx">
+          <header class="card-top">
+            <div class="card-title">
+              <h3>Axtria DataMAx</h3>
+              <div class="meta">Jul 2023 – Jan 2025 • Axtria</div>
+            </div>
+            <div class="stack">
+              <span class="tag">ADF</span>
+              <span class="tag">Databricks</span>
+              <span class="tag">Snowflake</span>
+              <span class="tag">Redshift</span>
+              <span class="tag">DQ</span>
+            </div>
+          </header>
+
+          <div class="kpis">
+            <div class="kpi"><span class="kpi-k">13+</span><span class="kpi-v">domains</span></div>
+            <div class="kpi"><span class="kpi-k">Spark</span><span class="kpi-v">tuning</span></div>
+            <div class="kpi"><span class="kpi-k">APIs</span><span class="kpi-v">FastAPI</span></div>
+          </div>
+
+          <p class="desc">
+            At Axtria, I worked as a Data Engineer on DataMAx, an end-to-end cloud data warehouse and integration tool built to support ingestion, profiling, cataloging, data quality, BRMS, provisioning, and governance for large-scale DWBI needs.
+          </p>
+
+          <ul class="bullets">
+            <li>Designed warehouse models across pharmaceutical domains to ensure scalability and accuracy.</li>
+            <li>Built and optimized pipelines using Azure Data Factory, Databricks, and Python.</li>
+            <li>Worked across Snowflake and Redshift for schema design, performance tuning, and cost efficiency.</li>
+            <li>Developed validation/monitoring frameworks and production-grade data services via FastAPI.</li>
+          </ul>
+
+          <div class="card-actions">
+            <button class="btn primary small" type="button" data-arch="datamax" data-modal-title="Axtria DataMAx — System View">System view</button>
+            <a class="btn small" href="projects/axtria_datamax/" target="_blank" rel="noopener">Write-up</a>
+          </div>
+        </article>
+
+        <!-- 6) Humanf Perception Platform -->
+        <article class="card reveal" data-tags="work real-time ml data-platform perception" data-title="Autonomous Perception Data Platform & Model Ops">
+          <header class="card-top">
+            <div class="card-title">
+              <h3>Autonomous Perception Data Platform &amp; Model Ops</h3>
+              <div class="meta">May 2022 – Mar 2023 • Humanf</div>
+            </div>
+            <div class="stack">
+              <span class="tag">Python</span>
+              <span class="tag">C++</span>
+              <span class="tag">Dataset ops</span>
+              <span class="tag">Training</span>
+              <span class="tag">Monitoring</span>
+            </div>
+          </header>
+
+          <div class="kpis">
+            <div class="kpi"><span class="kpi-k">Camera+LiDAR</span><span class="kpi-v">sync</span></div>
+            <div class="kpi"><span class="kpi-k">Repro</span><span class="kpi-v">pipelines</span></div>
+            <div class="kpi"><span class="kpi-k">SLA</span><span class="kpi-v">fallbacks</span></div>
+          </div>
+
+          <p class="desc">
+            At Humanf, I engineered the end-to-end data path for our perception stack. I ingested and synchronized camera and LiDAR streams, generated training datasets, and packaged models for real-time inference with quality checks and safe fallbacks.
+          </p>
+
+          <ul class="bullets">
+            <li>Built ingestion services for multimodal sensor data and aligned timestamps for training and inference.</li>
+            <li>Created reproducible dataset pipelines with feature extraction, metadata/versioning, and standard splits.</li>
+            <li>Packaged models for low-latency inference with health checks, latency SLAs, and fallback logic.</li>
+            <li>Established validation gates and drift monitoring so only quality-checked artifacts advanced.</li>
+          </ul>
+
+          <div class="card-actions">
+            <button class="btn primary small" type="button" data-arch="perception" data-modal-title="Perception Data Platform — Architecture">Architecture</button>
+            <a class="btn small" href="projects/autonomous_perception_platform/" target="_blank" rel="noopener">Write-up</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GITHUB -->
+    <section id="github" class="section">
+      <div class="section-head">
+        <h2>GitHub</h2>
+        <p class="hint">Latest repos and activity (pulled live)</p>
+      </div>
+
+      <div class="github-panel reveal">
+        <div class="github-head">
+          <div class="github-user">
+            <div class="gh-avatar" aria-hidden="true"></div>
+            <div>
+              <div class="github-name">sl237-lee</div>
+              <div class="github-sub">Recent repositories • last push time • language</div>
+            </div>
+          </div>
+
+          <div class="github-actions">
+            <button id="refreshGithubBtn" class="btn small" type="button">Refresh</button>
+            <a class="btn ghost small" href="https://github.com/sl237-lee" target="_blank" rel="noopener">Open profile</a>
           </div>
         </div>
-      </section>
+
+        <div id="githubStatus" class="github-status">Loading GitHub…</div>
+        <div id="githubGrid" class="github-grid" aria-live="polite"></div>
+
+        <div class="github-foot">
+          <span class="muted">Tip:</span> If GitHub rate-limits, the page uses cached results.
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="section">
+      <div class="section-head">
+        <h2>Experience</h2>
+        <p class="hint">Production delivery across data platforms, APIs, and distributed systems</p>
+      </div>
+
+      <div class="timeline">
+        <div class="t-item reveal">
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-body">
+            <div class="t-top">
+              <div class="t-role">AI Data Engineer</div>
+              <div class="t-meta">QVC Group • 2025 – Present • New York, NY</div>
+            </div>
+            <ul class="t-bullets">
+              <li>Architected real-time personalization pipelines using Azure Data Factory, Databricks (PySpark), and Synapse.</li>
+              <li>Designed lakehouse data platform; optimized Spark partitioning and storage layouts to reduce execution cost.</li>
+              <li>Built production FastAPI services exposing curated metrics and model outputs.</li>
+              <li>Implemented statistical validation and monitoring to detect drift and schema inconsistencies at scale.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="t-item reveal">
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-body">
+            <div class="t-top">
+              <div class="t-role">Full Stack Engineer</div>
+              <div class="t-meta">Axtria Inc. • 2024 – 2025</div>
+            </div>
+            <ul class="t-bullets">
+              <li>Developed and versioned RESTful data services using FastAPI and Azure App Service.</li>
+              <li>Optimized large-scale Spark workloads via partitioning analysis, indexing improvements, and query tuning.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="t-item reveal">
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-body">
+            <div class="t-top">
+              <div class="t-role">Data Engineer</div>
+              <div class="t-meta">Uber • 2023 – 2024</div>
+            </div>
+            <ul class="t-bullets">
+              <li>Architected distributed data pipelines powering Marketplace and Payments decision systems.</li>
+              <li>Built JVM-based (Scala) microservices serving consistent, high-quality features with strict SLAs.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="t-item reveal">
+          <div class="t-dot" aria-hidden="true"></div>
+          <div class="t-body">
+            <div class="t-top">
+              <div class="t-role">AI Data Engineer / Research Engineer</div>
+              <div class="t-meta">Humanf • 2022 – 2023</div>
+            </div>
+            <ul class="t-bullets">
+              <li>Built multimodal ingestion and synchronized camera/LiDAR streams for training and real-time inference.</li>
+              <li>Created reproducible dataset pipelines with versioning, validation gates, and monitoring for drift/schema changes.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <div class="section-head">
+        <h2>Skills</h2>
+        <p class="hint">Strength areas aligned to data infrastructure roles</p>
+      </div>
+
+      <div class="skill-grid reveal">
+        <div class="skill-card">
+          <div class="skill-k">Distributed Data Architecture</div>
+          <div class="skill-v">Lakehouse (Delta Lake), distributed modeling, high-volume ingestion, real-time &amp; batch systems, API-driven data products</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-k">Cloud &amp; Compute Infrastructure</div>
+          <div class="skill-v">Azure (ADF, Synapse, Fabric, ADLS, Azure ML), AWS (S3, Redshift), Databricks (PySpark), performance tuning, partitioning strategy</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-k">Systems &amp; Optimization</div>
+          <div class="skill-v">Algorithm design, systems modeling, cost-performance tradeoffs, statistical validation frameworks</div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-k">Engineering &amp; DevOps</div>
+          <div class="skill-v">FastAPI, REST APIs, CI/CD, monitoring &amp; observability, workflow orchestration (Airflow), automated testing &amp; validation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="section">
+      <div class="section-head">
+        <h2>Certifications</h2>
+        <p class="hint">Cloud + data engineering</p>
+      </div>
+
+      <div class="cert-grid reveal">
+        <div class="cert">Data Warehousing with Databricks</div>
+        <div class="cert">Microsoft Fabric Analytics Engineer Associate (DP-600)</div>
+        <div class="cert">Azure AI Engineer Associate (AI-102)</div>
+        <div class="cert">Advanced Machine Learning Operations (Databricks)</div>
+        <div class="cert">Databricks Fundamentals (Academy Accreditation)</div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="section">
+      <div class="section-head">
+        <h2>Education</h2>
+        <p class="hint">New Jersey Institute of Technology</p>
+      </div>
+
+      <div class="edu-grid reveal">
+        <div class="edu-card">
+          <div class="edu-k">B.S. Applied Mathematics</div>
+          <div class="edu-v">New Jersey Institute of Technology</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-k">B.S. Computer Engineering</div>
+          <div class="edu-v">New Jersey Institute of Technology</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="hint">Open to data platform / infrastructure roles</p>
+      </div>
+
+      <div class="contact-card reveal">
+        <div class="contact-row">
+          <span class="contact-label">Location</span>
+          <span class="contact-value">New York, NY</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Email</span>
+          <a class="contact-value mono" href="mailto:srlee02099@gmail.com">srlee02099@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Phone</span>
+          <a class="contact-value" href="tel:18626821497">862-682-1497</a>
+        </div>
+
+        <div class="contact-actions">
+          <a class="btn primary" href="assets/resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+          <a class="btn" href="https://github.com/sl237-lee" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/seungryul-andrew-lee-060b41255/" target="_blank" rel="noopener">LinkedIn</a>
+          <button id="toTopBtn" class="btn ghost" type="button">Back to top</button>
+        </div>
+      </div>
 
       <p class="footer">© 2026 Seungryul Andrew Lee. Built with plain HTML/CSS/JS. Deployed on GitHub Pages.</p>
+    </section>
+  </main>
+
+  <!-- Architecture Modal -->
+  <div id="archModal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Architecture diagram">
+    <div class="modal-backdrop" data-close="true"></div>
+    <div class="modal-card" role="document">
+      <div class="modal-head">
+        <div id="archModalTitle" class="modal-title">Architecture</div>
+        <button class="btn icon" type="button" id="archModalClose" aria-label="Close">
+          <span aria-hidden="true">✕</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div id="archDiagram" class="diagram" aria-label="Architecture diagram content"></div>
+        <div class="modal-note">
+          <span class="muted">Tip:</span> Use this diagram in interviews to explain ingestion → storage → transforms → serving.
+        </div>
+      </div>
     </div>
   </div>
 
-  <button id="toast" class="toast" role="status" aria-live="polite">Copied</button>
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite">Copied</div>
 
   <script src="js/main.js"></script>
 </body>
