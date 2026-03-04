@@ -856,8 +856,352 @@ html[data-theme="auto"] .tag{
 }
 
 /* -----------------------------
-   11) Modal (Architecture diagrams)
+   10.5) GitHub panel + repos
 -------------------------------- */
+.github-panel{
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--brd2);
+  background: rgba(255,255,255,0.03);
+  box-shadow: var(--shadow2);
+  padding: var(--pad-lg);
+}
+.github-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.github-user{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 240px;
+}
+.gh-avatar{
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid var(--brd2);
+  background: radial-gradient(circle at 30% 30%, rgba(117,199,255,0.55), rgba(138,125,255,0.35));
+  box-shadow: 0 0 0 6px rgba(117,199,255,0.08);
+}
+.github-name{
+  font-weight: 950;
+  letter-spacing: -0.1px;
+}
+.github-sub{
+  margin-top: 2px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 12px;
+}
+.github-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.github-status{
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 12px;
+  margin: 10px 0 12px;
+}
+
+.github-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 900px){
+  .github-grid{ grid-template-columns: 1fr; }
+}
+
+/* GitHub repo meta helpers */
+.repo-meta{
+  align-items: center;
+}
+.repo-lang{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  display: inline-block;
+  box-shadow: 0 0 0 4px rgba(117,199,255,0.10);
+}
+
+/* JS typically injects .repo cards */
+.repo{
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--brd2);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  padding: 12px 12px;
+}
+.repo:hover{
+  border-color: var(--brd);
+}
+.repo-name{
+  font-weight: 950;
+  letter-spacing: -0.1px;
+}
+.repo-desc{
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+.repo-meta{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--muted);
+  font-weight: 800;
+  font-size: 12px;
+}
+.github-foot{
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* -----------------------------
+   10.6) Certifications
+-------------------------------- */
+.cert-grid{
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--brd2);
+  background: rgba(255,255,255,0.03);
+  box-shadow: var(--shadow2);
+  padding: var(--pad-lg);
+  display: grid;
+  gap: 10px;
+}
+.cert{
+  border-radius: 14px;
+  border: 1px solid var(--brd2);
+  background: rgba(0,0,0,0.12);
+  padding: 11px 12px;
+  font-weight: 850;
+  color: var(--text);
+}
+html[data-theme="light"] .cert,
+html[data-theme="auto"] .cert{
+  background: rgba(0,0,0,0.04);
+}
+
+/* -----------------------------
+   10.7) Education
+-------------------------------- */
+.edu-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 900px){
+  .edu-grid{ grid-template-columns: 1fr; }
+}
+.edu-card{
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--brd2);
+  background: rgba(255,255,255,0.03);
+  box-shadow: var(--shadow2);
+  padding: var(--pad-lg);
+}
+.edu-k{
+  font-weight: 950;
+  letter-spacing: -0.1px;
+}
+.edu-v{
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* -----------------------------
+   10.8) Contact
+-------------------------------- */
+.contact-card{
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--brd2);
+  background: rgba(255,255,255,0.03);
+  box-shadow: var(--shadow2);
+  padding: var(--pad-lg);
+}
+.contact-row{
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--brd2);
+}
+.contact-row:last-of-type{
+  border-bottom: none;
+}
+.contact-label{
+  color: var(--muted);
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: 0.2px;
+}
+.contact-value{
+  font-weight: 850;
+}
+.contact-actions{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+/* Modal note in your HTML */
+#archModal .modal-note{
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* -----------------------------
+   11) Modal (Architecture diagrams)
+   FIX: your index.html uses #archModal.modal + .modal-backdrop + .modal-card
+   This patch makes the modal hidden by default and only visible when .open is added.
+-------------------------------- */
+
+/* If the modal is implemented as: <div id="archModal" class="modal" aria-hidden="true"> ... */
+#archModal.modal{
+  position: fixed;
+  inset: 0;
+  display: none;                 /* ✅ hide by default */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  padding: 22px;
+}
+#archModal.modal.open{
+  display: flex;                 /* ✅ show when open */
+}
+
+/* Backdrop */
+#archModal .modal-backdrop{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.62);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Card */
+#archModal .modal-card{
+  position: relative;
+  width: min(980px, 100%);
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--brd2);
+  background: var(--panelSolid);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* Header */
+#archModal .modal-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--brd2);
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+}
+#archModal .modal-title{
+  font-weight: 950;
+  letter-spacing: -0.1px;
+  font-size: 14px;
+}
+
+/* Close button (supports your existing id) */
+#archModal #archModalClose,
+#archModal .modal-close{
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  border: 1px solid var(--brd2);
+  background: rgba(255,255,255,0.03);
+  cursor: pointer;
+  color: var(--text);
+  font-weight: 900;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+#archModal #archModalClose:hover,
+#archModal .modal-close:hover{
+  transform: translateY(-1px);
+  border-color: var(--brd);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Body */
+#archModal .modal-body{
+  padding: 16px;
+}
+
+/* Diagram container */
+#archModal .diagram{
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--brd2);
+  background: rgba(0,0,0,0.18);
+  padding: 14px;
+  overflow: auto;
+}
+html[data-theme="light"] #archModal .diagram,
+html[data-theme="auto"] #archModal .diagram{
+  background: rgba(0,0,0,0.05);
+}
+
+/* Tip / helper text inside modal */
+#archModal .tip,
+#archModal .modal-tip{
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* Optional diagram primitives (if your JS injects them) */
+#archModal .diagram-grid{
+  display: grid;
+  gap: 10px;
+}
+#archModal .diagram-row{
+  display: grid;
+  grid-template-columns: 1fr 28px 1fr;
+  align-items: center;
+  gap: 10px;
+}
+#archModal .d-box{
+  border-radius: 14px;
+  border: 1px solid var(--brd2);
+  background: rgba(255,255,255,0.03);
+  padding: 11px 12px;
+  font-weight: 900;
+  font-size: 13px;
+  white-space: nowrap;
+}
+#archModal .d-arrow{
+  text-align: center;
+  color: rgba(117,199,255,0.75);
+  font-weight: 900;
+}
+
+/* Backward-compat:
+   If any older markup uses .modal-overlay / .modal (inside), keep it working too. */
 .modal-overlay{
   position: fixed;
   inset: 0;
@@ -871,86 +1215,13 @@ html[data-theme="auto"] .tag{
   padding: 22px;
 }
 .modal-overlay.open{ display: flex; }
-
-.modal{
+.modal-overlay .modal{
   width: min(980px, 100%);
   border-radius: var(--radius-xl);
   border: 1px solid var(--brd2);
   background: var(--panelSolid);
   box-shadow: var(--shadow);
   overflow: hidden;
-}
-
-.modal-head{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--brd2);
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-}
-.modal-title{
-  font-weight: 950;
-  letter-spacing: -0.1px;
-  font-size: 14px;
-}
-.modal-close{
-  width: 38px;
-  height: 38px;
-  border-radius: 12px;
-  border: 1px solid var(--brd2);
-  background: rgba(255,255,255,0.03);
-  cursor: pointer;
-  color: var(--text);
-  font-weight: 900;
-  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
-}
-.modal-close:hover{
-  transform: translateY(-1px);
-  border-color: var(--brd);
-  background: rgba(255,255,255,0.05);
-}
-
-.modal-body{
-  padding: 16px;
-}
-.diagram{
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--brd2);
-  background: rgba(0,0,0,0.18);
-  padding: 14px;
-  overflow: auto;
-}
-html[data-theme="light"] .diagram,
-html[data-theme="auto"] .diagram{
-  background: rgba(0,0,0,0.05);
-}
-
-/* Optional diagram primitives (if your JS injects them) */
-.diagram-grid{
-  display: grid;
-  gap: 10px;
-}
-.diagram-row{
-  display: grid;
-  grid-template-columns: 1fr 28px 1fr;
-  align-items: center;
-  gap: 10px;
-}
-.d-box{
-  border-radius: 14px;
-  border: 1px solid var(--brd2);
-  background: rgba(255,255,255,0.03);
-  padding: 11px 12px;
-  font-weight: 900;
-  font-size: 13px;
-  white-space: nowrap;
-}
-.d-arrow{
-  text-align: center;
-  color: rgba(117,199,255,0.75);
-  font-weight: 900;
 }
 
 /* -----------------------------
