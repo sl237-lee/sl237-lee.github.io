@@ -21,3 +21,5 @@ data/processed/
 
 # MLflow
 mlruns/
+data/training_dataset.parquet
+models/*.joblib
