@@ -570,6 +570,19 @@ html[data-theme="auto"] .node{
   gap: 14px;
 }
 
+.hero-mini-grid{
+  margin-top: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 980px){
+  .hero-mini-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 560px){
+  .hero-mini-grid{ grid-template-columns: 1fr; }
+}
+
 .hero-profile-card{
   position: relative;
   display: grid;
