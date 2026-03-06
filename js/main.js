@@ -605,4 +605,25 @@
   refreshGithubBtn?.addEventListener("click", () => fetchGithub(true));
   fetchGithub(false);
 
+    // ---------------------------
+  // Hero profile card tilt
+  // ---------------------------
+  const heroProfileCard = $("#heroProfileCard");
+
+  if (heroProfileCard && window.matchMedia("(prefers-reduced-motion: no-preference)").matches) {
+    heroProfileCard.addEventListener("mousemove", (e) => {
+      const rect = heroProfileCard.getBoundingClientRect();
+      const px = (e.clientX - rect.left) / rect.width;
+      const py = (e.clientY - rect.top) / rect.height;
+
+      const rx = (0.5 - py) * 8;
+      const ry = (px - 0.5) * 10;
+
+      heroProfileCard.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+    });
+
+    heroProfileCard.addEventListener("mouseleave", () => {
+      heroProfileCard.style.transform = "perspective(1200px) rotateX(0deg) rotateY(0deg) translateY(0px)";
+    });
+  }
 })();

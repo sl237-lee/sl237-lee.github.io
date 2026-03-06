@@ -564,6 +564,226 @@ html[data-theme="auto"] .node{
   font-weight: 600;
 }
 
+/* Profile card in hero */
+.hero-right{
+  display: grid;
+  gap: 14px;
+}
+
+.hero-profile-card{
+  position: relative;
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 18px;
+  align-items: center;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--brd2);
+  background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
+  box-shadow: var(--shadow);
+  padding: 18px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+}
+
+.hero-profile-card:hover{
+  border-color: var(--brd);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.58);
+}
+
+.hero-profile-card::before{
+  content: "";
+  position: absolute;
+  inset: -35% -25%;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(117,199,255,0.18), transparent 34%),
+    radial-gradient(circle at 75% 30%, rgba(138,125,255,0.18), transparent 36%),
+    radial-gradient(circle at 50% 85%, rgba(122,240,183,0.10), transparent 30%);
+  pointer-events: none;
+}
+
+.hero-profile-glow{
+  position: absolute;
+  inset: auto -20% -35% auto;
+  width: 220px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(117,199,255,0.18), transparent 68%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.hero-profile-media{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 190px;
+}
+
+.hero-profile-ring{
+  position: absolute;
+  width: 176px;
+  height: 176px;
+  border-radius: 50%;
+  background:
+    conic-gradient(
+      from 180deg,
+      rgba(117,199,255,0.95),
+      rgba(138,125,255,0.9),
+      rgba(122,240,183,0.85),
+      rgba(117,199,255,0.95)
+    );
+  filter: blur(0.2px);
+  animation: profileSpin 10s linear infinite;
+  opacity: 0.92;
+}
+
+.hero-profile-ring::after{
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--panelSolid);
+}
+
+.hero-profile-avatar{
+  position: relative;
+  z-index: 2;
+  width: 156px;
+  height: 156px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255,255,255,0.14);
+  box-shadow:
+    0 14px 38px rgba(0,0,0,0.42),
+    0 0 0 10px rgba(117,199,255,0.05);
+  animation: profileFloat 4.2s ease-in-out infinite;
+}
+
+.hero-profile-badge{
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 8px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--brd2);
+  background: rgba(11,15,20,0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text);
+}
+
+.hero-profile-content{
+  position: relative;
+  z-index: 1;
+}
+
+.hero-profile-topline{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.hero-profile-status-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(122,240,183,1);
+  box-shadow: 0 0 0 6px rgba(122,240,183,0.10);
+}
+
+.hero-profile-name{
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.05;
+  letter-spacing: -0.4px;
+}
+
+.hero-profile-copy{
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.hero-profile-chips{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.hero-profile-chip{
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--brd2);
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+@keyframes profileFloat{
+  0%, 100%{ transform: translateY(0px); }
+  50%{ transform: translateY(-6px); }
+}
+
+@keyframes profileSpin{
+  0%{ transform: rotate(0deg); }
+  100%{ transform: rotate(360deg); }
+}
+
+@media (max-width: 980px){
+  .hero-profile-card{
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-profile-topline{
+    justify-content: center;
+  }
+
+  .hero-profile-chips{
+    justify-content: center;
+  }
+}
+
+@media (max-width: 560px){
+  .hero-profile-avatar{
+    width: 136px;
+    height: 136px;
+  }
+
+  .hero-profile-ring{
+    width: 154px;
+    height: 154px;
+  }
+
+  .hero-profile-name{
+    font-size: 21px;
+  }
+
+  .hero-profile-badge{
+    position: static;
+    transform: none;
+    margin-top: 10px;
+  }
+}
+
 /* -----------------------------
    7) Toolbar (Search + Filters)
 -------------------------------- */
