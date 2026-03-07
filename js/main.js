@@ -349,13 +349,19 @@
   });
 
   function buildArchitectureSvg(key) {
-    const wrap = (content, caption = "") => `
+      const wrap = (content, caption = "") => `
       <svg viewBox="0 0 1100 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram">
         <defs>
           <linearGradient id="archLine" x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stop-color="#75c7ff"/>
             <stop offset="100%" stop-color="#8a7dff"/>
           </linearGradient>
+    
+          <linearGradient id="nodeGradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#171d27"/>
+            <stop offset="100%" stop-color="#10151d"/>
+          </linearGradient>
+    
           <filter id="archGlow" x="-30%" y="-30%" width="160%" height="160%">
             <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
             <feMerge>
@@ -363,7 +369,16 @@
               <feMergeNode in="SourceGraphic"></feMergeNode>
             </feMerge>
           </filter>
+    
+          <filter id="nodeShadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
+          </filter>
+    
+          <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+            <polygon points="0 0, 10 5, 0 10" fill="#8a7dff"></polygon>
+          </marker>
         </defs>
+    
         <rect x="0" y="0" width="1100" height="540" fill="transparent"></rect>
         ${content}
         ${
@@ -374,13 +389,18 @@
       </svg>
     `;
 
-    const box = (x, y, w, h, title, subtitle = "") => `
-      <g>
+      const box = (x, y, w, h, title, subtitle = "") => `
+      <g class="arch-node">
         <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" ry="16"
-          fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.12)"></rect>
-        <text x="${x + 16}" y="${y + 30}" fill="currentColor" font-size="13" font-weight="900">
+          fill="url(#nodeGradient)"
+          stroke="rgba(117,199,255,0.22)"
+          stroke-width="1.3"
+          filter="url(#nodeShadow)"></rect>
+    
+        <text x="${x + 16}" y="${y + 30}" fill="#eef6ff" font-size="13" font-weight="900">
           ${escapeHtml(title)}
         </text>
+    
         ${
           subtitle
             ? `<text x="${x + 16}" y="${y + 52}" fill="rgba(234,242,251,0.65)" font-size="12">${escapeHtml(subtitle)}</text>`
@@ -389,9 +409,15 @@
       </g>
     `;
 
-    const line = (x1, y1, x2, y2) => `
+      const line = (x1, y1, x2, y2) => `
       <g filter="url(#archGlow)">
-        <line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="url(#archLine)" stroke-width="2"></line>
+        <line
+          x1="${x1}" y1="${y1}"
+          x2="${x2}" y2="${y2}"
+          stroke="url(#archLine)"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          marker-end="url(#arrowHead)"></line>
         <circle cx="${x2}" cy="${y2}" r="3.5" fill="#75c7ff"></circle>
       </g>
     `;
