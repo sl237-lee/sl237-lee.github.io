@@ -453,6 +453,26 @@
           ${line(860, 316, 860, 380)}
         `, "Streaming fraud detection system optimized for low latency, reliability, and monitoring.");
 
+      case "ai_agent":
+        return wrap(`
+          ${box(50, 80, 260, 86, "User Question", "Natural language analytics prompt")}
+          ${box(350, 80, 260, 86, "Streamlit UI", "Interactive analytics dashboard")}
+          ${box(650, 80, 380, 86, "FastAPI Backend", "API orchestration + request handling")}
+          ${line(310, 123, 350, 123)}
+          ${line(610, 123, 650, 123)}
+  
+          ${box(50, 230, 260, 86, "LLM SQL Generator", "OpenAI model converts NL → SQL")}
+          ${box(350, 230, 260, 86, "SQL Validation", "Read-only query cleaning + guardrails")}
+          ${box(650, 230, 380, 86, "DuckDB Engine", "Embedded analytics database")}
+          ${line(310, 273, 350, 273)}
+          ${line(610, 273, 650, 273)}
+  
+          ${box(350, 380, 260, 86, "Query Execution", "Run generated SQL")}
+          ${box(650, 380, 380, 86, "Analytics Output", "Results table + dashboard charts")}
+          ${line(840, 316, 840, 380)}
+          ${line(610, 423, 650, 423)}
+        `, "AI analytics pipeline translating natural language questions into SQL, executing queries against DuckDB, and returning structured dashboard insights.");
+
       case "saas":
         return wrap(`
           ${box(50, 80, 320, 86, "Event Generator", "Usage, billing, support")}
