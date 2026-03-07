@@ -542,6 +542,10 @@ html[data-theme="auto"] .scrollbar{
   letter-spacing: 0.1px;
 }
 
+.arch-node rect{
+  transition: stroke 0.2s ease, transform 0.2s ease;
+}
+
 html[data-theme="light"] .node,
 html[data-theme="auto"] .node{
   background: rgba(0,0,0,0.04);
