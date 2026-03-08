@@ -459,17 +459,45 @@ html[data-theme="auto"] .scrollbar{
 -------------------------------- */
 .hero{
   padding-top: 16px;
+  display: grid;
+  gap: 18px;
 }
 
-.hero-grid{
+.hero-top{
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  grid-template-columns: 1fr 1.02fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+.hero-intro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  padding: 6px 0;
+}
+
+.hero-bottom{
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
   gap: 18px;
   align-items: start;
 }
 
+.hero-bottom-left{
+  min-width: 0;
+}
+
+.hero-bottom-right{
+  min-width: 0;
+}
+
 @media (max-width: 980px){
-  .hero-grid{ grid-template-columns: 1fr; }
+  .hero-top,
+  .hero-bottom{
+    grid-template-columns: 1fr;
+  }
 }
 
 .eyebrow{
@@ -484,6 +512,7 @@ html[data-theme="auto"] .scrollbar{
   font-size: 12px;
   font-weight: 700;
   box-shadow: 0 8px 20px rgba(0,0,0,0.14);
+  width: fit-content;
 }
 
 .pulse-dot{
@@ -501,26 +530,37 @@ html[data-theme="auto"] .scrollbar{
 }
 
 .hero h1{
-  margin: 14px 0 10px;
-  font-size: 36px;
-  line-height: 1.08;
-  letter-spacing: -0.4px;
-  max-width: 14ch;
+  margin: 16px 0 0;
+  font-size: 60px;
+  line-height: 0.98;
+  letter-spacing: -1.4px;
+  max-width: 10ch;
   background: linear-gradient(90deg, #f3fff7 0%, #bbf7d0 42%, #5eead4 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
+@media (max-width: 980px){
+  .hero h1{
+    font-size: 50px;
+    max-width: 12ch;
+  }
+}
+
 @media (max-width: 560px){
-  .hero h1{ font-size: 30px; }
+  .hero h1{
+    font-size: 36px;
+    line-height: 1.02;
+    letter-spacing: -0.8px;
+  }
 }
 
 .sub{
   margin: 0 0 14px;
   color: var(--muted);
   font-size: 14px;
-  line-height: 1.55;
+  line-height: 1.65;
   max-width: 66ch;
 }
 
@@ -592,7 +632,6 @@ html[data-theme="auto"] .scrollbar{
   font-weight: 600;
 }
 
-/* Right hero panel */
 .glass-card{
   border-radius: var(--radius-xl);
   border: 1px solid var(--brd2);
@@ -601,6 +640,7 @@ html[data-theme="auto"] .scrollbar{
   padding: var(--pad-lg);
   position: relative;
   overflow: hidden;
+  min-height: 100%;
 }
 
 .glass-card::before{
@@ -792,29 +832,24 @@ html[data-theme="auto"] .node{
   font-weight: 600;
 }
 
-/* Profile card in hero */
-.hero-right{
-  display: grid;
-  gap: 14px;
-}
-
 .hero-profile-card{
   position: relative;
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 18px;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
   align-items: center;
   border-radius: var(--radius-xl);
   border: 1px solid var(--brd2);
   background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.025));
   box-shadow: var(--shadow);
-  padding: 18px;
+  padding: 24px;
   overflow: hidden;
   transform-style: preserve-3d;
   transition:
     transform 220ms ease,
     border-color 220ms ease,
     box-shadow 220ms ease;
+  min-height: 100%;
 }
 
 .hero-profile-card:hover{
@@ -857,7 +892,7 @@ html[data-theme="auto"] .node{
 }
 
 .hero-profile-card-large{
-  min-height: 320px;
+  min-height: 380px;
 }
 
 @keyframes profileBorderShimmer{
@@ -869,8 +904,8 @@ html[data-theme="auto"] .node{
 .hero-profile-glow{
   position: absolute;
   inset: auto -20% -35% auto;
-  width: 220px;
-  height: 220px;
+  width: 260px;
+  height: 260px;
   border-radius: 999px;
   background: radial-gradient(circle, rgba(20,184,166,0.20), transparent 68%);
   filter: blur(10px);
@@ -883,13 +918,13 @@ html[data-theme="auto"] .node{
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 190px;
+  min-height: 240px;
 }
 
 .hero-profile-ring{
   position: absolute;
-  width: 176px;
-  height: 176px;
+  width: 210px;
+  height: 210px;
   border-radius: 50%;
   background:
     conic-gradient(
@@ -907,7 +942,7 @@ html[data-theme="auto"] .node{
 .hero-profile-ring::after{
   content: "";
   position: absolute;
-  inset: 8px;
+  inset: 10px;
   border-radius: 50%;
   background: var(--panelSolid);
 }
@@ -915,8 +950,8 @@ html[data-theme="auto"] .node{
 .hero-profile-avatar{
   position: relative;
   z-index: 2;
-  width: 156px;
-  height: 156px;
+  width: 186px;
+  height: 186px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid rgba(255,255,255,0.14);
@@ -924,25 +959,6 @@ html[data-theme="auto"] .node{
     0 14px 38px rgba(0,0,0,0.42),
     0 0 0 10px rgba(74,222,128,0.05);
   animation: profileFloat 4.2s ease-in-out infinite;
-}
-
-.hero-profile-badge{
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  bottom: 8px;
-  transform: translateX(-50%);
-  white-space: nowrap;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.1px;
-  padding: 7px 10px;
-  border-radius: 999px;
-  border: 1px solid var(--brd2);
-  background: rgba(8,17,13,0.72);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: var(--text);
 }
 
 .hero-profile-content{
@@ -970,9 +986,9 @@ html[data-theme="auto"] .node{
 
 .hero-profile-name{
   margin: 0 0 8px;
-  font-size: 24px;
-  line-height: 1.05;
-  letter-spacing: -0.4px;
+  font-size: 28px;
+  line-height: 1.02;
+  letter-spacing: -0.6px;
   background: linear-gradient(90deg, #f3fff7 0%, #a7f3d0 45%, #5eead4 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -982,8 +998,8 @@ html[data-theme="auto"] .node{
 .hero-profile-copy{
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
-  line-height: 1.65;
+  font-size: 14px;
+  line-height: 1.72;
 }
 
 .hero-profile-chips{
@@ -1044,23 +1060,30 @@ html[data-theme="auto"] .node{
 
 @media (max-width: 560px){
   .hero-profile-avatar{
-    width: 136px;
-    height: 136px;
+    width: 148px;
+    height: 148px;
   }
 
   .hero-profile-ring{
-    width: 154px;
-    height: 154px;
+    width: 170px;
+    height: 170px;
   }
 
   .hero-profile-name{
-    font-size: 21px;
+    font-size: 23px;
   }
 
-  .hero-profile-badge{
-    position: static;
-    transform: none;
-    margin-top: 10px;
+  .hero-profile-card{
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .hero-profile-card-large{
+    min-height: auto;
+  }
+
+  .hero-profile-media{
+    min-height: 190px;
   }
 }
 
