@@ -488,36 +488,91 @@
     <!-- GITHUB -->
     <section id="github" class="section">
       <div class="section-head">
-        <h2>GitHub</h2>
-        <p class="hint">Recent public repositories and live project activity</p>
+        <h2>Project Source Code</h2>
+        <p class="hint">Curated GitHub folders for the systems shown in this portfolio</p>
       </div>
-
+    
       <div class="github-panel reveal">
         <div class="github-head">
           <div class="github-user">
             <div class="gh-avatar" aria-hidden="true"></div>
             <div>
-              <div class="github-name">sl237-lee</div>
-              <div class="github-sub">Selected repositories from my public GitHub profile</div>
+              <div class="github-name">sl237-lee/sl237-lee.github.io</div>
+              <div class="github-sub">All source code lives inside a single portfolio repository under the projects/ folder</div>
             </div>
           </div>
-
+    
           <div class="github-actions">
-            <a class="btn" href="https://github.com/sl237-lee" target="_blank" rel="noopener">Open GitHub</a>
-            <button id="refreshGithubBtn" class="btn ghost" type="button">Refresh</button>
+            <a class="btn" href="https://github.com/sl237-lee/sl237-lee.github.io" target="_blank" rel="noopener">Open Main Repo</a>
           </div>
         </div>
-
-        <div id="githubStatus" class="github-status">Loading GitHub repositories…</div>
-        <div id="githubGrid" class="github-grid" aria-live="polite">
-          <div class="repo skeleton"></div>
-          <div class="repo skeleton"></div>
-          <div class="repo skeleton"></div>
-          <div class="repo skeleton"></div>
+    
+        <div class="github-status">Browse project folders directly in GitHub.</div>
+    
+        <div class="github-grid">
+          <a class="repo" href="https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/age-detector" target="_blank" rel="noopener">
+            <div class="repo-name">age-detector</div>
+            <div class="repo-desc">Computer vision project for age detection with an interactive app workflow.</div>
+            <div class="repo-meta">
+              <div class="repo-lang"><span class="dot" style="background:linear-gradient(180deg,#86efac,#14b8a6)"></span><span>Python</span></div>
+              <div>CV</div>
+              <div>App</div>
+            </div>
+          </a>
+    
+          <a class="repo" href="https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/clv_churn_platform" target="_blank" rel="noopener">
+            <div class="repo-name">clv_churn_platform</div>
+            <div class="repo-desc">Usage-based SaaS churn and customer lifetime value prediction platform.</div>
+            <div class="repo-meta">
+              <div class="repo-lang"><span class="dot" style="background:linear-gradient(180deg,#a7f3d0,#22c55e)"></span><span>Python</span></div>
+              <div>XGBoost</div>
+              <div>PostgreSQL</div>
+            </div>
+          </a>
+    
+          <a class="repo" href="https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/data_intelligence_agent_platform" target="_blank" rel="noopener">
+            <div class="repo-name">data_intelligence_agent_platform</div>
+            <div class="repo-desc">Natural-language-to-SQL analytics assistant built with FastAPI, Streamlit, DuckDB, and LLM orchestration.</div>
+            <div class="repo-meta">
+              <div class="repo-lang"><span class="dot" style="background:linear-gradient(180deg,#5eead4,#14b8a6)"></span><span>Python</span></div>
+              <div>FastAPI</div>
+              <div>DuckDB</div>
+            </div>
+          </a>
+    
+          <a class="repo" href="https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/data_model_work_example" target="_blank" rel="noopener">
+            <div class="repo-name">data_model_work_example</div>
+            <div class="repo-desc">Example data modeling and warehouse design work focused on clean analytical structures.</div>
+            <div class="repo-meta">
+              <div class="repo-lang"><span class="dot" style="background:linear-gradient(180deg,#93c5fd,#2563eb)"></span><span>SQL</span></div>
+              <div>Modeling</div>
+              <div>Warehouse</div>
+            </div>
+          </a>
+    
+          <a class="repo" href="https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/fraud_detection_system" target="_blank" rel="noopener">
+            <div class="repo-name">fraud_detection_system</div>
+            <div class="repo-desc">Real-time fraud detection pipeline using streaming features, ML scoring, and low-latency serving.</div>
+            <div class="repo-meta">
+              <div class="repo-lang"><span class="dot" style="background:linear-gradient(180deg,#86efac,#14b8a6)"></span><span>Python</span></div>
+              <div>Kafka</div>
+              <div>XGBoost</div>
+            </div>
+          </a>
+    
+          <a class="repo" href="https://github.com/sl237-lee/sl237-lee.github.io/tree/main/projects/qvc_unified_data_foundation" target="_blank" rel="noopener">
+            <div class="repo-name">qvc_unified_data_foundation</div>
+            <div class="repo-desc">Enterprise-style data foundation work for unified analytics, reporting, and scalable platform ingestion.</div>
+            <div class="repo-meta">
+              <div class="repo-lang"><span class="dot" style="background:linear-gradient(180deg,#6ee7b7,#10b981)"></span><span>Data Platform</span></div>
+              <div>Databricks</div>
+              <div>Analytics</div>
+            </div>
+          </a>
         </div>
-
+    
         <div class="github-foot">
-          Recent repositories are fetched from GitHub and cached locally for faster portfolio loading.
+          Each link opens the exact source folder for the project inside this portfolio repository.
         </div>
       </div>
     </section>

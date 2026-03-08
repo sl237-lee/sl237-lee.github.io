@@ -1686,16 +1686,6 @@ html[data-theme="auto"] .tag{
   font-weight: 700;
 }
 
-.refresh-loading{
-  pointer-events: none;
-  opacity: 0.72;
-}
-
-.btn.is-loading{
-  pointer-events: none;
-  opacity: 0.72;
-  box-shadow: 0 0 0 1px rgba(74,222,128,0.10) inset;
-}
 
 /* -----------------------------
    10.6) Certifications
