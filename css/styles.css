@@ -12,14 +12,13 @@
   --muted: rgba(234, 242, 251, 0.68);
   --muted2: rgba(234, 242, 251, 0.52);
 
-  --accent: #75c7ff;
-  --accent2: #8a7dff;
-  --good: #7af0b7;
+  --accent: #4ade80;
+  --accent2: #14b8a6;
+  --good: #86efac;
   --warn: #ffd580;
   --bad: #ff7a7a;
 
-  --brd: rgba(117, 199, 255, 0.14);
-  --brd2: rgba(255, 255, 255, 0.08);
+  --brd: rgba(74, 222, 128, 0.16);
 
   --shadow: 0 24px 60px rgba(0,0,0,0.55);
   --shadow2: 0 14px 34px rgba(0,0,0,0.45);
