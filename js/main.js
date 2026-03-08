@@ -6,6 +6,8 @@
    - Hero counters
    - Project search + filters
    - Architecture modal
+   - Hero profile tilt
+   - Polished architecture visuals
    - GitHub live repos + cache
 */
 
@@ -236,6 +238,40 @@
   }
 
   /* ---------------------------
+     Hero profile tilt
+  --------------------------- */
+  const heroProfileCard = $("#heroProfileCard");
+
+  if (heroProfileCard) {
+    let tiltFrame = null;
+
+    const resetTilt = () => {
+      heroProfileCard.style.transform = "";
+    };
+
+    heroProfileCard.addEventListener("mousemove", (event) => {
+      const rect = heroProfileCard.getBoundingClientRect();
+      const px = (event.clientX - rect.left) / rect.width;
+      const py = (event.clientY - rect.top) / rect.height;
+
+      const rotateY = (px - 0.5) * 10;
+      const rotateX = (0.5 - py) * 8;
+
+      cancelAnimationFrame(tiltFrame);
+      tiltFrame = requestAnimationFrame(() => {
+        heroProfileCard.style.transform = `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      });
+    });
+
+    heroProfileCard.addEventListener("mouseleave", () => {
+      cancelAnimationFrame(tiltFrame);
+      resetTilt();
+    });
+
+    heroProfileCard.addEventListener("blur", resetTilt, true);
+  }
+
+  /* ---------------------------
      Project search + filters
   --------------------------- */
   const projectGrid = $("#projectGrid");
@@ -349,19 +385,19 @@
   });
 
   function buildArchitectureSvg(key) {
-      const wrap = (content, caption = "") => `
+    const wrap = (content, caption = "") => `
       <svg viewBox="0 0 1100 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Architecture diagram">
         <defs>
           <linearGradient id="archLine" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="#75c7ff"/>
-            <stop offset="100%" stop-color="#8a7dff"/>
+            <stop offset="0%" stop-color="#4ade80"/>
+            <stop offset="100%" stop-color="#14b8a6"/>
           </linearGradient>
-    
+
           <linearGradient id="nodeGradient" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#171d27"/>
-            <stop offset="100%" stop-color="#10151d"/>
+            <stop offset="0%" stop-color="#16211b"/>
+            <stop offset="100%" stop-color="#0f1713"/>
           </linearGradient>
-    
+
           <filter id="archGlow" x="-30%" y="-30%" width="160%" height="160%">
             <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
             <feMerge>
@@ -369,47 +405,47 @@
               <feMergeNode in="SourceGraphic"></feMergeNode>
             </feMerge>
           </filter>
-    
+
           <filter id="nodeShadow" x="-30%" y="-30%" width="160%" height="160%">
             <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
           </filter>
-    
+
           <marker id="arrowHead" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-            <polygon points="0 0, 10 5, 0 10" fill="#8a7dff"></polygon>
+            <polygon points="0 0, 10 5, 0 10" fill="#14b8a6"></polygon>
           </marker>
         </defs>
-    
+
         <rect x="0" y="0" width="1100" height="540" fill="transparent"></rect>
         ${content}
         ${
           caption
-            ? `<text x="48" y="518" fill="rgba(234,242,251,0.70)" font-size="12">${escapeHtml(caption)}</text>`
+            ? `<text x="48" y="518" fill="rgba(234,250,242,0.70)" font-size="12">${escapeHtml(caption)}</text>`
             : ""
         }
       </svg>
     `;
 
-      const box = (x, y, w, h, title, subtitle = "") => `
+    const box = (x, y, w, h, title, subtitle = "") => `
       <g class="arch-node">
         <rect x="${x}" y="${y}" width="${w}" height="${h}" rx="16" ry="16"
           fill="url(#nodeGradient)"
-          stroke="rgba(117,199,255,0.22)"
+          stroke="rgba(74,222,128,0.24)"
           stroke-width="1.3"
           filter="url(#nodeShadow)"></rect>
-    
-        <text x="${x + 16}" y="${y + 30}" fill="#eef6ff" font-size="13" font-weight="900">
+
+        <text x="${x + 16}" y="${y + 30}" fill="#eefcf4" font-size="13" font-weight="900">
           ${escapeHtml(title)}
         </text>
-    
+
         ${
           subtitle
-            ? `<text x="${x + 16}" y="${y + 52}" fill="rgba(234,242,251,0.65)" font-size="12">${escapeHtml(subtitle)}</text>`
+            ? `<text x="${x + 16}" y="${y + 52}" fill="rgba(234,250,242,0.65)" font-size="12">${escapeHtml(subtitle)}</text>`
             : ""
         }
       </g>
     `;
 
-      const line = (x1, y1, x2, y2) => `
+    const line = (x1, y1, x2, y2) => `
       <g filter="url(#archGlow)">
         <line
           x1="${x1}" y1="${y1}"
@@ -418,7 +454,7 @@
           stroke-width="2.5"
           stroke-linecap="round"
           marker-end="url(#arrowHead)"></line>
-        <circle cx="${x2}" cy="${y2}" r="3.5" fill="#75c7ff"></circle>
+        <circle cx="${x2}" cy="${y2}" r="3.5" fill="#4ade80"></circle>
       </g>
     `;
 
@@ -486,13 +522,13 @@
           ${box(650, 80, 380, 86, "FastAPI Backend", "API orchestration + request handling")}
           ${line(310, 123, 350, 123)}
           ${line(610, 123, 650, 123)}
-  
+
           ${box(50, 230, 260, 86, "LLM SQL Generator", "OpenAI model converts NL → SQL")}
           ${box(350, 230, 260, 86, "SQL Validation", "Read-only query cleaning + guardrails")}
           ${box(650, 230, 380, 86, "DuckDB Engine", "Embedded analytics database")}
           ${line(310, 273, 350, 273)}
           ${line(610, 273, 650, 273)}
-  
+
           ${box(350, 380, 260, 86, "Query Execution", "Run generated SQL")}
           ${box(650, 380, 380, 86, "Analytics Output", "Results table + dashboard charts")}
           ${line(840, 316, 840, 380)}
@@ -563,12 +599,13 @@
   /* ---------------------------
      GitHub repos with cache
   --------------------------- */
+  const githubPanel = $(".github-panel");
   const githubGrid = $("#githubGrid");
   const githubStatus = $("#githubStatus");
   const refreshGithubBtn = $("#refreshGithubBtn");
 
   const GITHUB_USER = "sl237-lee";
-  const CACHE_KEY = "portfolio_github_cache_v3";
+  const CACHE_KEY = "portfolio_github_cache_v4";
   const CACHE_TTL_MS = 1000 * 60 * 60 * 6;
 
   function loadGithubCache() {
@@ -603,15 +640,63 @@
   function languageDotStyle(language) {
     const lang = String(language || "").toLowerCase();
 
-    if (lang.includes("python")) return "background:#4da3ff";
-    if (lang.includes("javascript")) return "background:#ffd166";
-    if (lang.includes("typescript")) return "background:#8a7dff";
-    if (lang.includes("html")) return "background:#f4b860";
-    if (lang.includes("css")) return "background:#7af0b7";
-    if (lang.includes("scala")) return "background:#ff7a7a";
-    if (lang.includes("jupyter")) return "background:#f08c3a";
+    if (lang.includes("python")) return "background:linear-gradient(180deg,#86efac,#14b8a6)";
+    if (lang.includes("javascript")) return "background:linear-gradient(180deg,#fde68a,#f59e0b)";
+    if (lang.includes("typescript")) return "background:linear-gradient(180deg,#5eead4,#14b8a6)";
+    if (lang.includes("html")) return "background:linear-gradient(180deg,#fdba74,#f97316)";
+    if (lang.includes("css")) return "background:linear-gradient(180deg,#6ee7b7,#10b981)";
+    if (lang.includes("scala")) return "background:linear-gradient(180deg,#fca5a5,#ef4444)";
+    if (lang.includes("jupyter")) return "background:linear-gradient(180deg,#fdba74,#ea580c)";
+    if (lang.includes("java")) return "background:linear-gradient(180deg,#93c5fd,#2563eb)";
+    if (lang.includes("sql")) return "background:linear-gradient(180deg,#a7f3d0,#22c55e)";
 
-    return "background:#75c7ff";
+    return "background:linear-gradient(180deg,#4ade80,#14b8a6)";
+  }
+
+  function formatStars(count) {
+    const n = Number(count || 0);
+    if (n >= 1000) return `${(n / 1000).toFixed(1)}k`;
+    return `${n}`;
+  }
+
+  function formatRepoTopics(topics) {
+    if (!Array.isArray(topics) || !topics.length) return "";
+    return topics.slice(0, 3).map((topic) => {
+      return `<span class="tag">${escapeHtml(topic)}</span>`;
+    }).join("");
+  }
+
+  function animateGithubPanel() {
+    if (!githubPanel) return;
+    githubPanel.animate(
+      [
+        { transform: "translateY(0px)", opacity: 0.92 },
+        { transform: "translateY(-2px)", opacity: 1 },
+        { transform: "translateY(0px)", opacity: 1 }
+      ],
+      {
+        duration: 500,
+        easing: "ease-out"
+      }
+    );
+  }
+
+  function staggerRepos() {
+    if (!githubGrid) return;
+    $$(".repo", githubGrid).forEach((card, index) => {
+      card.animate(
+        [
+          { opacity: 0, transform: "translateY(12px) scale(0.985)" },
+          { opacity: 1, transform: "translateY(0px) scale(1)" }
+        ],
+        {
+          duration: 360,
+          delay: index * 70,
+          easing: "ease-out",
+          fill: "both"
+        }
+      );
+    });
   }
 
   function renderRepos(repos, statusText) {
@@ -619,7 +704,7 @@
 
     githubGrid.innerHTML = "";
 
-    const visibleRepos = repos.slice(0, 4);
+    const visibleRepos = repos.slice(0, 6);
 
     visibleRepos.forEach((repo) => {
       const card = document.createElement("a");
@@ -631,18 +716,37 @@
       const language = repo.language || "Unknown";
       const pushed = repo.pushed_at ? timeAgo(repo.pushed_at) : "";
       const description = (repo.description || "").trim() || "No description";
+      const stars = formatStars(repo.stargazers_count || 0);
+      const topics = formatRepoTopics(repo.topics || []);
 
       card.innerHTML = `
         <div class="repo-name">${escapeHtml(repo.name)}</div>
         <div class="repo-desc">${escapeHtml(description)}</div>
+
+        ${topics ? `<div class="stack" style="margin-top:10px; justify-content:flex-start; max-width:none;">${topics}</div>` : ""}
+
         <div class="repo-meta">
           <div class="repo-lang">
             <span class="dot" style="${languageDotStyle(language)}"></span>
             <span>${escapeHtml(language)}</span>
           </div>
+          <div>★ ${escapeHtml(stars)}</div>
           <div>${escapeHtml(pushed)}</div>
         </div>
       `;
+
+      card.addEventListener("mousemove", (event) => {
+        const rect = card.getBoundingClientRect();
+        const px = (event.clientX - rect.left) / rect.width;
+        const py = (event.clientY - rect.top) / rect.height;
+        const rotateY = (px - 0.5) * 6;
+        const rotateX = (0.5 - py) * 5;
+        card.style.transform = `perspective(900px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+      });
 
       githubGrid.appendChild(card);
     });
@@ -650,6 +754,9 @@
     if (githubStatus) {
       githubStatus.textContent = statusText || "";
     }
+
+    animateGithubPanel();
+    staggerRepos();
   }
 
   async function fetchGithub(forceRefresh = false) {
@@ -660,10 +767,11 @@
       if (cached && cached.length) {
         renderRepos(cached, "Loaded from cache");
       } else {
-        githubStatus.textContent = "Loading GitHub…";
+        githubStatus.textContent = "Loading GitHub repositories…";
       }
     } else {
-      githubStatus.textContent = "Refreshing GitHub…";
+      githubStatus.textContent = "Refreshing GitHub repositories…";
+      refreshGithubBtn?.classList.add("is-loading");
     }
 
     try {
@@ -678,8 +786,9 @@
 
       if (!response.ok) {
         const cached = loadGithubCache();
+
         if (cached && cached.length) {
-          renderRepos(cached, `GitHub limited — showing cached (HTTP ${response.status})`);
+          renderRepos(cached, `GitHub rate-limited — showing cached (HTTP ${response.status})`);
           return;
         }
 
@@ -688,21 +797,42 @@
       }
 
       const repos = await response.json();
-      const cleaned = (Array.isArray(repos) ? repos : []).filter((repo) => !repo.fork);
+      const cleaned = (Array.isArray(repos) ? repos : [])
+        .filter((repo) => !repo.fork)
+        .sort((a, b) => new Date(b.pushed_at) - new Date(a.pushed_at));
 
       saveGithubCache(cleaned);
       renderRepos(cleaned, "Live from GitHub");
     } catch {
       const cached = loadGithubCache();
+
       if (cached && cached.length) {
         renderRepos(cached, "Offline — showing cached");
         return;
       }
 
       githubStatus.textContent = "GitHub unavailable";
+    } finally {
+      refreshGithubBtn?.classList.remove("is-loading");
     }
   }
 
-  refreshGithubBtn?.addEventListener("click", () => fetchGithub(true));
+  refreshGithubBtn?.addEventListener("click", () => {
+    refreshGithubBtn.animate(
+      [
+        { transform: "rotate(0deg) scale(1)" },
+        { transform: "rotate(120deg) scale(1.04)" },
+        { transform: "rotate(240deg) scale(0.98)" },
+        { transform: "rotate(360deg) scale(1)" }
+      ],
+      {
+        duration: 700,
+        easing: "ease-in-out"
+      }
+    );
+
+    fetchGithub(true);
+  });
+
   fetchGithub(false);
 })();
