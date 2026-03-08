@@ -506,6 +506,10 @@ html[data-theme="auto"] .scrollbar{
   line-height: 1.08;
   letter-spacing: -0.4px;
   max-width: 14ch;
+  background: linear-gradient(90deg, #f3fff7 0%, #bbf7d0 42%, #5eead4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 @media (max-width: 560px){
@@ -850,6 +854,10 @@ html[data-theme="auto"] .node{
   opacity: 0.9;
   animation: profileBorderShimmer 7s linear infinite;
   pointer-events: none;
+}
+
+.hero-profile-card-large{
+  min-height: 320px;
 }
 
 @keyframes profileBorderShimmer{
@@ -1638,9 +1646,6 @@ html[data-theme="auto"] .tag{
     border-color 180ms ease,
     box-shadow 180ms ease,
     background 180ms ease;
-}
-
-.repo{
   transform-style: preserve-3d;
   will-change: transform;
 }

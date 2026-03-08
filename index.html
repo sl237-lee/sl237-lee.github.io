@@ -10,10 +10,11 @@
     content="Seungryul Andrew Lee — AI Data Engineer and Data Infrastructure Engineer building production-grade platforms across Azure, AWS, Databricks, Spark, APIs, and real-time systems."
   />
   <link rel="icon" href="assets/favicon.ico" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 
-<body>
+<body class="smooth-ui">
   <!-- Topbar -->
   <header class="topbar" role="banner">
     <div class="topbar-inner">
@@ -52,7 +53,7 @@
 
   <main id="top" class="page">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" data-animate="hero">
       <div class="hero-grid">
         <div class="hero-left">
           <div class="eyebrow">
@@ -508,7 +509,12 @@
         </div>
 
         <div id="githubStatus" class="github-status">Loading GitHub repositories…</div>
-        <div id="githubGrid" class="github-grid" aria-live="polite"></div>
+        <div id="githubGrid" class="github-grid" aria-live="polite">
+          <div class="repo skeleton"></div>
+          <div class="repo skeleton"></div>
+          <div class="repo skeleton"></div>
+          <div class="repo skeleton"></div>
+        </div>
 
         <div class="github-foot">
           Recent repositories are fetched from GitHub and cached locally for faster portfolio loading.
