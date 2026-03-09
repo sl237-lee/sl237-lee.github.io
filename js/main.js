@@ -589,6 +589,47 @@
           ${line(890, 316, 890, 380)}
         `, "Perception data platform for synchronized multimodal training and reliable inference.");
 
+        case "data_cleaner":
+          return wrap(`
+            ${box(50, 80, 260, 86, "User Upload", "CSV / XLSX via drag-and-drop UI")}
+            ${box(350, 80, 280, 86, "Vercel Frontend", "HTML, CSS, JavaScript")}
+            ${box(670, 80, 380, 86, "FastAPI Backend", "Public API hosted on Render")}
+            ${line(310, 123, 350, 123)}
+            ${line(630, 123, 670, 123)}
+  
+            ${box(50, 230, 260, 86, "File Parsing", "CSV / Excel ingestion")}
+            ${box(350, 230, 280, 86, "Cleaning Engine", "Pandas transformations")}
+            ${box(670, 230, 380, 86, "Data Quality Rules", "Dates, numeric typing, duplicates, missing values")}
+            ${line(310, 273, 350, 273)}
+            ${line(630, 273, 670, 273)}
+  
+            ${box(50, 380, 260, 86, "Preview + Audit", "Before/after views + changed cells")}
+            ${box(350, 380, 280, 86, "Download Output", "Cleaned CSV / XLSX")}
+            ${box(670, 380, 380, 86, "Cloud Deployment", "Frontend on Vercel, backend on Render")}
+            ${line(310, 423, 350, 423)}
+            ${line(630, 423, 670, 423)}
+          `, "Full-stack data cleaning application with configurable rules, preview auditability, and public cloud deployment.");
+        case "data_cleaner":
+          return wrap(`
+            ${box(50, 80, 260, 86, "User Upload", "CSV / XLSX via drag-and-drop UI")}
+            ${box(350, 80, 280, 86, "Vercel Frontend", "HTML, CSS, JavaScript")}
+            ${box(670, 80, 380, 86, "FastAPI Backend", "Public API hosted on Render")}
+            ${line(310, 123, 350, 123)}
+            ${line(630, 123, 670, 123)}
+    
+            ${box(50, 230, 260, 86, "File Parsing", "CSV / Excel ingestion")}
+            ${box(350, 230, 280, 86, "Cleaning Engine", "Pandas transformations")}
+            ${box(670, 230, 380, 86, "Data Quality Rules", "Dates, numeric typing, duplicates, missing values")}
+            ${line(310, 273, 350, 273)}
+            ${line(630, 273, 670, 273)}
+    
+            ${box(50, 380, 260, 86, "Preview + Audit", "Before/after views + changed cells")}
+            ${box(350, 380, 280, 86, "Download Output", "Cleaned CSV / XLSX")}
+            ${box(670, 380, 380, 86, "Cloud Deployment", "Frontend on Vercel, backend on Render")}
+            ${line(310, 423, 350, 423)}
+            ${line(630, 423, 670, 423)}
+          `, "Full-stack data cleaning application with configurable rules, preview auditability, and public cloud deployment.");  
+          
       default:
         return wrap(`
           ${box(50, 210, 1000, 100, "Architecture", "Diagram not available")}
