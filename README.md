@@ -68,7 +68,7 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 ---
 
-## 🚀 Featured Projects
+## Featured Projects
 
 ### 1️⃣ **Real-Time Fraud Detection System**
 **Jan 2026 – Feb 2026** | Production ML Pipeline
