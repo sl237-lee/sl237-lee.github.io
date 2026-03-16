@@ -1,6 +1,6 @@
 <div align="center">
 
-# 👋 Seungryul Andrew Lee
+# Seungryul Andrew Lee
 
 ### AI Data Engineer | Real-Time Systems | ML Infrastructure
 
@@ -14,7 +14,7 @@
 
 ---
 
-## 🎯 About Me
+## About Me
 
 Product-minded AI Data Engineer building **production-grade data infrastructure**, **real-time analytics systems**, and **AI-enabled platforms** across Azure, AWS, Databricks, Spark, and modern API services.
 
@@ -27,10 +27,10 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 ---
 
-## 💼 Professional Experience
+## Professional Experience
 
-### 🏢 **AI Data Engineer** | QVC Group
-**📅 2025 – Present** | New York, NY
+### **AI Data Engineer** | QVC Group
+**2025 – Present** | New York, NY
 
 - Architected real-time personalization pipelines using **Azure Data Factory**, **Databricks (PySpark)**, and **Synapse**
 - Designed Delta Lake-based lakehouse architecture and optimized Spark partitioning and storage layouts to reduce execution cost
@@ -43,16 +43,16 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 ---
 
-### 🔧 **Full Stack Engineer** | Axtria Inc.
-**📅 2024 – 2025**
+### **Full Stack Engineer** | Axtria Inc.
+**2024 – 2025**
 
 - Developed and versioned RESTful data services using **FastAPI** and **Azure App Service**
 - Optimized large-scale Spark workloads via partitioning analysis, indexing improvements, and query tuning
 
 ---
 
-### 📊 **Data Engineer** | Uber
-**📅 2023 – 2024**
+### **Data Engineer** | Uber
+**2023 – 2024**
 
 - Architected distributed data pipelines powering Marketplace and Payments decision systems
 - Built JVM-based (Scala) microservices serving consistent, high-quality features with strict SLAs
@@ -60,8 +60,8 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 ---
 
-### 🤖 **AI Data Engineer / Research Engineer** | Humanf
-**📅 2022 – 2023**
+### **AI Data Engineer / Research Engineer** | Humanf
+**2022 – 2023**
 
 - Built multimodal ingestion and synchronized camera/LiDAR streams for training and real-time inference
 - Created reproducible dataset pipelines with versioning, validation gates, and monitoring for drift and schema changes
@@ -81,11 +81,11 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 </div>
 
-**🎯 Impact:** Achieved **~4ms average inference latency** while maintaining **95%+ fraud detection accuracy** across **200+ transactions per second**
+**Impact:** Achieved **~4ms average inference latency** while maintaining **95%+ fraud detection accuracy** across **200+ transactions per second**
 
-**🔧 Tech Stack:** `Kafka` `Redis` `XGBoost` `FastAPI` `Docker` `Python`
+**Tech Stack:** `Kafka` `Redis` `XGBoost` `FastAPI` `Docker` `Python`
 
-**✨ Key Achievements:**
+**Key Achievements:**
 - Architected streaming ML pipeline using Kafka for ingestion and Redis for low-latency feature caching
 - Implemented real-time features capturing transaction velocity, geolocation anomalies, and temporal patterns
 - Handled class imbalance using SMOTE and cost-sensitive learning
@@ -105,11 +105,11 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 </div>
 
-**🎯 Impact:** Architected and deployed serverless, end-to-end ELT framework on Databricks to quantify the financial impact of social media marketing
+**Impact:** Architected and deployed serverless, end-to-end ELT framework on Databricks to quantify the financial impact of social media marketing
 
-**🔧 Tech Stack:** `Databricks` `Delta Lake` `PySpark` `YouTube API` `Key Vault`
+**Tech Stack:** `Databricks` `Delta Lake` `PySpark` `YouTube API` `Key Vault`
 
-**✨ Key Achievements:**
+**Key Achievements:**
 - High-volume ingestion: built automated connectors for the YouTube Reporting & Analytics APIs and merged with large-scale internal clickstream logs
 - Delta Lake architecture: built robust PySpark pipelines with ACID transactions and idempotent merge logic for schema evolution and backfills
 - Data quality: enforced schema checks and null constraints prior to commit
@@ -129,11 +129,11 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 </div>
 
-**🎯 Impact:** Built an AI-powered analytics assistant that converts natural language questions into executable SQL queries and returns structured insights through an interactive dashboard
+**Impact:** Built an AI-powered analytics assistant that converts natural language questions into executable SQL queries and returns structured insights through an interactive dashboard
 
-**🔧 Tech Stack:** `Python` `FastAPI` `Streamlit` `DuckDB` `OpenAI`
+**Tech Stack:** `Python` `FastAPI` `Streamlit` `DuckDB` `OpenAI`
 
-**✨ Key Features:**
+**Key Features:**
 - AI Analytics Copilot with natural-language-to-SQL query engine
 - LLM SQL Generation for intelligent query construction
 - Interactive Analytics UI for real-time data exploration
@@ -157,11 +157,11 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 </div>
 
-**🎯 Impact:** Designed and built end-to-end machine learning platform to predict customer churn and forecast 90-day revenue for a simulated usage-based SaaS product
+**Impact:** Designed and built end-to-end machine learning platform to predict customer churn and forecast 90-day revenue for a simulated usage-based SaaS product
 
-**🔧 Tech Stack:** `XGBoost` `Docker` `PostgreSQL` `Feature Engineering`
+**Tech Stack:** `XGBoost` `Docker` `PostgreSQL` `Feature Engineering`
 
-**✨ Key Achievements:**
+**Key Achievements:**
 - Generated 400K+ events across 2,000 accounts and ingested them into a Dockerized PostgreSQL warehouse
 - Built behavioral features across usage intensity, latency, errors, payment failures, and support activity
 - Created forward-looking labels designed to avoid data leakage
@@ -182,11 +182,11 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 </div>
 
-**🎯 Impact:** Built end-to-end machine learning system that automatically measures surface tension from droplet images in under 1 second — **1000x faster** than conventional methods
+**Impact:** Built end-to-end machine learning system that automatically measures surface tension from droplet images in under 1 second — **1000x faster** than conventional methods
 
-**🔧 Tech Stack:** `Python` `TensorFlow` `OpenCV` `SciPy`
+**Tech Stack:** `Python` `TensorFlow` `OpenCV` `SciPy`
 
-**✨ Key Achievements:**
+**Key Achievements:**
 - Developed physics-based synthetic data generator using Young-Laplace equations
 - Trained 5-layer deep neural network on 10,000+ droplet shapes
 - Implemented complete computer vision pipeline for real-time image processing
@@ -206,11 +206,11 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 </div>
 
-**🎯 Impact:** Built full-stack data cleaning web application that automatically detects and fixes common data quality issues in CSV and Excel datasets
+**Impact:** Built full-stack data cleaning web application that automatically detects and fixes common data quality issues in CSV and Excel datasets
 
-**🔧 Tech Stack:** `FastAPI` `Pandas` `JavaScript` `Vercel` `Render`
+**Tech Stack:** `FastAPI` `Pandas` `JavaScript` `Vercel` `Render`
 
-**✨ Key Features:**
+**Key Features:**
 - CSV + XLSX data ingestion with automated data cleaning
 - Automated duplicate detection, date normalization, numeric standardization
 - Live web deployment for public accessibility
@@ -233,11 +233,11 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 </div>
 
-**🎯 Impact:** Engineered end-to-end data path for autonomous perception stack, including synchronized camera and LiDAR ingestion, dataset generation, and model packaging for reliable real-time inference
+**Impact:** Engineered end-to-end data path for autonomous perception stack, including synchronized camera and LiDAR ingestion, dataset generation, and model packaging for reliable real-time inference
 
-**🔧 Tech Stack:** `Python` `C++` `Dataset Ops` `Training` `Monitoring`
+**Tech Stack:** `Python` `C++` `Dataset Ops` `Training` `Monitoring`
 
-**✨ Key Achievements:**
+**Key Achievements:**
 - Built ingestion services for multimodal sensor data and aligned timestamps for training and inference
 - Created reproducible dataset pipelines with metadata, versioning, and standard splits
 - Packaged models for low-latency inference with health checks and fallback logic
@@ -255,11 +255,11 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 </div>
 
-**🎯 Impact:** Worked as Data Engineer on DataMAx, a cloud data warehouse and integration product supporting ingestion, profiling, cataloging, quality, provisioning, and governance for large-scale DW/BI needs
+**Impact:** Worked as Data Engineer on DataMAx, a cloud data warehouse and integration product supporting ingestion, profiling, cataloging, quality, provisioning, and governance for large-scale DW/BI needs
 
-**🔧 Tech Stack:** `ADF` `Databricks` `Snowflake` `Redshift` `DQ` `Spark Tuning` `APIs` `FastAPI`
+**Tech Stack:** `ADF` `Databricks` `Snowflake` `Redshift` `DQ` `Spark Tuning` `APIs` `FastAPI`
 
-**✨ Key Achievements:**
+**Key Achievements:**
 - Designed warehouse models across pharmaceutical domains
 - Built and optimized pipelines using Azure Data Factory, Databricks, and Python
 - Worked across Snowflake and Redshift for schema design and performance tuning
@@ -269,7 +269,7 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 ---
 
-## 🛠️ Technical Skills
+## Technical Skills
 
 <table>
 <tr>
@@ -308,7 +308,7 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 ---
 
-## 📜 Certifications
+## Certifications
 
 <div align="center">
 
@@ -324,7 +324,7 @@ Product-minded AI Data Engineer building **production-grade data infrastructure*
 
 ---
 
-## 🎓 Education
+## Education
 
 <table>
 <tr>
@@ -353,25 +353,25 @@ New Jersey Institute of Technology
 ├─────────────────────────────────────────────────────────────┤
 │                                                             │
 │  APIs / Events                                              │
-│       │                                                      │
-│       ▼                                                      │
+│       │                                                     │
+│       ▼                                                     │
 │  Ingestion + Contracts                                      │
-│       │                                                      │
-│       ▼                                                      │
+│       │                                                     │
+│       ▼                                                     │
 │  Data Processing                                            │
-│  (Spark / PySpark / Databricks)                            │
-│       │                                                      │
-│       ▼                                                      │
+│  (Spark / PySpark / Databricks)                             │
+│       │                                                     │
+│       ▼                                                     │
 │  Storage Layer                                              │
-│  (Data Lake / Delta Lake / Warehouse)                      │
-│       │                                                      │
-│       ▼                                                      │
+│  (Data Lake / Delta Lake / Warehouse)                       │
+│       │                                                     │
+│       ▼                                                     │
 │  Feature & Analytics Layer                                  │
 │  (SQL / ML Pipelines)                                       │
-│       │                                                      │
-│       ▼                                                      │
+│       │                                                     │
+│       ▼                                                     │
 │  AI Applications                                            │
-│  (APIs / Dashboards / Decision Systems)                    │
+│  (APIs / Dashboards / Decision Systems)                     │
 │                                                             │
 └─────────────────────────────────────────────────────────────┘
 
@@ -384,7 +384,7 @@ Design Goals:
 
 ---
 
-## 📫 Get In Touch
+## Get In Touch
 
 <div align="center">
 
@@ -399,6 +399,6 @@ Design Goals:
 
 *Open to data platform, infrastructure, and AI engineering roles*
 
-**Building reliable data foundations for AI systems** 🚀
+**Building reliable data foundations for AI systems** 
 
 </div>
