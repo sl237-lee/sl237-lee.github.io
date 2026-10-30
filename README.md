@@ -64,4 +64,4 @@ python3 -m http.server 8765 --bind 127.0.0.1
 
 Open http://127.0.0.1:8765/.
 
-The linked résumé PDF is the previous version and is labeled accordingly. Company logo and photograph sources are recorded in [assets/SOURCES.md](assets/SOURCES.md).
+The linked résumé PDF contains the updated one-page career summary. Company logo and photograph sources are recorded in [assets/SOURCES.md](assets/SOURCES.md).
